@@ -117,7 +117,7 @@ code {
     background-color: var(--code-bg);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
     font-size: 0.9em;
     color: var(--text-color);
     border: 1px solid var(--border-color);
@@ -130,6 +130,7 @@ pre {
     overflow-x: auto;
     margin: 1rem 0;
     border: 1px solid var(--border-color);
+    position: relative;
 }
 
 pre code {
@@ -137,6 +138,43 @@ pre code {
     padding: 0;
     border: none;
     font-size: 0.875rem;
+    line-height: 1.5;
+    display: block;
+}
+
+/* Syntax highlighting for code blocks */
+.language-python pre,
+.language-bash pre,
+.language-output pre {
+    background-color: var(--code-bg);
+}
+
+/* Output blocks styling */
+pre:has(code:contains("Output:")),
+pre + p:contains("Output:") + pre {
+    background-color: #0a0a0a;
+    border-left: 4px solid var(--link-color);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+}
+
+/* Image captions */
+img + em,
+p img + em {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Tables */
