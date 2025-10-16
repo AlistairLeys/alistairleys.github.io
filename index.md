@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: simple
 title: "Alistair Leys | Data Analysis Portfolio"
 ---
 
