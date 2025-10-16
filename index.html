@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alistair Leys | Data Analysis Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #151515 0%, #252525 100%);
+            border-radius: 12px;
+            border: 1px solid #334155;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        strong {
+            color: #ffffff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            color: #000000;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem 1rem 0.5rem 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .nav {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            color: #ffffff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .status {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status">
+            ✅ Site is now working! No more white screen.
+        </div>
+        
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/projects/">Projects</a>
+            <a href="/experience/">Experience</a>
+            <a href="/test.html">Test Page</a>
+        </nav>
+
+        <main>
+            <h1>Alistair Leys</h1>
+            <p class="tagline">Data Scientist focused on clear, actionable insight</p>
+
+            <div class="section">
+                <h2>About</h2>
+                <p>
+                    I'm a Junior Data Scientist with an MSc in Artificial Intelligence (1st Class, BCU) and practical experience applying machine learning to healthcare, transport, and HR challenges. I specialise in building end-to-end data products that turn complex information into practical business decisions.
+                </p>
+                <p>
+                    My approach combines statistical rigour with pragmatic problem-solving, ensuring analyses are both technically sound and genuinely useful. I've worked with Python, scikit-learn, and SQL to improve patient engagement by 40% in healthcare settings and automated reporting pipelines for traffic analytics. Based in Birmingham, UK, I'm seeking data science roles where analytical thinking drives real impact.
+                </p>
+                <p><strong>Current Focus:</strong> Healthcare analytics, predictive modelling, and NLP applications</p>
+            </div>
+
+            <div class="section">
+                <h2>Core Skills</h2>
+                <ul>
+                    <li><strong>Machine Learning:</strong> Python, scikit-learn, TensorFlow, predictive modeling</li>
+                    <li><strong>Data Analysis:</strong> SQL, pandas, statistical analysis, data visualization</li>
+                    <li><strong>Healthcare Analytics:</strong> Patient outcome analysis, treatment effectiveness studies</li>
+                    <li><strong>Business Intelligence:</strong> Dashboard creation, automated reporting, stakeholder communication</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Featured Work</h2>
+                <p>
+                    <a href="/projects/diabetes/analysis" class="btn">View Diabetes Analysis</a>
+                    <a href="/projects/" class="btn">All Projects</a>
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Connect</h2>
+                <p>
+                    <a href="/assets/files/Alistair_Leys_CV.pdf" class="btn">Download CV</a>
+                    <a href="https://www.linkedin.com/in/alistair-leys" class="btn">LinkedIn</a>
+                    <a href="mailto:alistairleys@gmail.com" class="btn">Email</a>
+                </p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
