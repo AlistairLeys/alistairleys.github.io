@@ -7,11 +7,11 @@ title: "Projects | Alistair Leys"
 
 A collection of data science and analytics projects demonstrating end-to-end problem solving, from data exploration to business insights.
 
-<div class="projects-grid">
+---
 
-## [Diabetes Disease Progression Analysis](/projects/diabetes/)
+## Diabetes Disease Progression Analysis
 
-**Healthcare Analytics | Machine Learning | Statistical Modelling**
+**Healthcare Analytics • Machine Learning • Statistical Modelling**
 
 Comprehensive analysis of diabetes progression using advanced ML techniques. Features predictive modelling, patient segmentation, and clinical insights for healthcare applications.
 
@@ -19,10 +19,14 @@ Comprehensive analysis of diabetes progression using advanced ML techniques. Fea
 
 **Business Impact:** Risk stratification framework for healthcare providers
 
-[View Project →](/projects/diabetes/)
+**Key Results:**
+- Achieved 56% explained variance with Random Forest model
+- Identified S5 and BMI as strongest predictors
+- Segmented 442 patients into 3 distinct risk clusters
+- Provided actionable insights for healthcare providers
+
+[**View Full Project →**](/projects/diabetes/)
 
 ---
 
 *More projects coming soon...*
-
-</div>

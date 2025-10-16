@@ -219,41 +219,69 @@ hr {
     margin: 2rem 0;
 }
 
-/* Projects grid */
+/* Projects page styling */
 .projects-grid {
     margin-top: 2rem;
 }
 
-.projects-grid h2 {
-    margin-top: 2rem;
+/* Project card styling */
+h2:not(:first-of-type) {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     margin-bottom: 1rem;
-    border-bottom: none;
-    padding-bottom: 0;
 }
 
-.projects-grid h2 a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.projects-grid h2 a:hover {
+h2 + p strong {
     color: var(--link-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
 }
 
-.projects-grid p {
-    margin-bottom: 0.75rem;
-}
-
-.projects-grid p:last-of-type {
-    margin-bottom: 1.5rem;
+/* Project description styling */
+h2 + p + p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
 }
 
 /* Project metadata styling */
-.projects-grid h2 + p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 500;
+p:has(strong:contains("Key Technologies")),
+p:has(strong:contains("Business Impact")),
+p:has(strong:contains("Key Results")) {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--border-color);
+}
+
+/* Enhanced project link styling */
+p a[href*="View"],
+a[href*="View Full Project"] {
+    display: inline-block;
+    background-color: var(--link-color);
+    color: var(--bg-color) !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+p a[href*="View"]:hover,
+a[href*="View Full Project"]:hover {
+    background-color: var(--link-hover);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 158, 255, 0.3);
+}
+
+/* Project metadata spacing */
+h2 + p {
     margin-bottom: 1rem;
 }
 
