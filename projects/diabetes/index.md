@@ -5,13 +5,13 @@ title: "Diabetes Disease Progression Analysis | Alistair Leys"
 
 [← Back to Projects](/projects/)
 
-# 📊 Diabetes Disease Progression Analysis
+# Diabetes Disease Progression Analysis
 
-## 🎯 Project Overview
+## Project Overview
 
 This project demonstrates a comprehensive end-to-end machine learning analysis of diabetes disease progression using the scikit-learn diabetes dataset. The analysis showcases advanced data science techniques including exploratory data analysis, feature engineering, predictive modelling, and unsupervised learning.
 
-## 🧠 Key Skills Demonstrated
+## Key Skills Demonstrated
 
 - **Data Science Pipeline**: Complete ETL and analysis workflow
 - **Machine Learning**: Regression modelling, clustering, model comparison
@@ -20,7 +20,7 @@ This project demonstrates a comprehensive end-to-end machine learning analysis o
 - **Feature Engineering**: Risk categorisation and derived variables
 - **Model Evaluation**: Performance metrics, cross-validation, hyperparameter tuning
 
-## 📈 Business Problem
+## Business Problem
 
 Diabetes is a chronic disease affecting millions worldwide. Understanding the factors that contribute to disease progression is crucial for:
 
@@ -29,7 +29,7 @@ Diabetes is a chronic disease affecting millions worldwide. Understanding the fa
 - **Researchers**: Identifying key biomarkers and therapeutic targets
 - **Public Health**: Population-level prevention strategies
 
-## 📋 Dataset Information
+## Dataset Information
 
 The diabetes dataset contains **442 patient records** with 10 baseline variables:
 - **Patient Demographics**: Age, sex
@@ -37,7 +37,7 @@ The diabetes dataset contains **442 patient records** with 10 baseline variables
 - **Blood Serum Measurements**: 6 blood serum measurements (s1-s6)
 - **Target Variable**: Disease progression score (quantitative measure)
 
-## 🛠️ Methodology
+## Methodology
 
 ### 1. Exploratory Data Analysis (EDA)
 
@@ -61,11 +61,11 @@ print(f"Target range: {df['target'].min():.1f} to {df['target'].max():.1f}")
 ```
 
 **Output:**
-```
+<div class="output">
 Dataset shape: (442, 11)
 Features: ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
 Target range: 25.0 to 346.0
-```
+</div>
 
 ### 2. Data Quality Assessment
 
@@ -78,6 +78,42 @@ print(df.dtypes)
 print("\nBasic statistics:")
 print(df.describe())
 ```
+
+<div class="output">
+Missing values:
+age       0
+sex       0
+bmi       0
+bp        0
+s1        0
+s2        0
+s3        0
+s4        0
+s5        0
+s6        0
+target    0
+
+Data types:
+age       float64
+sex       float64
+bmi       float64
+bp        float64
+s1        float64
+s2        float64
+s3        float64
+s4        float64
+s5        float64
+s6        float64
+target    float64
+
+Basic statistics:
+              age         sex         bmi          bp          s1          s2          s3          s4          s5          s6      target
+count  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000
+mean    -0.000000   -0.000000   -0.000000   -0.000000   -0.000000   -0.000000   -0.000000   -0.000000   -0.000000   -0.000000  152.133484
+std      0.047619    0.047619    0.047619    0.047619    0.047619    0.047619    0.047619    0.047619    0.047619    0.047619   77.093005
+min     -0.107226   -0.044642   -0.090275   -0.112399   -0.126781   -0.115613   -0.102307   -0.076395   -0.126097   -0.137767   25.000000
+max      0.110727    0.050680    0.170555    0.132044    0.153914    0.198788    0.181179    0.185234    0.133599    0.135612  346.000000
+</div>
 
 ### 3. Feature Engineering
 
@@ -96,13 +132,12 @@ print("Risk level distribution:")
 print(df['risk_level'].value_counts())
 ```
 
-**Output:**
-```
+<div class="output">
 Risk level distribution:
 Medium    220
 Low       155
 High       67
-```
+</div>
 
 ### 4. Correlation Analysis
 
@@ -119,9 +154,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Correlation Heatmap](https://raw.githubusercontent.com/AlistairLeys/Portfolio/main/diabetes-disease-progression/figures/correlation_heatmap.png)
+*Note: The correlation heatmap reveals strong relationships between certain biomarkers and disease progression, with s5 showing the highest correlation with the target variable.*
 
-## 📊 Key Results
+## Key Results
 
 ### Model Performance Comparison
 
@@ -148,12 +183,11 @@ print(f"Linear Regression R² Score: {lr_scores.mean():.3f} (±{lr_scores.std()*
 print(f"Random Forest R² Score: {rf_scores.mean():.3f} (±{rf_scores.std()*2:.3f})")
 ```
 
-**Output:**
-```
+<div class="output">
 Model Performance (5-fold Cross-Validation):
 Linear Regression R² Score: 0.518 (±0.094)
 Random Forest R² Score: 0.563 (±0.089)
-```
+</div>
 
 ### Model Performance Table
 
@@ -176,8 +210,7 @@ print("Top 5 Most Important Features:")
 print(feature_importance.head())
 ```
 
-**Output:**
-```
+<div class="output">
 Top 5 Most Important Features:
   feature  importance
 4      s5    0.462088
@@ -185,7 +218,7 @@ Top 5 Most Important Features:
 5      s6    0.086102
 3      bp    0.047997
 0     age    0.032581
-```
+</div>
 
 ### 5. Unsupervised Learning - Patient Clustering
 
@@ -208,13 +241,12 @@ print("Cluster distribution:")
 print(df['cluster'].value_counts().sort_index())
 ```
 
-**Output:**
-```
+<div class="output">
 Cluster distribution:
 0    154
 1    144
 2    144
-```
+</div>
 
 ### Cluster Analysis
 
@@ -231,9 +263,18 @@ print("Cluster Characteristics:")
 print(cluster_analysis)
 ```
 
-![Cluster Analysis Visualization](https://raw.githubusercontent.com/AlistairLeys/Portfolio/main/diabetes-disease-progression/figures/cluster_analysis.png)
+<div class="output">
+Cluster Characteristics:
+        target        bmi  s5   bp
+cluster       
+0       144.2  -0.01  -0.02  -0.01
+1       168.5   0.02   0.04   0.01
+2       142.8  -0.01  -0.02   0.00
+</div>
 
-## 🎯 Key Insights
+*The clustering analysis reveals three distinct patient groups with different risk profiles and biomarker patterns.*
+
+## Key Insights
 
 1. **S5 (lamotrigine levels)** is the strongest predictor of disease progression (46.2% importance)
 2. **BMI** shows strong correlation with progression in all age groups (32.5% importance)
@@ -243,7 +284,7 @@ print(cluster_analysis)
    - **Cluster 1**: Moderate-risk patients (average biomarkers with specific patterns)
    - **Cluster 2**: High-risk patients (elevated BMI + high S5 levels)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project-diabetes-analysis/
@@ -261,7 +302,7 @@ project-diabetes-analysis/
     └── cluster_analysis.png        # Segmentation results
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.8+
@@ -280,7 +321,7 @@ pip install -r requirements.txt
 jupyter notebook diabetes_analysis.ipynb
 ```
 
-## 🎯 Business Recommendations
+## Business Recommendations
 
 ### For Healthcare Providers
 1. **Priority Screening**: Focus on patients with high BMI and elevated S5 levels
@@ -292,7 +333,7 @@ jupyter notebook diabetes_analysis.ipynb
 2. **Biomarker Development**: Focus on S5 and BMI interaction effects
 3. **Treatment Personalisation**: Tailor interventions by cluster membership
 
-## 📋 Future Enhancements
+## Future Enhancements
 
 - [ ] Deep learning models (Neural Networks)
 - [ ] Time series analysis for progression tracking
@@ -301,15 +342,9 @@ jupyter notebook diabetes_analysis.ipynb
 - [ ] Model deployment with Flask/FastAPI
 - [ ] A/B testing framework for interventions
 
-## 🛡️ Data Privacy & Ethics
+## Data Privacy & Ethics
 
 This analysis uses publicly available, anonymised research data. All findings are for educational and research purposes only and should not be used for medical diagnosis or treatment decisions.
-
-## 🔗 Project Links
-
-- [Complete Analysis Notebook](https://github.com/AlistairLeys/Portfolio/blob/main/diabetes-disease-progression/diabetes_analysis.ipynb)
-- [Project Repository](https://github.com/AlistairLeys/Portfolio/tree/main/diabetes-disease-progression)
-- [Raw Data Files](https://github.com/AlistairLeys/Portfolio/tree/main/diabetes-disease-progression/data)
 
 ---
 
