@@ -304,22 +304,17 @@ project-diabetes-analysis/
 
 ## Getting Started
 
-### Prerequisites
-- Python 3.8+
-- Jupyter Notebook or JupyterLab
+**[→ View Complete Analysis with Code and Outputs](analysis.md)**
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/AlistairLeys/Portfolio.git
-cd Portfolio/diabetes-disease-progression
+This comprehensive analysis includes:
+- **Full executable Python code** with real outputs
+- **Step-by-step methodology** and implementation
+- **Model training and evaluation** with cross-validation
+- **Feature importance analysis** and insights
+- **Patient clustering** and segmentation
+- **Clinical recommendations** based on findings
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch Jupyter
-jupyter notebook diabetes_analysis.ipynb
-```
+All code is production-ready and can be executed to reproduce the exact results shown.
 
 ## Business Recommendations
 
