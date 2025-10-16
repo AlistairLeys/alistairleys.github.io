@@ -285,6 +285,34 @@ h2 + p {
     margin-bottom: 1rem;
 }
 
+/* Experience page styling */
+h3 {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 + p strong {
+    color: var(--link-color);
+    font-size: 1rem;
+}
+
+h3 + p em {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Experience list styling */
+ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+ul li strong {
+    color: var(--accent-color);
+}
+
 /* Back link styling */
 a[href*="Back"] {
     display: inline-block;
