@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Minimal header, no navigation needed for single page -->
+        </nav>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <section class="contact">
+            <p>&copy; 2025 Alistair Leys &middot; 
+            <a href="mailto:alistairleys@gmail.com">alistairleys@gmail.com</a> &middot; 
+            <a href="https://www.linkedin.com/in/alistair-leys">LinkedIn</a></p>
+        </section>
+    </footer>
+</body>
+</html>

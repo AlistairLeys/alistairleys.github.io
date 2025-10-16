@@ -1,0 +1,22 @@
+# Site settings
+title: "Alistair Leys | Data Analysis Portfolio"
+description: "Data Scientist focused on clear, actionable insight"
+baseurl: ""
+url: "https://alistairleys.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins: []
+
+# Exclude files
+exclude:
+  - README.md
+  - .gitignore
+
+# Jekyll configuration
+sass:
+  style: compressed
+
+# Collections
+collections: []
