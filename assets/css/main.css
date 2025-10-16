@@ -181,6 +181,56 @@ hr {
     margin: 2rem 0;
 }
 
+/* Projects grid */
+.projects-grid {
+    margin-top: 2rem;
+}
+
+.projects-grid h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.projects-grid h2 a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.projects-grid h2 a:hover {
+    color: var(--link-color);
+}
+
+.projects-grid p {
+    margin-bottom: 0.75rem;
+}
+
+.projects-grid p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+/* Project metadata styling */
+.projects-grid h2 + p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Back link styling */
+a[href*="Back"] {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+a[href*="Back"]:hover {
+    color: var(--link-color);
+}
+
 /* Footer */
 footer {
     margin-top: 4rem;

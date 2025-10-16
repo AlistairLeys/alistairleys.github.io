@@ -16,10 +16,48 @@
             margin: 0;
             padding: 0;
         }
-        main {
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 0 1rem;
+        }
+        nav {
+            padding: 2rem 0 1rem 0;
+            border-bottom: 1px solid #333333;
+            margin-bottom: 2rem;
+        }
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #4a9eff;
+        }
+        main {
+            min-height: 60vh;
         }
         h1 {
             font-size: 2.5rem;
@@ -40,19 +78,40 @@
             color: #66b3ff;
             text-decoration: underline;
         }
+        @media (max-width: 600px) {
+            .nav-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <main>
-        {{ content }}
-    </main>
+    <div class="container">
+        <nav>
+            <div class="nav-header">
+                <a href="/" class="logo">Alistair Leys</a>
+                <ul class="nav-links">
+                    <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>About</a></li>
+                    <li><a href="/projects/" {% if page.url contains "/projects" %}class="active"{% endif %}>Projects</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <footer style="margin-top: 4rem; padding: 2rem 1rem; text-align: center; border-top: 1px solid #333333;">
-        <p style="color: #b3b3b3; font-size: 0.9rem; margin: 0;">
-            &copy; 2025 Alistair Leys &middot; 
-            <a href="mailto:alistairleys@gmail.com">alistairleys@gmail.com</a> &middot; 
-            <a href="https://www.linkedin.com/in/alistair-leys">LinkedIn</a>
-        </p>
-    </footer>
+        <main>
+            {{ content }}
+        </main>
+
+        <footer style="margin-top: 4rem; padding: 2rem 0; text-align: center; border-top: 1px solid #333333;">
+            <p style="color: #b3b3b3; font-size: 0.9rem; margin: 0;">
+                &copy; 2025 Alistair Leys &middot; 
+                <a href="mailto:alistairleys@gmail.com">alistairleys@gmail.com</a> &middot; 
+                <a href="https://www.linkedin.com/in/alistair-leys">LinkedIn</a>
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
