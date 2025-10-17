@@ -48,7 +48,7 @@
             padding-top: 100px;
         }
 
-        /* Fixed Header with Enhanced Glass Effect */
+        /* Fixed Header with Enhanced Glass Effect - Matches Home Page */
         header {
             position: fixed;
             top: 0;
@@ -59,53 +59,75 @@
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             z-index: 1000;
-            padding: 1.5rem 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 
                         0 1px 0 rgba(255, 255, 255, 0.1) inset;
         }
 
-        .header-content {
-            max-width: 1400px;
+        header .header-content {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
+        header .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        .logo:hover {
-            opacity: 0.8;
+        header .logo:hover {
+            transform: scale(1.05);
         }
 
+        /* Navigation */
         .nav {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
         .nav a {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
             font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
         .nav a:hover {
-            color: #00d4ff;
+            color: #ffffff;
             background: rgba(0, 212, 255, 0.1);
+        }
+
+        .nav a:hover::before {
+            opacity: 0.1;
+        }
+
+        .nav a.active {
+            color: #ffffff;
+            background: rgba(0, 212, 255, 0.15);
         }
 
         /* Main Container */
