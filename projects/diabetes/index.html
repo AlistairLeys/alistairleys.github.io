@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabetes Disease Progression Analysis | Alistair Leys - Data Science Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
         /* Design System Variables - Enhanced */
         :root {
@@ -550,55 +551,60 @@
             color: #ffffff;
         }
         
-        /* Jupyter Notebook Code Block - Enhanced */
-        .code-block {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-primary);
-            border-left: 3px solid transparent;
-            border-radius: var(--border-radius-xl);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'SF Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        /* Jupyter Notebook Code Block - Prism.js Enhanced */
+        pre.code-block {
+            background: #1e1e1e !important;  /* VS Code / Jupyter Lab dark */
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #007acc;  /* Blue accent like Jupyter */
+            border-radius: 4px;
+            padding: 0;
+            margin: 16px 0;
             overflow-x: auto;
             position: relative;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-normal);
+            box-shadow: none;
         }
         
-        .code-block:hover {
+        pre.code-block code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            display: block;
+            padding: 16px;
+            background: transparent !important;
+            tab-size: 4;
+        }
+        
+        pre.code-block:hover {
             border-left-color: var(--accent-primary);
-            border-color: var(--border-secondary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
         }
         
-        .code-block::before {
-            content: 'Python';
-            position: absolute;
-            top: var(--spacing-sm);
-            right: var(--spacing-md);
-            font-size: 0.75rem;
-            color: var(--text-subtle);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
+        /* Override Prism theme to match Jupyter exactly */
+        pre[class*="language-"] {
+            background: #1e1e1e !important;
+            margin: 0;
         }
         
-        /* Jupyter Notebook Output - Enhanced */
+        code[class*="language-"] {
+            background: transparent !important;
+            color: #d4d4d4;
+            text-shadow: none;
+        }
+        
+        /* Jupyter Output - Exact Jupyter Dark Theme */
         .output {
-            background: #161b22;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--accent-secondary);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-xl);
-            margin: var(--spacing-xl) 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'SF Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            box-shadow: var(--shadow-sm);
+            background: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #4ec9b0;  /* Teal accent for output */
+            border-radius: 4px;
+            padding: 16px;
+            margin: 8px 0 16px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d4d4d4;
+            box-shadow: none;
             overflow-x: auto;
+            white-space: pre;
         }
         
         table {
@@ -703,6 +709,7 @@
                         <div class="metric">
                             <div class="metric-value">40%</div>
                             <div class="metric-label">Patient Engagement Improvement</div>
+                        </code></pre>
                         </div>
                     </div>
                 </section>
@@ -728,7 +735,7 @@
 
                     <div class="result-card">
                         <h3>1. Data Import & Initial Exploration</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Import essential libraries for comprehensive analysis
 import pandas as pd
 import numpy as np
@@ -753,7 +760,7 @@ print(f"Shape: {X.shape}")
 print(f"Features: {diabetes.feature_names}")
 print(f"Target range: {y.min():.1f} to {y.max():.1f}")
 print(f"Missing values: {np.isnan(X).sum()}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Dataset Overview:
@@ -761,12 +768,12 @@ Shape: (442, 10)
 Features: ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
 Target range: 25.0 to 346.0
 Missing values: 0
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>2. Comprehensive Data Exploration</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Create comprehensive DataFrame for analysis
 df = pd.DataFrame(X, columns=diabetes.feature_names)
 df['target'] = y
@@ -777,7 +784,7 @@ print(f"\nDataset Quality Assessment:")
 print(f"Complete cases: {df.dropna().shape[0]}/{df.shape[0]} ({100*df.dropna().shape[0]/df.shape[0]:.1f}%)")
 print(f"Data types: All numerical (healthcare measurements)")
 print(f"Standardization: Features are pre-standardized (mean ~0, std ~1)")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Detailed Statistical Summary:
@@ -805,12 +812,12 @@ Dataset Quality Assessment:
 Complete cases: 442/442 (100.0%)
 Data types: All numerical (healthcare measurements)  
 Standardization: Features are pre-standardized (mean ~0, std ~1)
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>3. Feature Correlation & Clinical Relationships</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Comprehensive correlation analysis
 correlation_matrix = df.corr()
 print("Feature Correlations with Disease Progression:")
@@ -835,7 +842,7 @@ print(f"\nStrongest Clinical Predictors:")
 print(f"• BMI shows strongest correlation ({target_correlations['bmi']:.3f}) - obesity link confirmed")
 print(f"• S5 (lamotrigine) second strongest ({target_correlations['s5']:.3f}) - drug efficacy marker")
 print(f"• Blood pressure third ({target_correlations['bp']:.3f}) - cardiovascular connection")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Feature Correlations with Disease Progression:
@@ -855,12 +862,12 @@ Strongest Clinical Predictors:
 • BMI shows strongest correlation (0.586) - obesity link confirmed
 • S5 (lamotrigine) second strongest (0.566) - drug efficacy marker  
 • Blood pressure third (0.441) - cardiovascular connection
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>4. Advanced Statistical Analysis</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Statistical significance testing and distribution analysis
 from scipy import stats
 
@@ -888,7 +895,7 @@ print(f"\nClinical Risk Stratification by Quartiles:")
 print(f"Target quartiles: Q1={np.percentile(y, 25):.1f}, " +
       f"Q2={np.percentile(y, 50):.1f}, " +
       f"Q3={np.percentile(y, 75):.1f}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Advanced Statistical Analysis:
@@ -911,6 +918,7 @@ Feature-Target Relationship Strength:
 
 Clinical Risk Stratification by Quartiles:
 Target quartiles: Q1=87.0, Q2=140.5, Q3=211.5
+                        </code></pre>
                         </div>
                     </div>
                 </section>
@@ -920,7 +928,7 @@ Target quartiles: Q1=87.0, Q2=140.5, Q3=211.5
                     
                     <div class="result-card">
                         <h3>5. Model Training & Comparison</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Comprehensive model evaluation pipeline
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.svm import SVR
@@ -981,7 +989,7 @@ for name, model in models.items():
 best_model_name = max(model_results.keys(), key=lambda k: model_results[k]['cv_mean'])
 print(f"\nBest Model: {best_model_name}")
 print(f"Cross-validation R²: {model_results[best_model_name]['cv_mean']:.3f}±{model_results[best_model_name]['cv_std']:.3f}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Machine Learning Model Comparison:
@@ -999,12 +1007,12 @@ Support Vector       0.226      0.024      75.9       0.109±0.096
 
 Best Model: Random Forest
 Cross-validation R²: 0.563±0.089
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>6. Feature Importance & Clinical Interpretation</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Detailed feature importance analysis using best model
 best_model = model_results[best_model_name]['model']
 
@@ -1055,7 +1063,7 @@ print(f"• {top_2_features.iloc[0]['feature'].upper()} ({top_2_features.iloc[0]
       f"is the strongest predictor ({top_2_features.iloc[0]['rf_importance']:.1%})")
 print(f"• {top_2_features.iloc[1]['feature'].upper()} ({top_2_features.iloc[1]['clinical']}) " +
       f"is second most important ({top_2_features.iloc[1]['rf_importance']:.1%})")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Comprehensive Feature Importance Analysis:
@@ -1077,12 +1085,12 @@ Clinical Insights:
 • Top 2 features (S5, BMI) explain 78.7% of prediction decisions
 • S5 (Lamotrigine Level) is the strongest predictor (46.2%)
 • BMI (Body Mass Index) is second most important (32.5%)
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>7. Patient Clustering & Risk Stratification</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Advanced patient segmentation using K-means clustering
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -1147,7 +1155,7 @@ for cluster_id in range(optimal_k):
     print(f"  Risk Assessment: {risk_level}")
     print(f"  Recommendation: {recommendation}")
     print()
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Patient Clustering Analysis:
@@ -1181,6 +1189,7 @@ CLUSTER 2: 144 patients (32.6%)
     BP:   -0.18 (NORMAL, -18% vs population)
   Risk Assessment: MODERATE RISK  
   Recommendation: Enhanced monitoring with lifestyle intervention
+                        </code></pre>
                         </div>
                     </div>
                 </section>
@@ -1190,7 +1199,7 @@ CLUSTER 2: 144 patients (32.6%)
                     
                     <div class="result-card">
                         <h3>8. Model Validation & Performance Metrics</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Comprehensive model validation and performance analysis
 from sklearn.metrics import mean_absolute_error, explained_variance_score
 from sklearn.model_selection import learning_curve, validation_curve
@@ -1240,7 +1249,7 @@ print(f"\nLearning Curve Analysis:")
 print(f"  Training score (final): {train_scores[-1].mean():.3f}±{train_scores[-1].std():.3f}")
 print(f"  Validation score (final): {val_scores[-1].mean():.3f}±{val_scores[-1].std():.3f}")
 print(f"  Overfitting assessment: {'MINIMAL' if abs(train_scores[-1].mean() - val_scores[-1].mean()) < 0.1 else 'MODERATE'}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Comprehensive Model Validation:
@@ -1265,12 +1274,12 @@ Learning Curve Analysis:
   Training score (final): 0.912±0.018
   Validation score (final): 0.563±0.089
   Overfitting assessment: MODERATE
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>9. Hyperparameter Optimization & Model Tuning</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Advanced hyperparameter tuning for optimal performance
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 
@@ -1325,7 +1334,7 @@ feature_importance_tuned = pd.DataFrame({
 
 for i, (_, row) in enumerate(feature_importance_tuned.head(5).iterrows()):
     print(f"  {i+1}. {row['feature'].upper()}: {row['importance']:.3f}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Hyperparameter Optimization Analysis:
@@ -1350,12 +1359,12 @@ Optimized Feature Importance (Top 5):
   3. S6: 0.084
   4. BP: 0.051
   5. S1: 0.031
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>10. Advanced Statistical Validation</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Statistical significance testing and confidence intervals
 from scipy.stats import t
 from sklearn.model_selection import cross_validate
@@ -1420,7 +1429,7 @@ print(f"  Bootstrap R² mean: {bootstrap_scores.mean():.3f}")
 print(f"  Bootstrap R² std:  {bootstrap_scores.std():.3f}")
 print(f"  Bootstrap 95% CI:  [{np.percentile(bootstrap_scores, 2.5):.3f}, {np.percentile(bootstrap_scores, 97.5):.3f}]")
 print(f"  Model stability:   {'EXCELLENT' if bootstrap_scores.std() < 0.1 else 'GOOD'}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Advanced Statistical Validation:
@@ -1440,6 +1449,7 @@ Bootstrap Validation (n=100):
   Bootstrap R² std:  0.091
   Bootstrap 95% CI:  [0.381, 0.729]
   Model stability:   EXCELLENT
+                        </code></pre>
                         </div>
                     </div>
                 </section>
@@ -1449,7 +1459,7 @@ Bootstrap Validation (n=100):
                     
                     <div class="result-card">
                         <h3>11. Risk Prediction Algorithm Implementation</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Clinical decision support system implementation
 def predict_diabetes_progression(patient_data, model=tuned_model):
     """
@@ -1541,7 +1551,7 @@ print(f"  🟢 LOW: Standard 6-month monitoring")
 print(f"  🟡 MODERATE-LOW: 3-month follow-up with lifestyle counseling")  
 print(f"  🟠 MODERATE-HIGH: Monthly monitoring + targeted interventions")
 print(f"  🔴 HIGH: Immediate specialist referral + intensive management")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Clinical Decision Support System - Example Cases:
@@ -1576,12 +1586,12 @@ Clinical Implementation Guidelines:
   🟡 MODERATE-LOW: 3-month follow-up with lifestyle counseling  
   🟠 MODERATE-HIGH: Monthly monitoring + targeted interventions
   🔴 HIGH: Immediate specialist referral + intensive management
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>12. Model Interpretability & Explainable AI</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # SHAP analysis for model interpretability (simulated output for demonstration)
 # Note: In production, this would use actual SHAP library
 
@@ -1637,7 +1647,7 @@ print(f"  Point Prediction: {sample_prediction['prediction']:.1f}")
 print(f"  95% Confidence Interval: [{max(0, lower_bound):.1f}, {upper_bound:.1f}]")
 print(f"  Prediction Reliability: {'HIGH' if confidence_95 < 100 else 'MODERATE'}")
 print(f"  Clinical Decision Confidence: Suitable for clinical decision support")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Model Interpretability Analysis (SHAP-like Analysis):
@@ -1664,6 +1674,7 @@ Prediction Confidence Analysis:
   95% Confidence Interval: [204.8, 392.6]
   Prediction Reliability: MODERATE
   Clinical Decision Confidence: Suitable for clinical decision support
+                        </code></pre>
                         </div>
                     </div>
                 </section>
@@ -1673,7 +1684,7 @@ Prediction Confidence Analysis:
                     
                     <div class="result-card">
                         <h3>13. Production Implementation Framework</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Production deployment considerations and architecture
 
 print("Production Deployment Framework:")
@@ -1771,7 +1782,7 @@ retrain_conditions = [
 
 for i, condition in enumerate(retrain_conditions, 1):
     print(f"  {i}. {condition}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Production Deployment Framework:
@@ -1802,12 +1813,12 @@ Retraining Triggers:
   3. New clinical guidelines or treatment protocols
   4. Quarterly scheduled retraining cycle
   5. Addition of new patient populations or demographics
+                        </code></pre>
                         </div>
-                    </div>
 
                     <div class="result-card">
                         <h3>14. Business Impact Analysis & ROI</h3>
-                        <div class="code-block">
+                        <pre class="code-block"><code class="language-python">
 # Comprehensive business impact analysis
 
 print("Business Impact & Return on Investment Analysis:")
@@ -1903,7 +1914,7 @@ risk_benefits = [
 
 for i, benefit in enumerate(risk_benefits, 1):
     print(f"  {i}. {benefit}")
-                        </div>
+                        </code></pre>
                         
                         <div class="output">
 Business Impact & Return on Investment Analysis:
@@ -1944,13 +1955,14 @@ Risk Mitigation Benefits:
   3. Enhanced patient safety through systematic monitoring protocols
   4. Better resource utilization reducing operational inefficiencies
   5. Competitive advantage through advanced analytics capabilities
+                        </code></pre>
                         </div>
                     </div>
                 </section>
 
                 <section class="section">
                     <h2>Technical Implementation</h2>
-                    <div class="code-block">
+                    <pre class="code-block"><code class="language-python">
 # Core Technologies & Implementation Stack:
 ────────────────────────────────────────────────────
 Platform: Python 3.8+ with Jupyter Notebooks
@@ -1986,5 +1998,8 @@ Healthcare Standards: GDPR compliance, anonymized data
             </main>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
 </body>
 </html>
+
