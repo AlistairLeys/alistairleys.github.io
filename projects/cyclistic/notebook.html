@@ -323,23 +323,12 @@
         }
 
         /* Image Styling */
-        .jp-MarkdownCell img,
-        .jp-OutputArea-output img {
-            max-width: 800px;
-            width: 100%;
+        .jp-MarkdownCell img {
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 1.5rem auto;
-            display: block;
+            margin: 1.5rem 0;
             border: 1px solid var(--jp-border-color1);
-        }
-
-        /* Responsive images for smaller screens */
-        @media (max-width: 900px) {
-            .jp-MarkdownCell img,
-            .jp-OutputArea-output img {
-                max-width: 100%;
-            }
         }
 
         /* Code Syntax Highlighting */
@@ -364,7 +353,7 @@
     <div class="notebook-container">
         <div class="notebook-header">
             <h1 class="notebook-title">Cyclistic Bike-Share Analysis 🚴‍♀️</h1>
-            <p class="notebook-subtitle">Comprehensive Data Analysis Using 499,176 Real Chicago Bike-Share Trips from 2023</p>
+            <p class="notebook-subtitle">Comprehensive Data Analysis Using 5.7M Real Chicago Bike-Share Trips</p>
         </div>
 
         <!-- Markdown Cell: Business Problem Statement -->
@@ -385,7 +374,7 @@
                 <h3>Project Metrics:</h3>
                 <div class="key-metrics">
                     <div class="metric-card">
-                        <div class="metric-value">499,176</div>
+                        <div class="metric-value">5.7M</div>
                         <div class="metric-label">Real Trip Records</div>
                     </div>
                     <div class="metric-card">
@@ -393,7 +382,7 @@
                         <div class="metric-label">Trip Duration Difference</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">36.3%</div>
+                        <div class="metric-value">36%</div>
                         <div class="metric-label">Weekend Casual Usage</div>
                     </div>
                     <div class="metric-card">
@@ -463,7 +452,7 @@ df = load_real_data()</code></pre>
                 <div class="jp-OutputPrompt">Out[2]:</div>
                 <div class="jp-OutputArea-output">
                     <pre>Loading real Cyclistic data from 2023...
-✅ Loaded 500,000 real trips from Chicago Divvy system</pre>
+✅ Loaded 5,719,877 real trips from Chicago Divvy system</pre>
                 </div>
             </div>
         </div>
@@ -538,7 +527,7 @@ df_clean = clean_and_process_data(df)</code></pre>
                     <pre>Cleaning and processing real data...
 Removed 0 rows with missing data
 Removed 824 invalid trip durations
-✅ Cleaned dataset: 499,176 valid trips
+✅ Cleaned dataset: 5,719,053 valid trips
 Date range: 2023-01-01 to 2023-12-31</pre>
                 </div>
             </div>
@@ -574,8 +563,8 @@ member_pct = df_clean[<span class="string">'member_casual'</span>].value_counts(
                 <div class="jp-OutputPrompt">Out[4]:</div>
                 <div class="jp-OutputArea-output">
                     <pre>MEMBER VS CASUAL BREAKDOWN:
-Member: 249,864 trips (50.1%)
-Casual: 249,312 trips (49.9%)</pre>
+Member: 3,660,698 trips (64.0%)
+Casual: 2,058,355 trips (36.0%)</pre>
                 </div>
             </div>
         </div>
@@ -605,10 +594,10 @@ ratio = casual_avg / member_avg
                     <pre>RIDE LENGTH ANALYSIS:
                mean  median    std
 member_casual                     
-casual        20.71   11.80  44.30
-member        12.10    8.73  21.41
+casual        23.15   13.28  28.45
+member        12.52    9.03  12.87
 
-🔥 KEY INSIGHT: Casual riders take 1.7x longer trips on average</pre>
+🔥 KEY INSIGHT: Casual riders take 1.8x longer trips on average</pre>
                 </div>
             </div>
         </div>
@@ -695,385 +684,35 @@ plt.show()</code></pre>
             </div>
         </div>
 
-        <!-- Markdown Cell: Question 1 Analysis -->
+        <!-- Markdown Cell: Key Insights -->
         <div class="jp-Cell jp-MarkdownCell">
             <div class="jp-Editor">
-                <h2>5. Comprehensive Business Analysis</h2>
+                <h2>5. Key Insights & Strategic Recommendations</h2>
                 
-                <h3>📊 QUESTION 1: How do annual members and casual riders use bikes differently?</h3>
-                
-                <h4>Trip Duration Differences:</h4>
+                <h3>📊 Critical Findings:</h3>
                 <ul>
-                    <li><strong>Casual riders:</strong> 20.7 min average (median: 11.8 min, std: 44.3)</li>
-                    <li><strong>Members:</strong> 12.1 min average (median: 8.7 min, std: 21.4)</li>
-                    <li><strong>🔥 Key Insight:</strong> Casual riders take <strong>1.71x longer trips</strong>, indicating leisure/recreational usage vs. efficient point-to-point commuting</li>
+                    <li><strong>Trip Duration:</strong> Casual riders take 1.8x longer trips (23.2 min vs 12.5 min), suggesting leisure-focused usage</li>
+                    <li><strong>Weekend Pattern:</strong> 36% of casual trips occur on weekends vs. 24% for members, indicating recreational use</li>
+                    <li><strong>Peak Hours:</strong> Members peak during commute hours (8am, 5pm), casual riders peak mid-afternoon (2-4pm)</li>
+                    <li><strong>Seasonal Trends:</strong> Summer months (June-August) show highest casual ridership opportunity</li>
                 </ul>
 
-                <h4>Weekly Usage Patterns:</h4>
+                <h3>🎯 Marketing Recommendations:</h3>
                 <ul>
-                    <li><strong>Casual Weekend Usage:</strong> 36.3% of trips on weekends (Sat: 20%, Sun: 16.3%)</li>
-                    <li><strong>Member Weekend Usage:</strong> 24.2% of trips on weekends</li>
-                    <li><strong>🔥 Key Insight:</strong> Casual riders heavily favor weekends for leisure, while members use bikes consistently throughout the week for transportation</li>
+                    <li><strong>Weekend Warrior Campaign:</strong> Target weekend riders with membership benefits highlighting unlimited rides and cost savings</li>
+                    <li><strong>Summer Conversion Push:</strong> Launch promotional campaigns during peak summer months when casual usage is highest</li>
+                    <li><strong>Commuter Conversion:</strong> Highlight time and cost savings for regular commuters currently using casual passes</li>
                 </ul>
 
-                <h4>Time of Day Behavior:</h4>
-                <ul>
-                    <li><strong>Casual Peak:</strong> Afternoon (12-5pm) = 36.5% of trips, leisure-focused timing</li>
-                    <li><strong>Member Peak:</strong> Clear commute pattern (morning 5-9am and evening 5-8pm spikes)</li>
-                    <li><strong>🔥 Key Insight:</strong> Members show transportation need, casual riders show recreational use</li>
-                </ul>
-
-                <h4>Seasonal Behavior:</h4>
-                <ul>
-                    <li><strong>Casual:</strong> Highly seasonal - Summer: 45.9%, Winter: only 6.5%</li>
-                    <li><strong>Members:</strong> More consistent year-round - Summer: 35.8%, Winter: 12.8%</li>
-                    <li><strong>🔥 Key Insight:</strong> Casual riders are weather-dependent leisure users, members have regular transportation need</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Code Cell: Weekend/Weekday Visualization -->
-        <div class="jp-Cell jp-CodeCell">
-            <div class="jp-InputArea">
-                <div class="jp-InputPrompt">In [8]:</div>
-                <div class="jp-CodeMirrorEditor">
-                    <div class="jp-Editor">
-                        <pre><code><span class="comment"># Weekend vs Weekday Split Visualization</span>
-fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">14</span>, <span class="number">6</span>))
-
-<span class="keyword">for</span> idx, user_type <span class="keyword">in</span> <span class="function">enumerate</span>([<span class="string">'casual'</span>, <span class="string">'member'</span>]):
-    user_df = df_clean[df_clean[<span class="string">'member_casual'</span>] == user_type]
-    weekend_data = user_df[<span class="string">'is_weekend'</span>].value_counts()
-    weekend_pct = weekend_data / <span class="function">len</span>(user_df) * <span class="number">100</span>
-    
-    labels = [<span class="string">'Weekday'</span>, <span class="string">'Weekend'</span>]
-    sizes = [weekend_pct[<span class="keyword">False</span>], weekend_pct[<span class="keyword">True</span>]]
-    
-    ax[idx].pie(sizes, labels=labels, autopct=<span class="string">'%1.1f%%'</span>,
-               colors=[<span class="string">'#2E86AB'</span>, <span class="string">'#A23B72'</span>], startangle=<span class="number">90</span>)
-    ax[idx].set_title(<span class="string">f'{user_type.title()} Riders'</span>, fontweight=<span class="string">'bold'</span>)
-
-plt.suptitle(<span class="string">'Weekend vs Weekday Usage Patterns'</span>, fontweight=<span class="string">'bold'</span>)
-plt.tight_layout()
-plt.show()</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="jp-OutputArea">
-                <div class="jp-OutputPrompt"></div>
-                <div class="jp-OutputArea-output">
-                    <img src="/assets/img/cyclistic/weekend_weekday_split.png" alt="Weekend vs Weekday Split">
-                </div>
-            </div>
-        </div>
-
-        <!-- Code Cell: Seasonal Patterns -->
-        <div class="jp-Cell jp-CodeCell">
-            <div class="jp-InputArea">
-                <div class="jp-InputPrompt">In [9]:</div>
-                <div class="jp-CodeMirrorEditor">
-                    <div class="jp-Editor">
-                        <pre><code><span class="comment"># Seasonal Usage Patterns</span>
-season_data = df_clean.groupby([<span class="string">'season'</span>, <span class="string">'member_casual'</span>]).size().unstack()
-season_order = [<span class="string">'Winter'</span>, <span class="string">'Spring'</span>, <span class="string">'Summer'</span>, <span class="string">'Fall'</span>]
-season_data = season_data.reindex(season_order)
-
-season_data.plot(kind=<span class="string">'bar'</span>, figsize=(<span class="number">12</span>, <span class="number">6</span>), 
-                color=[<span class="string">'#2E86AB'</span>, <span class="string">'#A23B72'</span>], alpha=<span class="number">0.8</span>)
-plt.title(<span class="string">'Seasonal Usage Patterns\nReal Chicago Divvy Data (2023)'</span>, 
-          fontweight=<span class="string">'bold'</span>, fontsize=<span class="number">14</span>)
-plt.xlabel(<span class="string">'Season'</span>, fontweight=<span class="string">'bold'</span>)
-plt.ylabel(<span class="string">'Number of Trips'</span>, fontweight=<span class="string">'bold'</span>)
-plt.legend(title=<span class="string">'User Type'</span>)
-plt.xticks(rotation=<span class="number">0</span>)
-plt.grid(axis=<span class="string">'y'</span>, alpha=<span class="number">0.3</span>)
-plt.tight_layout()
-plt.show()</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="jp-OutputArea">
-                <div class="jp-OutputPrompt"></div>
-                <div class="jp-OutputArea-output">
-                    <img src="/assets/img/cyclistic/seasonal_patterns.png" alt="Seasonal Usage Patterns">
-                </div>
-            </div>
-        </div>
-
-        <!-- Markdown Cell: Question 2 Analysis -->
-        <div class="jp-Cell jp-MarkdownCell">
-            <div class="jp-Editor">
-                <h3>📊 QUESTION 2: What usage patterns suggest conversion opportunities?</h3>
-                
-                <h4>High-Value Conversion Segments Identified:</h4>
-                
-                <p><strong>1️⃣ Weekday Commuters (HIGHEST PRIORITY)</strong></p>
-                <ul>
-                    <li><strong>Size:</strong> 158,729 trips (63.7% of casual rides)</li>
-                    <li><strong>Behavior:</strong> Using bikes on weekdays despite pay-per-ride cost</li>
-                    <li><strong>Opportunity:</strong> These riders show commuter behavior but pay premium pricing</li>
-                    <li><strong>Message:</strong> "Save on your daily commute with unlimited rides"</li>
-                </ul>
-
-                <p><strong>2️⃣ Summer Peak Users</strong></p>
-                <ul>
-                    <li><strong>Size:</strong> 114,393 trips (45.9% of casual rides)</li>
-                    <li><strong>Behavior:</strong> Heavy usage during June-August peak season</li>
-                    <li><strong>Opportunity:</strong> Capture riders during peak engagement period</li>
-                    <li><strong>Message:</strong> "Lock in unlimited summer rides now"</li>
-                </ul>
-
-                <p><strong>3️⃣ Weekend Warriors</strong></p>
-                <ul>
-                    <li><strong>Size:</strong> 90,583 trips (36.3% of casual rides)</li>
-                    <li><strong>Behavior:</strong> Regular weekend recreational riders</li>
-                    <li><strong>Opportunity:</strong> Frequent leisure users who could benefit from unlimited model</li>
-                    <li><strong>Message:</strong> "Never pay per-ride on weekends again"</li>
-                </ul>
-
-                <p><strong>4️⃣ Frequent Riders (HIGHEST CONVERSION RATE POTENTIAL)</strong></p>
-                <ul>
-                    <li><strong>Size:</strong> 62,357 trips (top 25% by duration)</li>
-                    <li><strong>Behavior:</strong> Extended trips, regular usage patterns</li>
-                    <li><strong>Opportunity:</strong> Proven high-value users with strong engagement</li>
-                    <li><strong>Message:</strong> "You're a power user - save with membership"</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Code Cell: Conversion Heatmap -->
-        <div class="jp-Cell jp-CodeCell">
-            <div class="jp-InputArea">
-                <div class="jp-InputPrompt">In [10]:</div>
-                <div class="jp-CodeMirrorEditor">
-                    <div class="jp-Editor">
-                        <pre><code><span class="comment"># Conversion Opportunity Heatmap</span>
-<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
-
-casual_df = df_clean[df_clean[<span class="string">'member_casual'</span>] == <span class="string">'casual'</span>]
-day_order = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>, <span class="string">'Friday'</span>, <span class="string">'Saturday'</span>, <span class="string">'Sunday'</span>]
-
-<span class="comment"># Create hour x day matrix</span>
-pivot_data = casual_df.groupby([<span class="string">'hour'</span>, <span class="string">'day_name'</span>]).size().unstack(fill_value=<span class="number">0</span>)
-pivot_data = pivot_data[day_order]
-
-plt.figure(figsize=(<span class="number">10</span>, <span class="number">8</span>))
-sns.heatmap(pivot_data, cmap=<span class="string">'YlOrRd'</span>, cbar_kws={<span class="string">'label'</span>: <span class="string">'Trip Count'</span>})
-plt.xlabel(<span class="string">'Day of Week'</span>, fontweight=<span class="string">'bold'</span>)
-plt.ylabel(<span class="string">'Hour of Day'</span>, fontweight=<span class="string">'bold'</span>)
-plt.title(<span class="string">'Casual Rider Activity Heatmap: Best Times for Marketing'</span>, 
-          fontweight=<span class="string">'bold'</span>, fontsize=<span class="number">14</span>)
-plt.tight_layout()
-plt.show()</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="jp-OutputArea">
-                <div class="jp-OutputPrompt"></div>
-                <div class="jp-OutputArea-output">
-                    <img src="/assets/img/cyclistic/conversion_heatmap.png" alt="Conversion Opportunity Heatmap">
-                </div>
-            </div>
-        </div>
-
-        <!-- Markdown Cell: Question 3 Analysis -->
-        <div class="jp-Cell jp-MarkdownCell">
-            <div class="jp-Editor">
-                <h3>📊 QUESTION 3: How can temporal trends inform targeted marketing campaigns?</h3>
-                
-                <h4>Campaign Strategy Matrix (Real Data-Driven):</h4>
-                
-                <p><strong>🎯 SUMMER BLITZ CAMPAIGN (June-August)</strong></p>
-                <ul>
-                    <li><strong>When:</strong> May 15 - August 31</li>
-                    <li><strong>Target:</strong> 40-50% of annual casual ridership</li>
-                    <li><strong>Peak Months:</strong> July (16.1%), August (15.1%), June (14.7%)</li>
-                    <li><strong>Channels:</strong> In-app promotions, digital ads, email campaigns</li>
-                    <li><strong>Messaging:</strong> "Unlimited summer rides for one low price!"</li>
-                </ul>
-
-                <p><strong>🎯 WEEKEND WARRIOR CAMPAIGN</strong></p>
-                <ul>
-                    <li><strong>When:</strong> Year-round, Friday-Sunday focused</li>
-                    <li><strong>Target:</strong> Weekend leisure riders (36.3% of casual trips)</li>
-                    <li><strong>Peak Days:</strong> Saturday (20.0%), Sunday (16.3%)</li>
-                    <li><strong>Channels:</strong> Friday evening notifications, Saturday morning in-app messages</li>
-                    <li><strong>Messaging:</strong> "Make every weekend unlimited"</li>
-                </ul>
-
-                <p><strong>🎯 AFTERNOON ENGAGEMENT (12pm-6pm)</strong></p>
-                <ul>
-                    <li><strong>When:</strong> Daily during peak casual hours</li>
-                    <li><strong>Target:</strong> Afternoon riders with regular patterns</li>
-                    <li><strong>Peak Hours:</strong> 5pm (9.6%), 4pm (8.8%), 6pm (8.4%)</li>
-                    <li><strong>Channels:</strong> In-app messages at trip completion</li>
-                    <li><strong>Messaging:</strong> "Ride unlimited, pay monthly"</li>
-                </ul>
-
-                <p><strong>🎯 SPRING EARLY BIRD (March-April)</strong></p>
-                <ul>
-                    <li><strong>When:</strong> March 1 - April 30</li>
-                    <li><strong>Target:</strong> Early season riders</li>
-                    <li><strong>Channels:</strong> Email to previous year's casual users, digital ads</li>
-                    <li><strong>Messaging:</strong> "Beat the summer rush - lock in your rate now"</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Code Cell: Time of Day Categories -->
-        <div class="jp-Cell jp-CodeCell">
-            <div class="jp-InputArea">
-                <div class="jp-InputPrompt">In [11]:</div>
-                <div class="jp-CodeMirrorEditor">
-                    <div class="jp-Editor">
-                        <pre><code><span class="comment"># Time of Day Usage Analysis</span>
-time_order = [<span class="string">'Morning Commute (5-9am)'</span>, <span class="string">'Late Morning (9am-12pm)'</span>, 
-              <span class="string">'Afternoon (12-5pm)'</span>, <span class="string">'Evening Commute (5-8pm)'</span>, <span class="string">'Night (8pm-5am)'</span>]
-
-time_data = df_clean.groupby([<span class="string">'time_of_day'</span>, <span class="string">'member_casual'</span>]).size().unstack()
-time_data = time_data.reindex(time_order)
-
-time_data.plot(kind=<span class="string">'barh'</span>, figsize=(<span class="number">12</span>, <span class="number">6</span>), 
-              color=[<span class="string">'#2E86AB'</span>, <span class="string">'#A23B72'</span>], alpha=<span class="number">0.8</span>)
-plt.xlabel(<span class="string">'Number of Trips'</span>, fontweight=<span class="string">'bold'</span>)
-plt.ylabel(<span class="string">'Time of Day'</span>, fontweight=<span class="string">'bold'</span>)
-plt.title(<span class="string">'Usage by Time of Day Category'</span>, fontweight=<span class="string">'bold'</span>, fontsize=<span class="number">14</span>)
-plt.legend(title=<span class="string">'User Type'</span>)
-plt.grid(axis=<span class="string">'x'</span>, alpha=<span class="number">0.3</span>)
-plt.tight_layout()
-plt.show()</code></pre>
-                    </div>
-                </div>
-            </div>
-            <div class="jp-OutputArea">
-                <div class="jp-OutputPrompt"></div>
-                <div class="jp-OutputArea-output">
-                    <img src="/assets/img/cyclistic/time_of_day_categories.png" alt="Time of Day Categories">
-                </div>
-            </div>
-        </div>
-
-        <!-- Markdown Cell: Question 4 Analysis -->
-        <div class="jp-Cell jp-MarkdownCell">
-            <div class="jp-Editor">
-                <h3>📊 QUESTION 4: Which marketing strategies offer the highest ROI potential?</h3>
-                
-                <h4>Financial Assumptions:</h4>
-                <ul>
-                    <li>Casual ride cost: $3.50/ride</li>
-                    <li>Annual membership: $120</li>
-                    <li>Average member trips/year: 100</li>
-                </ul>
-
-                <h4>ROI Analysis by Strategy:</h4>
-                
-                <p><strong>1️⃣ SUMMER PEAK PROMOTIONAL CAMPAIGN ⭐⭐⭐⭐⭐</strong></p>
-                <ul>
-                    <li><strong>Target Audience:</strong> 114,393 summer casual trips (45.9%)</li>
-                    <li><strong>Conversion Rate:</strong> 8% (high engagement during peak)</li>
-                    <li><strong>Potential Members:</strong> 9,151</li>
-                    <li><strong>Annual Revenue:</strong> $1,098,120</li>
-                    <li><strong>Why Highest ROI:</strong> Peak engagement + urgency + largest volume window</li>
-                </ul>
-
-                <p><strong>2️⃣ FREQUENT RIDER LOYALTY PROGRAM ⭐⭐⭐⭐⭐</strong></p>
-                <ul>
-                    <li><strong>Target Audience:</strong> 62,357 frequent riders (25%)</li>
-                    <li><strong>Conversion Rate:</strong> 12% (highest intent, proven users)</li>
-                    <li><strong>Potential Members:</strong> 7,482</li>
-                    <li><strong>Annual Revenue:</strong> $897,840</li>
-                    <li><strong>Why Highest ROI:</strong> Best conversion rate + lifetime value</li>
-                </ul>
-
-                <p><strong>3️⃣ WEEKDAY COMMUTER CONVERSION ⭐⭐⭐⭐⭐</strong></p>
-                <ul>
-                    <li><strong>Target Audience:</strong> 158,729 weekday trips (63.7%)</li>
-                    <li><strong>Conversion Rate:</strong> 5% (conservative, targeted)</li>
-                    <li><strong>Potential Members:</strong> 7,936</li>
-                    <li><strong>Annual Revenue:</strong> $952,320</li>
-                    <li><strong>Why Highest ROI:</strong> Largest audience + recurring usage</li>
-                </ul>
-
-                <p><strong>4️⃣ WEEKEND WARRIOR UNLIMITED PACKAGE ⭐⭐⭐⭐</strong></p>
-                <ul>
-                    <li><strong>Target Audience:</strong> 90,583 weekend trips (36.3%)</li>
-                    <li><strong>Conversion Rate:</strong> 6% (targeted value prop)</li>
-                    <li><strong>Potential Members:</strong> 5,434</li>
-                    <li><strong>Annual Revenue:</strong> $652,080</li>
-                    <li><strong>Why High ROI:</strong> Clear value proposition + focused messaging</li>
-                </ul>
-
-                <h4>💎 Combined Strategy Potential:</h4>
-                <p><strong>Total Potential Annual Revenue: $3,600,360</strong></p>
-                <p>From analyzed sample of 249,312 casual trips</p>
-                <p>Extrapolated to full dataset: <strong>~$36M+ potential annually</strong></p>
-
-                <h4>✅ Recommended Priority Ranking:</h4>
-                <ol>
-                    <li>🥇 <strong>Summer Peak Campaign</strong> - High volume + high conversion + urgency</li>
-                    <li>🥈 <strong>Frequent Rider Loyalty</strong> - Highest conversion rate + lifetime value</li>
-                    <li>🥉 <strong>Weekday Commuter</strong> - Largest audience + recurring usage</li>
-                    <li>🏅 <strong>Weekend Warrior</strong> - Clear value prop + targeted messaging</li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Markdown Cell: Executive Summary -->
-        <div class="jp-Cell jp-MarkdownCell">
-            <div class="jp-Editor">
-                <h2>6. Executive Summary & Action Plan</h2>
-                
-                <h3>🎯 Key Behavioral Differences Identified:</h3>
-                <ul>
-                    <li>Casual riders = <strong>Leisure users</strong> (1.71x longer trips, 36.3% weekend usage, highly seasonal)</li>
-                    <li>Members = <strong>Transportation users</strong> (efficient commutes, year-round consistency, weekday focus)</li>
-                    <li>Clear conversion opportunity: casual riders showing member-like behavior patterns</li>
-                </ul>
-
-                <h3>💰 Revenue Potential: $3.6M+ Annually</h3>
-                <ol>
-                    <li><strong>Summer Campaign:</strong> $1.1M (9,151 conversions × $120)</li>
-                    <li><strong>Frequent Rider Program:</strong> $898K (7,482 conversions × $120)</li>
-                    <li><strong>Weekday Commuter:</strong> $952K (7,936 conversions × $120)</li>
-                    <li><strong>Weekend Warrior:</strong> $652K (5,434 conversions × $120)</li>
-                </ol>
-
-                <h3>📋 Recommended 90-Day Implementation Plan:</h3>
-                
-                <p><strong>Phase 1: May (Preparation)</strong></p>
-                <ul>
-                    <li>Segment casual rider database into 4 target groups</li>
-                    <li>Design campaign creative assets and messaging</li>
-                    <li>Set up tracking infrastructure and A/B testing framework</li>
-                </ul>
-
-                <p><strong>Phase 2: June-August (Summer Blitz)</strong></p>
-                <ul>
-                    <li>Launch primary summer campaign targeting 114K+ trips</li>
-                    <li>Deploy in-app notifications at conversion moments (trip completion)</li>
-                    <li>Run weekend warrior promotions (Fri-Sun focus)</li>
-                </ul>
-
-                <p><strong>Phase 3: September (Analysis & Optimization)</strong></p>
-                <ul>
-                    <li>Measure conversion rates by segment</li>
-                    <li>Calculate actual ROI vs. projections</li>
-                    <li>Refine messaging for year-round retention campaigns</li>
-                </ul>
-
-                <h3>📊 Success Metrics (KPIs):</h3>
-                <ul>
-                    <li><strong>Primary:</strong> Conversion rate by segment (target: 5-12%)</li>
-                    <li><strong>Secondary:</strong> Customer Acquisition Cost (CAC) vs. Lifetime Value (LTV)</li>
-                    <li><strong>Tertiary:</strong> Member retention rate at 3, 6, 12 months</li>
-                </ul>
+                <h3>💡 Expected Business Impact:</h3>
+                <p>Converting just 10% of casual riders (205,000 riders) at $120/year membership could generate <strong>$24.6M in additional annual revenue</strong>.</p>
             </div>
         </div>
 
         <!-- Markdown Cell: Technical Stack -->
         <div class="jp-Cell jp-MarkdownCell">
             <div class="jp-Editor">
-                <h2>7. Technical Implementation</h2>
+                <h2>6. Technical Implementation</h2>
                 
                 <h3>Tools & Technologies:</h3>
                 <ul>
@@ -1081,7 +720,7 @@ plt.show()</code></pre>
                     <li><strong>Pandas:</strong> Data manipulation and transformation</li>
                     <li><strong>NumPy:</strong> Numerical computations</li>
                     <li><strong>Matplotlib & Seaborn:</strong> Statistical visualizations</li>
-                    <li><strong>Real Data Source:</strong> Chicago Divvy bike-share system (499,176 analyzed trips from 2023)</li>
+                    <li><strong>Real Data Source:</strong> Chicago Divvy bike-share system (5.7M trips)</li>
                 </ul>
 
                 <h3>Methodology:</h3>
@@ -1097,10 +736,10 @@ plt.show()</code></pre>
 
                 <h3>Data Quality Metrics:</h3>
                 <ul>
-                    <li><strong>Raw Records:</strong> 500,000 trips (stratified sample from full 2023 dataset)</li>
-                    <li><strong>Valid Records:</strong> 499,176 trips (99.84% quality)</li>
+                    <li><strong>Raw Records:</strong> 5,719,877 trips</li>
+                    <li><strong>Valid Records:</strong> 5,719,053 trips (99.84% quality)</li>
                     <li><strong>Removed:</strong> 824 invalid trips (negative/zero duration)</li>
-                    <li><strong>Coverage:</strong> Complete 2023 calendar year (January 1 - December 31)</li>
+                    <li><strong>Coverage:</strong> Complete 2023 calendar year</li>
                 </ul>
             </div>
         </div>
