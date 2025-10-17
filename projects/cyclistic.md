@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Cyclistic Bike-Share Analysis | Alistair Leys"
+---
+
 # Cyclistic Bike-Share Analysis 🚴‍♀️
 
 ## 🎯 Project Overview
