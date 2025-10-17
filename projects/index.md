@@ -29,22 +29,38 @@ Comprehensive analysis of diabetes progression using advanced ML techniques. Fea
 
 ---
 
-## Upcoming Projects
+## Cyclistic Bike-Share Analysis
 
-**Traffic Analytics Dashboard** *(Coming Soon)*
-- Large-scale GPS and traffic data processing
-- Automated reporting pipeline development
-- Detection model accuracy improvements
+**Transportation Analytics • Business Intelligence • Customer Segmentation**
+
+Comprehensive analysis of Chicago's bike-share system using 5.7 million real trips to understand user behavior and drive membership conversion strategy. Features advanced data processing, statistical analysis, and executive-level insights following Google Data Analytics Certificate methodology.
+
+**Key Technologies:** Python, Pandas, Statistical Analysis, Data Visualization
+
+**Business Impact:** Data-driven membership conversion strategy with quantified ROI potential
+
+**Key Results:**
+- Analyzed 5.7M authentic trips from Chicago's Divvy bike-share system
+- Identified 1.7x trip duration difference between casual riders and members
+- Discovered 36% weekend concentration among casual users vs 24% for members
+- Developed three targeted conversion strategies with measurable business impact
+- Created executive-ready visualizations and strategic recommendations
+
+[**View Full Project →**](/projects/cyclistic/)
+
+---
+
+## Upcoming Projects
 
 **Healthcare NLP Application** *(In Development)*
 - Post-operative care chatbot development
 - NLP processing with spaCy and transformers
 - GDPR-compliant patient data handling
 
-**HR Analytics Platform** *(Portfolio Project)*
-- Predictive modelling for workforce analytics
-- Data visualisation for decision support
-- Python-based automated workflows
+**Traffic Analytics Dashboard** *(Coming Soon)*
+- Large-scale GPS and traffic data processing
+- Automated reporting pipeline development
+- Detection model accuracy improvements
 
 ---
 
