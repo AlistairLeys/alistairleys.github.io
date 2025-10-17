@@ -45,16 +45,44 @@
             background: var(--jp-layout-color0);
             margin: 0;
             padding: 0;
+            padding-top: 100px;
         }
 
-        /* Navigation */
-        .nav-container {
-            background: var(--jp-layout-color1);
-            border-bottom: 1px solid var(--jp-border-color1);
-            padding: 1rem 2rem;
-            position: sticky;
+        /* Fixed Header */
+        header {
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
         }
 
         .nav {
@@ -64,16 +92,16 @@
         }
 
         .nav a {
-            color: var(--jp-content-font-color3);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.2s ease;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             font-weight: 500;
         }
 
-        .nav a:hover, .nav a.active {
-            color: var(--jp-brand-color1);
+        .nav a:hover {
+            color: #00d4ff;
             background: rgba(0, 212, 255, 0.1);
         }
 
@@ -380,13 +408,15 @@
     </style>
 </head>
 <body>
-    <div class="nav-container">
-        <nav class="nav">
-            <a href="/">Home</a>
-            <a href="/projects/">Projects</a>
-            <a href="/projects/diabetes/" class="active">Diabetes Analysis</a>
-        </nav>
-    </div>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Alistair Leys</a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/projects/">Projects</a>
+            </nav>
+        </div>
+    </header>
 
     <div class="notebook-container">
         <div class="notebook-header">
