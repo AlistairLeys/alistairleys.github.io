@@ -25,7 +25,7 @@ Comprehensive analysis of diabetes progression using advanced ML techniques. Fea
 - Segmented 442 patients into 3 distinct risk clusters with statistical validation
 - Provided actionable clinical recommendations for healthcare providers
 
-[**View Full Project →**](/projects/diabetes/)
+[**View Full Project →**](/projects/diabetes/) | [**Complete Analysis →**](/projects/diabetes/analysis)
 
 ---
 
@@ -46,7 +46,7 @@ Comprehensive analysis of Chicago's bike-share system using 5.7 million real tri
 - Developed three targeted conversion strategies with measurable business impact
 - Created executive-ready visualizations and strategic recommendations
 
-[**View Full Project →**](/projects/cyclistic/)
+[**View Full Project →**](/projects/cyclistic/) | [**Complete Analysis →**](/projects/cyclistic/analysis)
 
 ---
 
