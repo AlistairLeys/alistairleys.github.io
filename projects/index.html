@@ -295,6 +295,35 @@
             border-color: var(--border-accent);
         }
         
+        /* Content */
+        p {
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        ul {
+            margin: var(--spacing-lg) 0;
+            padding-left: var(--spacing-xl);
+        }
+        
+        li {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            position: relative;
+        }
+        
+        li::marker {
+            color: var(--accent-primary);
+        }
+        
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
         .section p {
             margin-bottom: 1rem;
             color: #e2e8f0;
