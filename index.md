@@ -1,5 +1,5 @@
 ---
-layout: simple
+layout: default
 title: "Alistair Leys | Data Analysis Portfolio"
 ---
 
@@ -7,12 +7,14 @@ title: "Alistair Leys | Data Analysis Portfolio"
 
 <p class="tagline">Data Scientist focused on clear, actionable insight</p>
 
-I'm a Junior Data Scientist with an MSc in Artificial Intelligence (1st Class, BCU) and practical experience applying machine learning to healthcare, transport, and HR challenges. I specialise in building end-to-end data products that turn complex information into practical business decisions.
+I design and deliver end-to-end data analysis work that turns complex data into decisions. My approach combines rigorous statistical methods with practical problem-solving to ensure analyses are both technically sound and genuinely useful.
 
-My approach combines statistical rigour with pragmatic problem-solving, ensuring analyses are both technically sound and genuinely useful. I've worked with Python, scikit-learn, and SQL to improve patient engagement by 40% in healthcare settings and automated reporting pipelines for traffic analytics. Based in Birmingham, UK, I'm seeking data science roles where analytical thinking drives real impact.
+Based in Birmingham, UK, I specialise in predictive modelling and machine learning applications across healthcare, transport, and business domains. I'm seeking data science and AI roles where analytical thinking drives real impact.
 
-**Current Focus:** Healthcare analytics, predictive modelling, and NLP applications
+<div class="contact-info">
+Email: alistairleys@gmail.com  ·  LinkedIn: <a href="https://www.linkedin.com/in/alistair-leys">https://www.linkedin.com/in/alistair-leys</a>
+</div>
 
----
+## Diabetes Disease Progression Analysis
 
-**Explore my technical work:** [View Projects](/projects/) • **Professional background:** [Download CV](/assets/files/Alistair_Leys_CV.pdf) • **Connect:** [LinkedIn](https://www.linkedin.com/in/alistair-leys)
+{% include_relative projects/notebook.md %}

@@ -1,20 +1,6 @@
-# Site settings
-title: "Alistair Leys | Data Analysis Portfolio"
-description: "Data Scientist focused on clear, actionable insight"
-baseurl: ""
-url: "https://alistairleys.github.io"
-
-# Build settings
 markdown: kramdown
 highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false
-
-plugins: []
+theme: null
 
 # Exclude files
 exclude:
