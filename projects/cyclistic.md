@@ -173,4 +173,26 @@ This project demonstrates **professional-level data analysis capabilities** suit
 
 ---
 
+## 📋 View Complete Analysis
+
+Ready to dive deeper into the methodology, statistical findings, and strategic recommendations?
+
+### **[📊 View Complete Business Case & Analysis →](/projects/cyclistic/analysis)**
+
+**What you'll find:**
+- **Executive Summary** with quantified business impact
+- **Complete Methodology** following Google Data Analytics Certificate framework  
+- **Statistical Analysis** with significance testing and validation
+- **Professional Visualizations** with business narrative
+- **Strategic Recommendations** with ROI projections and implementation timeline
+- **Technical Documentation** for reproducible analysis
+
+### **[⚡ Quick Executive Summary →](/projects/cyclistic/summary)**
+*Perfect for stakeholders - key insights and recommendations in 5 minutes*
+
+### **[🔧 Technical Implementation →](/projects/cyclistic/methodology)**  
+*Detailed code documentation and analytical framework for technical review*
+
+---
+
 *This analysis showcases the application of data science techniques to real-world business challenges, demonstrating both technical proficiency and strategic thinking capabilities essential for senior analytical roles.*
