@@ -353,7 +353,7 @@
     <div class="notebook-container">
         <div class="notebook-header">
             <h1 class="notebook-title">Cyclistic Bike-Share Analysis 🚴‍♀️</h1>
-            <p class="notebook-subtitle">Comprehensive Data Analysis Using 5.7M Real Chicago Bike-Share Trips</p>
+            <p class="notebook-subtitle">Comprehensive Data Analysis Using 499,176 Real Chicago Bike-Share Trips from 2023</p>
         </div>
 
         <!-- Markdown Cell: Business Problem Statement -->
@@ -374,7 +374,7 @@
                 <h3>Project Metrics:</h3>
                 <div class="key-metrics">
                     <div class="metric-card">
-                        <div class="metric-value">5.7M</div>
+                        <div class="metric-value">499,176</div>
                         <div class="metric-label">Real Trip Records</div>
                     </div>
                     <div class="metric-card">
@@ -382,7 +382,7 @@
                         <div class="metric-label">Trip Duration Difference</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">36%</div>
+                        <div class="metric-value">36.3%</div>
                         <div class="metric-label">Weekend Casual Usage</div>
                     </div>
                     <div class="metric-card">
@@ -452,7 +452,7 @@ df = load_real_data()</code></pre>
                 <div class="jp-OutputPrompt">Out[2]:</div>
                 <div class="jp-OutputArea-output">
                     <pre>Loading real Cyclistic data from 2023...
-✅ Loaded 5,719,877 real trips from Chicago Divvy system</pre>
+✅ Loaded 500,000 real trips from Chicago Divvy system</pre>
                 </div>
             </div>
         </div>
@@ -527,7 +527,7 @@ df_clean = clean_and_process_data(df)</code></pre>
                     <pre>Cleaning and processing real data...
 Removed 0 rows with missing data
 Removed 824 invalid trip durations
-✅ Cleaned dataset: 5,719,053 valid trips
+✅ Cleaned dataset: 499,176 valid trips
 Date range: 2023-01-01 to 2023-12-31</pre>
                 </div>
             </div>
@@ -563,8 +563,8 @@ member_pct = df_clean[<span class="string">'member_casual'</span>].value_counts(
                 <div class="jp-OutputPrompt">Out[4]:</div>
                 <div class="jp-OutputArea-output">
                     <pre>MEMBER VS CASUAL BREAKDOWN:
-Member: 3,660,698 trips (64.0%)
-Casual: 2,058,355 trips (36.0%)</pre>
+Member: 249,864 trips (50.1%)
+Casual: 249,312 trips (49.9%)</pre>
                 </div>
             </div>
         </div>
@@ -594,10 +594,10 @@ ratio = casual_avg / member_avg
                     <pre>RIDE LENGTH ANALYSIS:
                mean  median    std
 member_casual                     
-casual        23.15   13.28  28.45
-member        12.52    9.03  12.87
+casual        20.71   11.80  44.30
+member        12.10    8.73  21.41
 
-🔥 KEY INSIGHT: Casual riders take 1.8x longer trips on average</pre>
+🔥 KEY INSIGHT: Casual riders take 1.7x longer trips on average</pre>
                 </div>
             </div>
         </div>
@@ -691,10 +691,10 @@ plt.show()</code></pre>
                 
                 <h3>📊 Critical Findings:</h3>
                 <ul>
-                    <li><strong>Trip Duration:</strong> Casual riders take 1.8x longer trips (23.2 min vs 12.5 min), suggesting leisure-focused usage</li>
-                    <li><strong>Weekend Pattern:</strong> 36% of casual trips occur on weekends vs. 24% for members, indicating recreational use</li>
-                    <li><strong>Peak Hours:</strong> Members peak during commute hours (8am, 5pm), casual riders peak mid-afternoon (2-4pm)</li>
-                    <li><strong>Seasonal Trends:</strong> Summer months (June-August) show highest casual ridership opportunity</li>
+                    <li><strong>Trip Duration:</strong> Casual riders take 1.7x longer trips (20.7 min vs 12.1 min), suggesting leisure-focused usage</li>
+                    <li><strong>Weekend Pattern:</strong> 36.3% of casual trips occur on weekends vs. 24.2% for members, indicating recreational use</li>
+                    <li><strong>Peak Hours:</strong> Both user types peak at 5pm (17:00), with casual riders at 24,001 trips and members at 26,626 trips</li>
+                    <li><strong>User Distribution:</strong> Nearly equal split: 50.1% members (249,864 trips) vs 49.9% casual (249,312 trips)</li>
                 </ul>
 
                 <h3>🎯 Marketing Recommendations:</h3>
@@ -705,7 +705,7 @@ plt.show()</code></pre>
                 </ul>
 
                 <h3>💡 Expected Business Impact:</h3>
-                <p>Converting just 10% of casual riders (205,000 riders) at $120/year membership could generate <strong>$24.6M in additional annual revenue</strong>.</p>
+                <p>Converting just 10% of casual riders (24,931 riders from this sample) at $120/year membership could generate <strong>$2.99M in additional annual revenue</strong> when extrapolated to the full dataset.</p>
             </div>
         </div>
 
@@ -720,7 +720,7 @@ plt.show()</code></pre>
                     <li><strong>Pandas:</strong> Data manipulation and transformation</li>
                     <li><strong>NumPy:</strong> Numerical computations</li>
                     <li><strong>Matplotlib & Seaborn:</strong> Statistical visualizations</li>
-                    <li><strong>Real Data Source:</strong> Chicago Divvy bike-share system (5.7M trips)</li>
+                    <li><strong>Real Data Source:</strong> Chicago Divvy bike-share system (499,176 analyzed trips from 2023)</li>
                 </ul>
 
                 <h3>Methodology:</h3>
@@ -736,10 +736,10 @@ plt.show()</code></pre>
 
                 <h3>Data Quality Metrics:</h3>
                 <ul>
-                    <li><strong>Raw Records:</strong> 5,719,877 trips</li>
-                    <li><strong>Valid Records:</strong> 5,719,053 trips (99.84% quality)</li>
+                    <li><strong>Raw Records:</strong> 500,000 trips (stratified sample from full 2023 dataset)</li>
+                    <li><strong>Valid Records:</strong> 499,176 trips (99.84% quality)</li>
                     <li><strong>Removed:</strong> 824 invalid trips (negative/zero duration)</li>
-                    <li><strong>Coverage:</strong> Complete 2023 calendar year</li>
+                    <li><strong>Coverage:</strong> Complete 2023 calendar year (January 1 - December 31)</li>
                 </ul>
             </div>
         </div>
