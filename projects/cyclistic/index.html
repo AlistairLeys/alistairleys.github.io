@@ -120,17 +120,19 @@
             padding: 0 2rem;
         }
         
-        /* Header - Full Width */
+        /* Header - Full Width with Enhanced Glass Effect */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border-primary);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             z-index: 1000;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 
+                        0 1px 0 rgba(255, 255, 255, 0.1) inset;
         }
         
         header .header-content {
@@ -407,17 +409,6 @@
                     <h1>Cyclistic Bike-Share Analysis 🚴‍♀️</h1>
                     <p class="tagline">Comprehensive data analysis using 5.7M real Chicago bike-share trips to drive membership conversion strategy</p>
                 </section>
-<body>
-    <div class="main-container">
-        <div class="container">
-            <nav class="nav">
-                <a href="/">Home</a>
-                <a href="/projects/">Projects</a>
-            </nav>
-
-            <main>
-                <section class="hero">
-                    <h1>Cyclistic Bike-Share Analysis 🚴‍♀️</h1>
                     <p class="tagline">Comprehensive data analysis using 5.7M real Chicago bike-share trips to drive membership conversion strategy</p>
                 </section>
 
