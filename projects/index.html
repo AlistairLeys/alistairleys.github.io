@@ -142,18 +142,36 @@
         }
         
         /* Header - Full Width with Enhanced Glass Effect */
+        /* Header - Enhanced Glassmorphism (Stripe/Linear Inspired) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 
-                        0 1px 0 rgba(255, 255, 255, 0.1) inset;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--border-secondary);
+            z-index: var(--z-fixed);
+            box-shadow: var(--shadow-md), 
+                        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+            transition: all var(--transition-normal);
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        header:hover::after {
+            opacity: 1;
         }
         
         header .header-content {
@@ -174,13 +192,16 @@
             background-clip: text;
             text-decoration: none;
             transition: transform var(--transition-normal);
+            line-height: 1.4;
+            padding: var(--spacing-xs) 0;
+            display: inline-block;
         }
         
         header .logo:hover {
             transform: scale(1.05);
         }
         
-        /* Navigation */
+        /* Navigation - Enhanced Micro-Interactions */
         .nav {
             display: flex;
             gap: var(--spacing-lg);
@@ -196,31 +217,39 @@
             font-weight: 500;
             font-size: 0.95rem;
             position: relative;
+            overflow: hidden;
         }
         
         .nav a::before {
             content: '';
             position: absolute;
-            inset: 0;
-            border-radius: var(--border-radius-md);
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
             background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity var(--transition-normal);
-            z-index: -1;
+            transform: translateX(-50%);
+            transition: width var(--transition-normal);
+            border-radius: var(--border-radius-full);
         }
         
         .nav a:hover {
             color: var(--text-primary);
-            background: rgba(0, 212, 255, 0.1);
+            background: var(--bg-hover);
+            transform: translateY(-1px);
         }
         
         .nav a:hover::before {
-            opacity: 0.1;
+            width: 80%;
         }
         
         .nav a.active {
             color: var(--text-primary);
-            background: rgba(0, 212, 255, 0.15);
+            background: var(--bg-hover);
+        }
+        
+        .nav a.active::before {
+            width: 80%;
         }
         
         /* Main Content Area */
