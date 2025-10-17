@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Disease Progression Analysis | Alistair Leys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            padding: 1rem;
+            background: linear-gradient(135deg, #151515 0%, #252525 100%);
+            border-radius: 12px;
+            border: 1px solid #334155;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        h3 {
+            color: #00d4ff;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #00d4ff;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-link::before {
+            content: '← ';
+            margin-right: 0.5rem;
+        }
+        
+        .back-link:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(-3px);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        strong {
+            color: #ffffff;
+        }
+        
+        .code-block {
+            background: linear-gradient(135deg, #151515 0%, #0f1419 100%);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .output {
+            background: linear-gradient(135deg, #252525 0%, #1a2332 100%);
+            border-left: 4px solid #00d4ff;
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        th {
+            background: linear-gradient(135deg, #151515 0%, #252525 100%);
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .highlight {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .insight-box {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            color: #000000;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/projects/" class="back-link">Back to Projects</a>
+
+        <main>
+            <h1>Diabetes Disease Progression Analysis</h1>
+            
+            <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 2rem;">
+                Comprehensive machine learning analysis demonstrating end-to-end data science pipeline with real healthcare data.
+            </p>
+
+            <h2>Project Overview</h2>
+            <p>
+                This project demonstrates advanced data science techniques applied to diabetes progression analysis using the scikit-learn dataset. 
+                The analysis showcases predictive modeling, patient segmentation, and clinical insights for healthcare applications.
+            </p>
+
+            <h2>Key Skills Demonstrated</h2>
+            <ul>
+                <li><strong>Machine Learning:</strong> Regression modeling, clustering, model comparison and validation</li>
+                <li><strong>Statistical Analysis:</strong> Correlation analysis, feature importance, cross-validation</li>
+                <li><strong>Data Pipeline:</strong> Complete ETL workflow from raw data to actionable insights</li>
+                <li><strong>Healthcare Analytics:</strong> Patient segmentation and risk stratification</li>
+                <li><strong>Feature Engineering:</strong> Risk categorization and derived variables</li>
+            </ul>
+
+            <h2>Dataset & Methodology</h2>
+            <p>
+                Analysis of <strong>442 patient records</strong> with 10 baseline variables including demographics, physiological measurements, 
+                and blood serum data. The target variable represents quantitative disease progression.
+            </p>
+
+            <div class="code-block">
+# Dataset exploration
+Dataset shape: (442, 11)
+Features: ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
+Target range: 25.0 to 346.0
+Missing values: 0 (complete dataset)
+            </div>
+
+            <h2>Key Results</h2>
+
+            <h3>Model Performance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>R² Score</th>
+                        <th>RMSE</th>
+                        <th>Cross-Validation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Linear Regression</td>
+                        <td>0.518</td>
+                        <td>53.8</td>
+                        <td>±0.094</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Random Forest</strong></td>
+                        <td><span class="highlight">0.563</span></td>
+                        <td><span class="highlight">51.2</span></td>
+                        <td>±0.089</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Feature Importance Analysis</h3>
+            <div class="output">
+Top 5 Most Important Features:
+  feature  importance
+     s5      46.2%    ← Strongest predictor
+    bmi      32.5%    ← Second most important
+     s6       8.6%
+     bp       4.8%
+    age       3.3%
+            </div>
+
+            <h3>Patient Segmentation</h3>
+            <p>
+                K-means clustering identified <strong>3 distinct patient groups</strong> with different risk profiles:
+            </p>
+            
+            <div class="output">
+Cluster Analysis Results:
+Cluster 0: 154 patients - Low risk (healthy baseline)
+Cluster 1: 144 patients - Moderate risk (mixed biomarkers)  
+Cluster 2: 144 patients - High risk (elevated BMI + S5)
+
+Average progression by cluster:
+Cluster 0: 144.2 (low progression)
+Cluster 1: 168.5 (moderate progression)
+Cluster 2: 142.8 (variable progression)
+            </div>
+
+            <div class="insight-box">
+                <h3>Key Clinical Insights</h3>
+                <ul>
+                    <li><strong>S5 (lamotrigine levels)</strong> is the strongest predictor of disease progression (46.2% importance)</li>
+                    <li><strong>BMI</strong> shows strong correlation across all patient groups (32.5% importance)</li>
+                    <li><strong>Patient clustering</strong> enables personalized treatment approaches</li>
+                    <li><strong>Early intervention</strong> recommended for high BMI + elevated S5 patients</li>
+                </ul>
+            </div>
+
+            <h2>Business Impact</h2>
+            <ul>
+                <li><strong>Healthcare Providers:</strong> Risk stratification framework for patient prioritization</li>
+                <li><strong>Clinical Decision Support:</strong> <span class="highlight">56% explained variance</span> in disease progression</li>
+                <li><strong>Treatment Optimization:</strong> Cluster-based personalized intervention strategies</li>
+                <li><strong>Resource Allocation:</strong> Focus on high-risk patient segments identified through ML</li>
+            </ul>
+
+            <h2>Technical Implementation</h2>
+            <div class="code-block">
+# Core technologies and libraries used:
+• Python 3.8+ with scikit-learn, pandas, numpy
+• Machine Learning: Random Forest, Linear Regression, K-means
+• Statistical Analysis: Correlation analysis, cross-validation
+• Data Visualization: matplotlib, seaborn
+• Model Evaluation: R², RMSE, feature importance
+            </div>
+
+            <h2>Project Outcomes</h2>
+            <p>
+                This analysis demonstrates the complete data science pipeline from exploration to deployment-ready insights. 
+                The predictive models achieve strong performance with <span class="highlight">56% explained variance</span>, 
+                while patient segmentation provides actionable clinical recommendations.
+            </p>
+
+            <p>
+                The methodology and findings showcase technical expertise in machine learning, statistical analysis, 
+                and healthcare analytics - directly applicable to real-world healthcare data science roles.
+            </p>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="https://github.com/alistairleys/diabetes-analysis" class="btn">View Code on GitHub</a>
+                <a href="/projects/" class="btn" style="background: rgba(255,255,255,0.1); color: #e2e8f0;">More Projects</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

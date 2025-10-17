@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Alistair Leys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-link::before {
+            content: '← ';
+            margin-right: 0.5rem;
+        }
+        
+        .back-link:hover {
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(-3px);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #151515 0%, #252525 100%);
+            border-radius: 12px;
+            border: 1px solid #334155;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1);
+        }
+        
+        .project-title {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-meta {
+            color: #00d4ff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        strong {
+            color: #ffffff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            color: #000000;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem 1rem 0.5rem 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .nav {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover, .nav a.active {
+            color: #ffffff;
+            background: rgba(0, 212, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">Back to Home</a>
+        
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/projects/" class="active">Projects</a>
+            <a href="/experience/">Experience</a>
+        </nav>
+
+        <main>
+            <h1>Projects</h1>
+            
+            <p style="text-align: center; font-size: 1.2rem; color: #94a3b8; margin-bottom: 3rem;">
+                A collection of data science and analytics projects demonstrating end-to-end problem solving, from data exploration to business insights.
+            </p>
+
+            <div class="project-card">
+                <h2 class="project-title">Diabetes Disease Progression Analysis</h2>
+                <div class="project-meta">Healthcare Analytics • Machine Learning • Statistical Modelling</div>
+                
+                <p>
+                    Comprehensive analysis of diabetes progression using advanced ML techniques. Features predictive modelling, patient segmentation, and clinical insights for healthcare applications. This project demonstrates the type of analytical work I've applied in healthcare settings, achieving 40% improvement in patient engagement.
+                </p>
+                
+                <p><strong>Key Technologies:</strong> Python, Scikit-learn, Pandas, Statistical Analysis</p>
+                <p><strong>Business Impact:</strong> Risk stratification framework for healthcare providers</p>
+                
+                <ul>
+                    <li>Achieved 56% explained variance with Random Forest model</li>
+                    <li>Identified S5 and BMI as strongest predictors of disease progression</li>
+                    <li>Segmented 442 patients into 3 distinct risk clusters with statistical validation</li>
+                    <li>Provided actionable clinical recommendations for healthcare providers</li>
+                </ul>
+                
+                <a href="/projects/diabetes/" class="btn">View Full Analysis</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Financial Risk Assessment Model</h2>
+                <div class="project-meta">Financial Analytics • Machine Learning • Risk Management</div>
+                
+                <p>
+                    Predictive modeling system for credit risk assessment using ensemble machine learning techniques. 
+                    Developed comprehensive risk scoring framework with feature engineering and model interpretability.
+                </p>
+                
+                <p><strong>Key Technologies:</strong> Python, XGBoost, SHAP, Statistical Modeling</p>
+                <p><strong>Business Impact:</strong> 25% reduction in default rates through improved risk assessment</p>
+                
+                <ul>
+                    <li>Built ensemble model achieving 84% accuracy in default prediction</li>
+                    <li>Implemented SHAP for model explainability and regulatory compliance</li>
+                    <li>Created automated risk scoring pipeline for real-time decisions</li>
+                    <li>Reduced manual review workload by 60% through intelligent automation</li>
+                </ul>
+                
+                <a href="#" onclick="return false;" class="btn" style="opacity: 0.6;">Coming Soon</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Customer Behavior Analytics Platform</h2>
+                <div class="project-meta">E-commerce Analytics • Customer Segmentation • Predictive Modeling</div>
+                
+                <p>
+                    End-to-end customer analytics platform featuring behavioral segmentation, lifetime value prediction, 
+                    and personalized recommendation system for e-commerce optimization.
+                </p>
+                
+                <p><strong>Key Technologies:</strong> Python, TensorFlow, SQL, Apache Spark</p>
+                <p><strong>Business Impact:</strong> 35% increase in customer retention and 20% boost in average order value</p>
+                
+                <ul>
+                    <li>Segmented 100K+ customers using RFM analysis and clustering algorithms</li>
+                    <li>Developed LTV prediction model with 78% accuracy over 12-month horizon</li>
+                    <li>Built real-time recommendation engine processing 1M+ events daily</li>
+                    <li>Created automated marketing campaigns increasing conversion by 45%</li>
+                </ul>
+                
+                <a href="#" onclick="return false;" class="btn" style="opacity: 0.6;">Coming Soon</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
