@@ -323,12 +323,23 @@
         }
 
         /* Image Styling */
-        .jp-MarkdownCell img {
-            max-width: 100%;
+        .jp-MarkdownCell img,
+        .jp-OutputArea-output img {
+            max-width: 800px;
+            width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 1.5rem 0;
+            margin: 1.5rem auto;
+            display: block;
             border: 1px solid var(--jp-border-color1);
+        }
+
+        /* Responsive images for smaller screens */
+        @media (max-width: 900px) {
+            .jp-MarkdownCell img,
+            .jp-OutputArea-output img {
+                max-width: 100%;
+            }
         }
 
         /* Code Syntax Highlighting */
