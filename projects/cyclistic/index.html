@@ -6,29 +6,83 @@
     <title>Cyclistic Bike-Share Analysis | Alistair Leys - Data Science Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
-        /* Jupyter Notebook Styling */
+        /* Enhanced Design System - Matches Portfolio */
         :root {
-            --jp-ui-font-scale-factor: 1.2;
-            --jp-ui-font-size0: 0.83333em;
-            --jp-ui-font-size1: 13px;
-            --jp-ui-font-size2: 1.2em;
-            --jp-ui-font-size3: 1.44em;
+            /* Enhanced Color System */
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #111111;
+            --bg-elevated: #1a1a1a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-hover: rgba(255, 255, 255, 0.06);
             
-            --jp-content-font-color1: #ffffff;
-            --jp-content-font-color2: #e2e8f0;
-            --jp-content-font-color3: #94a3b8;
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
             
-            --jp-layout-color0: #111111;
-            --jp-layout-color1: #1a1a1a;
-            --jp-layout-color2: #2d2d30;
-            --jp-layout-color3: #383838;
+            /* Refined Accent Palette */
+            --accent-primary: #00d4ff;
+            --accent-secondary: #0ea5e9;
+            --accent-tertiary: #3b82f6;
+            --accent-glow: rgba(0, 212, 255, 0.4);
             
-            --jp-border-color0: #e1e5e9;
-            --jp-border-color1: #334155;
-            --jp-border-color2: #475569;
+            /* Enhanced Border System */
+            --border-primary: rgba(255, 255, 255, 0.06);
+            --border-secondary: rgba(255, 255, 255, 0.12);
+            --border-accent: rgba(0, 212, 255, 0.4);
             
-            --jp-brand-color1: #00d4ff;
-            --jp-accent-color1: #0ea5e9;
+            /* Advanced Shadow System */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1);
+            --shadow-glow-strong: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 212, 255, 0.15);
+            
+            /* Enhanced Gradients */
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
+            --gradient-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            --gradient-text: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
+            --gradient-border: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(14, 165, 233, 0.3));
+            --gradient-mesh: radial-gradient(at 40% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                             radial-gradient(at 80% 0%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
+                             radial-gradient(at 0% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+                             radial-gradient(at 80% 100%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+            
+            /* Spacing Scale - 8pt Grid */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --spacing-4xl: 6rem;
+            
+            /* Modern Border Radius */
+            --border-radius-xs: 4px;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --border-radius-2xl: 32px;
+            --border-radius-full: 9999px;
+            
+            /* Enhanced Animation System */
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Z-Index Scale */
+            --z-fixed: 1030;
+            
+            /* Jupyter Notebook Specific Colors */
+            --jp-cell-bg: #1a1a1a;
+            --jp-code-bg: #0d1117;
+            --jp-output-bg: #161b22;
+            --jp-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -39,28 +93,51 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            font-size: var(--jp-ui-font-size1);
+            font-size: 1rem;
             line-height: 1.7;
-            color: var(--jp-content-font-color2);
-            background: var(--jp-layout-color0);
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            background-image: var(--gradient-mesh);
+            background-attachment: fixed;
+            font-weight: 400;
+            letter-spacing: -0.011em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             margin: 0;
             padding: 0;
             padding-top: 100px;
         }
 
-        /* Fixed Header with Enhanced Glass Effect - Matches Home Page */
+        /* Header - Enhanced Glassmorphism */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 
-                        0 1px 0 rgba(255, 255, 255, 0.1) inset;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid var(--border-secondary);
+            z-index: var(--z-fixed);
+            box-shadow: var(--shadow-md), 
+                        0 1px 0 rgba(255, 255, 255, 0.08) inset;
+            transition: all var(--transition-normal);
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        
+        header:hover::after {
+            opacity: 1;
         }
 
         header .header-content {
@@ -70,6 +147,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            overflow: visible;
         }
 
         header .logo {
@@ -93,45 +171,59 @@
             transform: scale(1.05);
         }
 
-        /* Navigation */
+        /* Navigation - Enhanced Micro-Interactions */
         .nav {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--spacing-lg);
             align-items: center;
         }
 
         .nav a {
-            color: #94a3b8;
+            color: var(--text-muted);
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            transition: all var(--transition-normal);
             font-weight: 500;
             font-size: 0.95rem;
             position: relative;
+            overflow: hidden;
         }
 
         .nav a::before {
             content: '';
             position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 50%, #3b82f6 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+            transition: width var(--transition-normal);
+            border-radius: var(--border-radius-full);
         }
 
         .nav a:hover {
-            color: #ffffff;
-            background: rgba(0, 212, 255, 0.1);
+            color: var(--text-primary);
+            background: var(--bg-hover);
+            transform: translateY(-1px);
         }
 
         .nav a:hover::before {
-            opacity: 0.1;
+            width: 80%;
         }
 
         .nav a.active {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+
+        .nav a.active::before {
+            width: 80%;
+        }
+
+        /* Main Content Area */
+        main {
             color: #ffffff;
             background: rgba(0, 212, 255, 0.15);
         }
@@ -168,39 +260,45 @@
             font-weight: 300;
         }
 
-        /* Jupyter Cells */
+        /* Jupyter Notebook Cells - Enhanced Design */
         .jp-Cell {
-            background: var(--jp-layout-color1);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-primary);
             border-left: 3px solid transparent;
-            margin-bottom: 0;
-            transition: border-color 0.2s ease;
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-xl);
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-sm);
         }
 
         .jp-Cell:hover {
-            border-left-color: var(--jp-brand-color1);
+            border-left-color: var(--accent-primary);
+            border-color: var(--border-secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
         .jp-MarkdownCell {
-            padding: 1.5rem 2rem;
+            padding: var(--spacing-xl) var(--spacing-2xl);
         }
 
         .jp-CodeCell {
-            border-top: 1px solid var(--jp-border-color1);
-            border-bottom: 1px solid var(--jp-border-color1);
+            border-top: none;
+            border-bottom: none;
         }
 
-        /* Input Area */
+        /* Input Area - Code Cells */
         .jp-InputArea {
             display: flex;
-            padding: 1rem 0;
+            padding: var(--spacing-md) 0;
         }
 
         .jp-InputPrompt {
             min-width: 80px;
-            padding: 0.5rem 1rem;
-            color: var(--jp-brand-color1);
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--accent-primary);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-weight: 600;
             font-size: 0.9rem;
             text-align: right;
             flex-shrink: 0;
@@ -208,41 +306,42 @@
 
         .jp-CodeMirrorEditor {
             flex: 1;
-            background: var(--jp-layout-color2);
-            border-radius: 4px;
-            margin-right: 2rem;
+            background: var(--jp-code-bg);
+            border-radius: var(--border-radius-sm);
+            margin-right: var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .jp-Editor {
-            padding: 0.75rem 1rem;
+            padding: var(--spacing-md) var(--spacing-lg);
         }
 
         .jp-Editor pre {
             margin: 0;
-            font-family: 'Courier New', monospace;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
             font-size: 0.95rem;
-            line-height: 1.5;
-            color: var(--jp-content-font-color2);
+            line-height: 1.6;
+            color: var(--text-secondary);
         }
 
         .jp-Editor code {
-            font-family: 'Courier New', monospace;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
             background: transparent;
             color: inherit;
         }
 
-        /* Output Area */
+        /* Output Area - Results */
         .jp-OutputArea {
             display: flex;
-            margin-top: 0.5rem;
+            margin-top: var(--spacing-sm);
         }
 
         .jp-OutputPrompt {
             min-width: 80px;
-            padding: 0.5rem 1rem;
-            color: var(--jp-accent-color1);
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--accent-secondary);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-weight: 600;
             font-size: 0.9rem;
             text-align: right;
             flex-shrink: 0;
@@ -250,11 +349,12 @@
 
         .jp-OutputArea-output {
             flex: 1;
-            background: var(--jp-layout-color0);
-            padding: 0.75rem 1rem;
-            margin-right: 2rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
+            background: var(--jp-output-bg);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin-right: var(--spacing-xl);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
             font-size: 0.9rem;
             color: var(--jp-content-font-color2);
         }
