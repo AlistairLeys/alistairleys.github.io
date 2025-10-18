@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabetes Disease Progression Analysis | Alistair Leys - Data Science Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <style>
         /* Design System Variables - Enhanced */
         :root {
@@ -551,50 +550,143 @@
             color: #ffffff;
         }
         
-        /* Jupyter Notebook Code Block - Prism.js Enhanced */
-        pre.code-block {
-            background: #1e1e1e !important;  /* VS Code / Jupyter Lab dark */
-            border: 1px solid #3c3c3c;
-            border-left: 3px solid #007acc;  /* Blue accent like Jupyter */
-            border-radius: 4px;
-            padding: 0;
-            margin: 16px 0;
-            overflow-x: auto;
-            position: relative;
-            box-shadow: none;
+        /* Jupyter Notebook Cells - Exact Cyclistic Structure */
+        .jp-Cell {
+            margin: 2rem 0;
         }
-        
-        pre.code-block code {
+
+        .jp-CodeCell {
+            background: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #007acc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .jp-InputArea {
+            display: flex;
+        }
+
+        .jp-InputPrompt {
+            background: #161b22;
+            color: #00d4ff;
+            padding: 16px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            min-width: 80px;
+            text-align: right;
+            border-right: 1px solid #3c3c3c;
+        }
+
+        .jp-CodeMirrorEditor {
+            flex: 1;
+            background: #1e1e1e;
+        }
+
+        .jp-Editor {
+            padding: 16px;
+        }
+
+        .jp-Editor pre {
+            margin: 0;
+            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d4d4d4;
+            white-space: pre-wrap;
+        }
+
+        .jp-Editor code {
+            font-family: inherit;
+            background: transparent;
+        }
+
+        /* Code Syntax Highlighting - Exact VS Code Colors */
+        .jp-Editor .comment { color: #6a9955; }
+        .jp-Editor .keyword { color: #569cd6; }
+        .jp-Editor .string { color: #ce9178; }
+        .jp-Editor .number { color: #b5cea8; }
+        .jp-Editor .function { color: #dcdcaa; }
+
+        .jp-OutputArea {
+            display: flex;
+            background: #161b22;
+        }
+
+        .jp-OutputPrompt {
+            background: #161b22;
+            color: #0ea5e9;
+            padding: 16px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            min-width: 80px;
+            text-align: right;
+            border-right: 1px solid #3c3c3c;
+        }
+
+        .jp-OutputArea-output {
+            flex: 1;
+            padding: 16px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+
+        .jp-OutputArea-output pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown Cells */
+        .jp-MarkdownCell {
+            padding: 1rem 0;
+        }
+
+        .jp-MarkdownCell .jp-Editor h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .jp-MarkdownCell .jp-Editor h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .jp-MarkdownCell .jp-Editor p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0.75rem 0;
+        }
+
+        /* Legacy support for old structure */
+        .result-card {
+            margin: 2rem 0;
+        }
+
+        .code-block,
+        pre.code-block {
+            background: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #007acc;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 16px 0;
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 14px;
             line-height: 1.6;
-            display: block;
-            padding: 16px;
-            background: transparent !important;
-            tab-size: 4;
-        }
-        
-        pre.code-block:hover {
-            border-left-color: var(--accent-primary);
-        }
-        
-        /* Override Prism theme to match Jupyter exactly */
-        pre[class*="language-"] {
-            background: #1e1e1e !important;
-            margin: 0;
-        }
-        
-        code[class*="language-"] {
-            background: transparent !important;
             color: #d4d4d4;
-            text-shadow: none;
+            overflow-x: auto;
+            white-space: pre-wrap;
         }
-        
-        /* Jupyter Output - Exact Jupyter Dark Theme */
+
         .output {
-            background: #1e1e1e;
+            background: #161b22;
             border: 1px solid #3c3c3c;
-            border-left: 3px solid #4ec9b0;  /* Teal accent for output */
+            border-left: 3px solid #4ec9b0;
             border-radius: 4px;
             padding: 16px;
             margin: 8px 0 16px 0;
@@ -602,9 +694,8 @@
             font-size: 14px;
             line-height: 1.6;
             color: #d4d4d4;
-            box-shadow: none;
             overflow-x: auto;
-            white-space: pre;
+            white-space: pre-wrap;
         }
         
         table {
@@ -1998,8 +2089,6 @@ Healthcare Standards: GDPR compliance, anonymized data
             </main>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
 </body>
 </html>
 
