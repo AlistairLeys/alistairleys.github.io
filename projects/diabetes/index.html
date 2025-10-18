@@ -556,58 +556,187 @@
             color: #ffffff;
         }
         
-        /* Jupyter Notebook Cells - Exact Cyclistic Structure */
+        /* Jupyter Notebook Cells - Enhanced Design with Grey Backdrop (EXACT Cyclistic Match) */
         .jp-Cell {
-            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 3px solid transparent;
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-xl);
+            transition: all var(--transition-normal);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .jp-Cell:hover {
+            border-left-color: var(--accent-primary);
+            border-color: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .jp-MarkdownCell {
+            padding: var(--spacing-xl) var(--spacing-2xl);
         }
 
         .jp-CodeCell {
-            background: #1e1e1e;
-            border: 1px solid #3c3c3c;
-            border-left: 3px solid #007acc;
-            border-radius: 4px;
-            overflow: hidden;
+            border-top: none;
+            border-bottom: none;
         }
 
+        /* Input Area - Code Cells */
         .jp-InputArea {
             display: flex;
+            padding: var(--spacing-md) 0;
         }
 
         .jp-InputPrompt {
-            background: #161b22;
-            color: #00d4ff;
-            padding: 16px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 14px;
             min-width: 80px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--accent-primary);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-align: right;
-            border-right: 1px solid #3c3c3c;
+            flex-shrink: 0;
         }
 
         .jp-CodeMirrorEditor {
             flex: 1;
-            background: #1e1e1e;
+            background: #161b22;
+            border-radius: var(--border-radius-sm);
+            margin-right: var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .jp-Editor {
-            padding: 16px;
+            padding: var(--spacing-md) var(--spacing-lg);
         }
 
         .jp-Editor pre {
             margin: 0;
-            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
-            font-size: 14px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
             line-height: 1.6;
-            color: #d4d4d4;
-            white-space: pre-wrap;
+            color: var(--text-secondary);
         }
 
         .jp-Editor code {
-            font-family: inherit;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
             background: transparent;
+            color: inherit;
         }
 
-        /* Code Syntax Highlighting - Exact VS Code Colors */
+        /* Output Area - Results */
+        .jp-OutputArea {
+            display: flex;
+            margin-top: var(--spacing-sm);
+        }
+
+        .jp-OutputPrompt {
+            min-width: 80px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--accent-secondary);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .jp-OutputArea-output {
+            flex: 1;
+            background: #161b22;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin-right: var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+        }
+
+        .jp-OutputArea-output pre {
+            margin: 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+        }
+
+        /* Markdown Content Styling */
+        .jp-MarkdownCell .jp-Editor h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .jp-MarkdownCell .jp-Editor h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+            font-weight: 600;
+        }
+
+        .jp-MarkdownCell .jp-Editor p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0.75rem 0;
+        }
+
+        .jp-MarkdownCell ul {
+            list-style: none;
+            margin: 1rem 0;
+            padding-left: 0;
+        }
+
+        .jp-MarkdownCell li {
+            position: relative;
+            padding-left: 2rem;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .jp-MarkdownCell li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .jp-MarkdownCell strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .jp-MarkdownCell em {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Image Styling */
+        .jp-MarkdownCell img,
+        .jp-OutputArea-output img {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem auto;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive images for smaller screens */
+        @media (max-width: 900px) {
+            .jp-MarkdownCell img,
+            .jp-OutputArea-output img {
+                max-width: 100%;
+            }
+        }
+
+        /* Code Syntax Highlighting - VS Code Colors */
         .jp-Editor .comment { color: #6a9955; }
         .jp-Editor .keyword { color: #569cd6; }
         .jp-Editor .string { color: #ce9178; }
@@ -620,60 +749,6 @@
         .code-block .string { color: #ce9178; }
         .code-block .number { color: #b5cea8; }
         .code-block .function { color: #dcdcaa; }
-
-        .jp-OutputArea {
-            display: flex;
-            background: #161b22;
-        }
-
-        .jp-OutputPrompt {
-            background: #161b22;
-            color: #0ea5e9;
-            padding: 16px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 14px;
-            min-width: 80px;
-            text-align: right;
-            border-right: 1px solid #3c3c3c;
-        }
-
-        .jp-OutputArea-output {
-            flex: 1;
-            padding: 16px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #d4d4d4;
-            overflow-x: auto;
-        }
-
-        .jp-OutputArea-output pre {
-            margin: 0;
-            white-space: pre-wrap;
-        }
-
-        /* Markdown Cells */
-        .jp-MarkdownCell {
-            padding: 1rem 0;
-        }
-
-        .jp-MarkdownCell .jp-Editor h2 {
-            color: var(--text-primary);
-            font-size: 2rem;
-            margin: 2rem 0 1rem;
-        }
-
-        .jp-MarkdownCell .jp-Editor h3 {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            margin: 1.5rem 0 0.75rem;
-        }
-
-        .jp-MarkdownCell .jp-Editor p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin: 0.75rem 0;
-        }
         
         table {
             width: 100%;
@@ -801,10 +876,21 @@
                         from initial data exploration through model deployment and clinical insights.
                     </p>
 
-                    <div class="result-card">
-                        <h3>1. Data Import & Initial Exploration</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Import essential libraries for comprehensive analysis</span>
+                    
+                    <!-- Markdown Cell: 1. Data Import & Initial Exploration -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>1. Data Import & Initial Exploration</h3>
+                        </div>
+                    </div>
+
+                    <!-- Code Cell: 1. Data Import & Initial Exploration -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [1]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Import essential libraries for comprehensive analysis</span>
 <span class="keyword">import</span> pandas <span class="keyword">as</span> pd
 <span class="keyword">import</span> numpy <span class="keyword">as</span> np
 <span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
@@ -827,23 +913,35 @@ X, y = diabetes.data, diabetes.target
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Shape: </span><span class="string">{</span>X.shape<span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Features: </span><span class="string">{</span>diabetes.feature_names<span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Target range: </span><span class="string">{</span>y.min()<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string"> to </span><span class="string">{</span>y.max()<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Missing values: </span><span class="string">{</span>np.isnan(X).sum()<span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Dataset Overview:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Missing values: </span><span class="string">{</span>np.isnan(X).sum()<span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[1]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Dataset Overview:
 Shape: (442, 10)
 Features: ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
 Target range: 25.0 to 346.0
-Missing values: 0
-                        </code></pre>
+Missing values: 0</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 2. Comprehensive Data Exploration -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>2. Comprehensive Data Exploration</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>2. Comprehensive Data Exploration</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Create comprehensive DataFrame for analysis</span>
+                    <!-- Code Cell: 2. Comprehensive Data Exploration -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [2]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Create comprehensive DataFrame for analysis</span>
 df = pd.DataFrame(X, columns=diabetes.feature_names)
 df[<span class="string">'</span><span class="string">target</span><span class="string">'</span>] = y
 
@@ -852,12 +950,14 @@ df[<span class="string">'</span><span class="string">target</span><span class="s
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Dataset Quality Assessment:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Complete cases: </span><span class="string">{</span>df.dropna().shape[<span class="number">0</span>]<span class="string">}</span><span class="string">/</span><span class="string">{</span>df.shape[<span class="number">0</span>]<span class="string">}</span><span class="string"> (</span><span class="string">{</span><span class="number">100</span>*df.dropna().shape[<span class="number">0</span>]/df.shape[<span class="number">0</span>]<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">%)</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Data types: All numerical (healthcare measurements)</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Standardization: Features are pre-standardized (mean ~0, std ~1)</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Detailed Statistical Summary:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Standardization: Features are pre-standardized (mean ~0, std ~1)</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[2]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Detailed Statistical Summary:
               age         sex         bmi          bp          s1          s2  \
 count  442.000000  442.000000  442.000000  442.000000  442.000000  442.000000   
 mean    -0.000000    0.000000   -0.000000   -0.000000    0.000000   -0.000000   
@@ -881,14 +981,24 @@ max      3.800379    2.582665    4.621899    2.978946  346.000000
 Dataset Quality Assessment:
 Complete cases: 442/442 (100.0%)
 Data types: All numerical (healthcare measurements)  
-Standardization: Features are pre-standardized (mean ~0, std ~1)
-                        </code></pre>
+Standardization: Features are pre-standardized (mean ~0, std ~1)</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 3. Feature Correlation & Clinical Relationships -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>3. Feature Correlation & Clinical Relationships</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>3. Feature Correlation & Clinical Relationships</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Comprehensive correlation analysis</span>
+                    <!-- Code Cell: 3. Feature Correlation & Clinical Relationships -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [3]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Comprehensive correlation analysis</span>
 correlation_matrix = df.corr()
 <span class="function">print</span>(<span class="string">"</span><span class="string">Feature Correlations with Disease Progression:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">50</span>)
@@ -911,12 +1021,14 @@ target_correlations = correlation_matrix[<span class="string">'</span><span clas
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Strongest Clinical Predictors:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• BMI shows strongest correlation (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bmi</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - obesity link confirmed</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• S5 (lamotrigine) second strongest (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">s5</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - drug efficacy marker</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• Blood pressure third (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bp</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - cardiovascular connection</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Feature Correlations with Disease Progression:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• Blood pressure third (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bp</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - cardiovascular connection</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[3]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Feature Correlations with Disease Progression:
 ==================================================
 BMI (Body Mass Index        ):  0.586
  S5 (Lamotrigine levels     ):  0.566
@@ -932,14 +1044,24 @@ SEX (Gender (binary)        ):  0.043
 Strongest Clinical Predictors:
 • BMI shows strongest correlation (0.586) - obesity link confirmed
 • S5 (lamotrigine) second strongest (0.566) - drug efficacy marker  
-• Blood pressure third (0.441) - cardiovascular connection
-                        </code></pre>
+• Blood pressure third (0.441) - cardiovascular connection</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 4. Advanced Statistical Analysis -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>4. Advanced Statistical Analysis</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>4. Advanced Statistical Analysis</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Statistical significance testing and distribution analysis</span>
+                    <!-- Code Cell: 4. Advanced Statistical Analysis -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [4]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Statistical significance testing and distribution analysis</span>
 <span class="keyword">from</span> scipy <span class="keyword">import</span> stats
 
 <span class="function">print</span>(<span class="string">"</span><span class="string">Advanced Statistical Analysis:</span><span class="string">"</span>)
@@ -965,12 +1087,14 @@ shapiro_stat, shapiro_p = stats.shapiro(y)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Clinical Risk Stratification by Quartiles:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Target quartiles: Q1=</span><span class="string">{</span>np.percentile(y, <span class="number">25</span>)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">, </span><span class="string">"</span> +
       <span class="string">f</span><span class="string">"</span><span class="string">Q2=</span><span class="string">{</span>np.percentile(y, <span class="number">50</span>)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">, </span><span class="string">"</span> +
-      <span class="string">f</span><span class="string">"</span><span class="string">Q3=</span><span class="string">{</span>np.percentile(y, <span class="number">75</span>)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Advanced Statistical Analysis:
+      <span class="string">f</span><span class="string">"</span><span class="string">Q3=</span><span class="string">{</span>np.percentile(y, <span class="number">75</span>)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[4]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Advanced Statistical Analysis:
 ============================================================
 Target Distribution Analysis:
   Shapiro-Wilk normality test: W=0.9928, p=1.4832e-01
@@ -989,19 +1113,24 @@ Feature-Target Relationship Strength:
    S6: Pearson r= 0.382 (p=4.047e-16), Spearman ρ= 0.380 (p=5.584e-16)
 
 Clinical Risk Stratification by Quartiles:
-Target quartiles: Q1=87.0, Q2=140.5, Q3=211.5
-                        </code></pre>
+Target quartiles: Q1=87.0, Q2=140.5, Q3=211.5</pre>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <!-- Markdown Cell: 5. Model Training & Comparison -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>5. Model Training & Comparison</h3>
+                        </div>
+                    </div>
 
-                <section class="section">
-                    <h2>Machine Learning Pipeline Implementation</h2>
-                    
-                    <div class="result-card">
-                        <h3>5. Model Training & Comparison</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Comprehensive model evaluation pipeline</span>
+                    <!-- Code Cell: 5. Model Training & Comparison -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [5]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Comprehensive model evaluation pipeline</span>
 <span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingRegressor
 <span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR
 <span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler
@@ -1060,12 +1189,14 @@ model_results = {}
 <span class="comment"># Identify best model</span>
 best_model_name = <span class="function">max</span>(model_results.keys(), key=<span class="keyword">lambda</span> k: model_results[k][<span class="string">'</span><span class="string">cv_mean</span><span class="string">'</span>])
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Best Model: </span><span class="string">{</span>best_model_name<span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Cross-validation R²: </span><span class="string">{</span>model_results[best_model_name][<span class="string">'</span><span class="string">cv_mean</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>model_results[best_model_name][<span class="string">'</span><span class="string">cv_std</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Machine Learning Model Comparison:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Cross-validation R²: </span><span class="string">{</span>model_results[best_model_name][<span class="string">'</span><span class="string">cv_mean</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>model_results[best_model_name][<span class="string">'</span><span class="string">cv_std</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[5]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Machine Learning Model Comparison:
 ======================================================================
 Training set: 353 samples
 Test set: 89 samples
@@ -1079,14 +1210,24 @@ Gradient Boosting    0.946      0.584      49.5       0.551±0.091
 Support Vector       0.226      0.024      75.9       0.109±0.096   
 
 Best Model: Random Forest
-Cross-validation R²: 0.563±0.089
-                        </code></pre>
+Cross-validation R²: 0.563±0.089</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 6. Feature Importance & Clinical Interpretation -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>6. Feature Importance & Clinical Interpretation</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>6. Feature Importance & Clinical Interpretation</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Detailed feature importance analysis using best model</span>
+                    <!-- Code Cell: 6. Feature Importance & Clinical Interpretation -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [6]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Detailed feature importance analysis using best model</span>
 best_model = model_results[best_model_name][<span class="string">'</span><span class="string">model</span><span class="string">'</span>]
 
 <span class="comment"># Get feature importance from Random Forest</span>
@@ -1135,12 +1276,14 @@ top_2_features = importance_df.head(<span class="number">2</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• </span><span class="string">{</span>top_2_features.iloc[<span class="number">0</span>][<span class="string">'</span><span class="string">feature</span><span class="string">'</span>].upper()<span class="string">}</span><span class="string"> (</span><span class="string">{</span>top_2_features.iloc[<span class="number">0</span>][<span class="string">'</span><span class="string">clinical</span><span class="string">'</span>]<span class="string">}</span><span class="string">) </span><span class="string">"</span> +
       <span class="string">f</span><span class="string">"</span><span class="string">is the strongest predictor (</span><span class="string">{</span>top_2_features.iloc[<span class="number">0</span>][<span class="string">'</span><span class="string">rf_importance</span><span class="string">'</span>]<span class="string">:</span><span class="string">.1%</span><span class="string">}</span><span class="string">)</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• </span><span class="string">{</span>top_2_features.iloc[<span class="number">1</span>][<span class="string">'</span><span class="string">feature</span><span class="string">'</span>].upper()<span class="string">}</span><span class="string"> (</span><span class="string">{</span>top_2_features.iloc[<span class="number">1</span>][<span class="string">'</span><span class="string">clinical</span><span class="string">'</span>]<span class="string">}</span><span class="string">) </span><span class="string">"</span> +
-      <span class="string">f</span><span class="string">"</span><span class="string">is second most important (</span><span class="string">{</span>top_2_features.iloc[<span class="number">1</span>][<span class="string">'</span><span class="string">rf_importance</span><span class="string">'</span>]<span class="string">:</span><span class="string">.1%</span><span class="string">}</span><span class="string">)</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Comprehensive Feature Importance Analysis:
+      <span class="string">f</span><span class="string">"</span><span class="string">is second most important (</span><span class="string">{</span>top_2_features.iloc[<span class="number">1</span>][<span class="string">'</span><span class="string">rf_importance</span><span class="string">'</span>]<span class="string">:</span><span class="string">.1%</span><span class="string">}</span><span class="string">)</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[6]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Comprehensive Feature Importance Analysis:
 ================================================================================
 Feature      Clinical Meaning          RF Imp   Perm Imp   Perm Std
 --------------------------------------------------------------------------------
@@ -1158,14 +1301,24 @@ SEX          Gender                    0.002    0.001      0.008
 Clinical Insights:
 • Top 2 features (S5, BMI) explain 78.7% of prediction decisions
 • S5 (Lamotrigine Level) is the strongest predictor (46.2%)
-• BMI (Body Mass Index) is second most important (32.5%)
-                        </code></pre>
+• BMI (Body Mass Index) is second most important (32.5%)</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 7. Patient Clustering & Risk Stratification -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>7. Patient Clustering & Risk Stratification</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>7. Patient Clustering & Risk Stratification</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Advanced patient segmentation using K-means clustering</span>
+                    <!-- Code Cell: 7. Patient Clustering & Risk Stratification -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [7]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Advanced patient segmentation using K-means clustering</span>
 <span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans
 <span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler
 
@@ -1228,12 +1381,14 @@ df[<span class="string">'</span><span class="string">cluster</span><span class="
         
     <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Risk Assessment: </span><span class="string">{</span>risk_level<span class="string">}</span><span class="string">"</span>)
     <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Recommendation: </span><span class="string">{</span>recommendation<span class="string">}</span><span class="string">"</span>)
-    <span class="function">print</span>()
-
-</code></pre>
-                        
-                        <div class="output">
-Patient Clustering Analysis:
+    <span class="function">print</span>()</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[7]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Patient Clustering Analysis:
 ============================================================
 Optimal clusters: 3
 Silhouette score: 0.421
@@ -1263,19 +1418,24 @@ CLUSTER 2: 144 patients (32.6%)
     S5:    0.27 (HIGH, +27% vs population)
     BP:   -0.18 (NORMAL, -18% vs population)
   Risk Assessment: MODERATE RISK  
-  Recommendation: Enhanced monitoring with lifestyle intervention
-                        </code></pre>
+  Recommendation: Enhanced monitoring with lifestyle intervention</pre>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <!-- Markdown Cell: 8. Model Validation & Performance Metrics -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>8. Model Validation & Performance Metrics</h3>
+                        </div>
+                    </div>
 
-                <section class="section">
-                    <h2>Model Validation & Statistical Analysis</h2>
-                    
-                    <div class="result-card">
-                        <h3>8. Model Validation & Performance Metrics</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Comprehensive model validation and performance analysis</span>
+                    <!-- Code Cell: 8. Model Validation & Performance Metrics -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [8]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Comprehensive model validation and performance analysis</span>
 <span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error, explained_variance_score
 <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> learning_curve, validation_curve
 
@@ -1323,12 +1483,14 @@ train_sizes, train_scores, val_scores = learning_curve(
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Learning Curve Analysis:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Training score (final): </span><span class="string">{</span>train_scores[-<span class="number">1</span>].mean()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>train_scores[-<span class="number">1</span>].std()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Validation score (final): </span><span class="string">{</span>val_scores[-<span class="number">1</span>].mean()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>val_scores[-<span class="number">1</span>].std()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Overfitting assessment: </span><span class="string">{</span><span class="string">'</span><span class="string">MINIMAL</span><span class="string">'</span> <span class="keyword">if</span> <span class="function">abs</span>(train_scores[-<span class="number">1</span>].mean() - val_scores[-<span class="number">1</span>].mean()) < <span class="number">0.1</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Comprehensive Model Validation:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Overfitting assessment: </span><span class="string">{</span><span class="string">'</span><span class="string">MINIMAL</span><span class="string">'</span> <span class="keyword">if</span> <span class="function">abs</span>(train_scores[-<span class="number">1</span>].mean() - val_scores[-<span class="number">1</span>].mean()) < <span class="number">0.1</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[8]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Comprehensive Model Validation:
 ======================================================================
 Final Model Performance on Test Set:
   R² Score:           0.611 (61.1% variance explained)
@@ -1349,14 +1511,24 @@ Clinical Error Analysis:
 Learning Curve Analysis:
   Training score (final): 0.912±0.018
   Validation score (final): 0.563±0.089
-  Overfitting assessment: MODERATE
-                        </code></pre>
+  Overfitting assessment: MODERATE</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 9. Hyperparameter Optimization & Model Tuning -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>9. Hyperparameter Optimization & Model Tuning</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>9. Hyperparameter Optimization & Model Tuning</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Advanced hyperparameter tuning for optimal performance</span>
+                    <!-- Code Cell: 9. Hyperparameter Optimization & Model Tuning -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [9]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Advanced hyperparameter tuning for optimal performance</span>
 <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV, RandomizedSearchCV
 
 <span class="function">print</span>(<span class="string">"</span><span class="string">Hyperparameter Optimization Analysis:</span><span class="string">"</span>)
@@ -1409,12 +1581,14 @@ feature_importance_tuned = pd.DataFrame({
 }).sort_values(<span class="string">'</span><span class="string">importance</span><span class="string">'</span>, ascending=<span class="keyword">False</span>)
 
 <span class="keyword">for</span> i, (_, row) in <span class="function">enumerate</span>(feature_importance_tuned.head(<span class="number">5</span>).iterrows()):
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i+<span class="number">1</span><span class="string">}</span><span class="string">. </span><span class="string">{</span>row[<span class="string">'</span><span class="string">feature</span><span class="string">'</span>].upper()<span class="string">}</span><span class="string">: </span><span class="string">{</span>row[<span class="string">'</span><span class="string">importance</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Hyperparameter Optimization Analysis:
+    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i+<span class="number">1</span><span class="string">}</span><span class="string">. </span><span class="string">{</span>row[<span class="string">'</span><span class="string">feature</span><span class="string">'</span>].upper()<span class="string">}</span><span class="string">: </span><span class="string">{</span>row[<span class="string">'</span><span class="string">importance</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[9]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Hyperparameter Optimization Analysis:
 ============================================================
 Hyperparameter Tuning Results:
   Best CV Score: 0.571
@@ -1435,14 +1609,24 @@ Optimized Feature Importance (Top 5):
   2. BMI: 0.331  
   3. S6: 0.084
   4. BP: 0.051
-  5. S1: 0.031
-                        </code></pre>
+  5. S1: 0.031</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 10. Advanced Statistical Validation -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>10. Advanced Statistical Validation</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>10. Advanced Statistical Validation</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Statistical significance testing and confidence intervals</span>
+                    <!-- Code Cell: 10. Advanced Statistical Validation -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [10]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Statistical significance testing and confidence intervals</span>
 <span class="keyword">from</span> scipy.stats <span class="keyword">import</span> t
 <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_validate
 
@@ -1505,12 +1689,14 @@ bootstrap_scores = np.array(bootstrap_scores)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Bootstrap R² mean: </span><span class="string">{</span>bootstrap_scores.mean()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Bootstrap R² std:  </span><span class="string">{</span>bootstrap_scores.std()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Bootstrap 95% CI:  [</span><span class="string">{</span>np.percentile(bootstrap_scores, <span class="number">2.5</span>)<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">, </span><span class="string">{</span>np.percentile(bootstrap_scores, <span class="number">97.5</span>)<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">]</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Model stability:   </span><span class="string">{</span><span class="string">'</span><span class="string">EXCELLENT</span><span class="string">'</span> <span class="keyword">if</span> bootstrap_scores.std() < <span class="number">0.1</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">GOOD</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Advanced Statistical Validation:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Model stability:   </span><span class="string">{</span><span class="string">'</span><span class="string">EXCELLENT</span><span class="string">'</span> <span class="keyword">if</span> bootstrap_scores.std() < <span class="number">0.1</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">GOOD</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[10]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Advanced Statistical Validation:
 ======================================================================
 10-Fold Cross-Validation Results:
   R² Score:  0.571 ± 0.088
@@ -1526,19 +1712,24 @@ Bootstrap Validation (n=100):
   Bootstrap R² mean: 0.567
   Bootstrap R² std:  0.091
   Bootstrap 95% CI:  [0.381, 0.729]
-  Model stability:   EXCELLENT
-                        </code></pre>
+  Model stability:   EXCELLENT</pre>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <!-- Markdown Cell: 11. Risk Prediction Algorithm Implementation -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>11. Risk Prediction Algorithm Implementation</h3>
+                        </div>
+                    </div>
 
-                <section class="section">
-                    <h2>Clinical Decision Support System</h2>
-                    
-                    <div class="result-card">
-                        <h3>11. Risk Prediction Algorithm Implementation</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Clinical decision support system implementation</span>
+                    <!-- Code Cell: 11. Risk Prediction Algorithm Implementation -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [11]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Clinical decision support system implementation</span>
 <span class="keyword">def</span> <span class="function">predict_diabetes_progression</span>(patient_data, model=tuned_model):
     <span class="string">"""
     Clinical prediction function for diabetes progression
@@ -1628,12 +1819,14 @@ clinical_cases = [
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  🟢 LOW: Standard 6-month monitoring</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  🟡 MODERATE-LOW: 3-month follow-up with lifestyle counseling</span><span class="string">"</span>)  
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  🟠 MODERATE-HIGH: Monthly monitoring + targeted interventions</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  🔴 HIGH: Immediate specialist referral + intensive management</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Clinical Decision Support System - Example Cases:
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  🔴 HIGH: Immediate specialist referral + intensive management</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[11]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Clinical Decision Support System - Example Cases:
 ================================================================================
 
 Patient_001: Low-risk elderly patient
@@ -1664,14 +1857,24 @@ Clinical Implementation Guidelines:
   🟢 LOW: Standard 6-month monitoring
   🟡 MODERATE-LOW: 3-month follow-up with lifestyle counseling  
   🟠 MODERATE-HIGH: Monthly monitoring + targeted interventions
-  🔴 HIGH: Immediate specialist referral + intensive management
-                        </code></pre>
+  🔴 HIGH: Immediate specialist referral + intensive management</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 12. Model Interpretability & Explainable AI -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>12. Model Interpretability & Explainable AI</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>12. Model Interpretability & Explainable AI</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># SHAP analysis for model interpretability (simulated output for demonstration)</span>
+                    <!-- Code Cell: 12. Model Interpretability & Explainable AI -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [12]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># SHAP analysis for model interpretability (simulated output for demonstration)</span>
 <span class="comment"># Note: In production, this would use actual SHAP library</span>
 
 <span class="function">print</span>(<span class="string">"</span><span class="string">Model Interpretability Analysis (SHAP-like Analysis):</span><span class="string">"</span>)
@@ -1725,12 +1928,14 @@ upper_bound = sample_prediction[<span class="string">'</span><span class="string
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Point Prediction: </span><span class="string">{</span>sample_prediction[<span class="string">'</span><span class="string">prediction</span><span class="string">'</span>]<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  95% Confidence Interval: [</span><span class="string">{</span><span class="function">max</span>(<span class="number">0</span>, lower_bound)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">, </span><span class="string">{</span>upper_bound<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">]</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Prediction Reliability: </span><span class="string">{</span><span class="string">'</span><span class="string">HIGH</span><span class="string">'</span> <span class="keyword">if</span> confidence_95 < <span class="number">100</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Clinical Decision Confidence: Suitable for clinical decision support</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Model Interpretability Analysis (SHAP-like Analysis):
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Clinical Decision Confidence: Suitable for clinical decision support</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[12]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Model Interpretability Analysis (SHAP-like Analysis):
 ======================================================================
 Patient Risk Analysis:
   Base Risk (Population Average): 152.1
@@ -1753,19 +1958,24 @@ Prediction Confidence Analysis:
   Point Prediction: 298.7
   95% Confidence Interval: [204.8, 392.6]
   Prediction Reliability: MODERATE
-  Clinical Decision Confidence: Suitable for clinical decision support
-                        </code></pre>
+  Clinical Decision Confidence: Suitable for clinical decision support</pre>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <!-- Markdown Cell: 13. Production Implementation Framework -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>13. Production Implementation Framework</h3>
+                        </div>
+                    </div>
 
-                <section class="section">
-                    <h2>Production Deployment & Business Impact</h2>
-                    
-                    <div class="result-card">
-                        <h3>13. Production Implementation Framework</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Production deployment considerations and architecture</span>
+                    <!-- Code Cell: 13. Production Implementation Framework -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [13]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Production deployment considerations and architecture</span>
 
 <span class="function">print</span>(<span class="string">"</span><span class="string">Production Deployment Framework:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">70</span>)
@@ -1861,12 +2071,14 @@ retrain_conditions = [
 ]
 
 <span class="keyword">for</span> i, condition in <span class="function">enumerate</span>(retrain_conditions, <span class="number">1</span>):
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i<span class="string">}</span><span class="string">. </span><span class="string">{</span>condition<span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Production Deployment Framework:
+    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i<span class="string">}</span><span class="string">. </span><span class="string">{</span>condition<span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[13]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Production Deployment Framework:
 ======================================================================
 Model Deployment Specifications:
   Model Version: 1.2.0
@@ -1893,14 +2105,24 @@ Retraining Triggers:
   2. Significant feature drift detected (p<0.05)
   3. New clinical guidelines or treatment protocols
   4. Quarterly scheduled retraining cycle
-  5. Addition of new patient populations or demographics
-                        </code></pre>
+  5. Addition of new patient populations or demographics</pre>
+                            </div>
                         </div>
+                    </div>
+                    <!-- Markdown Cell: 14. Business Impact Analysis & ROI -->
+                    <div class="jp-Cell jp-MarkdownCell">
+                        <div class="jp-Editor">
+                            <h3>14. Business Impact Analysis & ROI</h3>
+                        </div>
+                    </div>
 
-                    <div class="result-card">
-                        <h3>14. Business Impact Analysis & ROI</h3>
-                        <pre class="code-block"><code class="language-python">
-<span class="comment"># Comprehensive business impact analysis</span>
+                    <!-- Code Cell: 14. Business Impact Analysis & ROI -->
+                    <div class="jp-Cell jp-CodeCell">
+                        <div class="jp-InputArea">
+                            <div class="jp-InputPrompt">In [14]:</div>
+                            <div class="jp-CodeMirrorEditor">
+                                <div class="jp-Editor">
+                                    <pre><code><span class="comment"># Comprehensive business impact analysis</span>
 
 <span class="function">print</span>(<span class="string">"</span><span class="string">Business Impact & Return on Investment Analysis:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">80</span>)
@@ -1994,12 +2216,14 @@ risk_benefits = [
 ]
 
 <span class="keyword">for</span> i, benefit in <span class="function">enumerate</span>(risk_benefits, <span class="number">1</span>):
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i<span class="string">}</span><span class="string">. </span><span class="string">{</span>benefit<span class="string">}</span><span class="string">"</span>)
-
-</code></pre>
-                        
-                        <div class="output">
-Business Impact & Return on Investment Analysis:
+    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i<span class="string">}</span><span class="string">. </span><span class="string">{</span>benefit<span class="string">}</span><span class="string">"</span>)</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-OutputArea">
+                            <div class="jp-OutputPrompt">Out[14]:</div>
+                            <div class="jp-OutputArea-output">
+                                <pre>Business Impact & Return on Investment Analysis:
 ================================================================================
 Healthcare System Analysis:
   Patient Population: 10,000
@@ -2036,48 +2260,10 @@ Risk Mitigation Benefits:
   2. Improved regulatory compliance with standardized risk assessment
   3. Enhanced patient safety through systematic monitoring protocols
   4. Better resource utilization reducing operational inefficiencies
-  5. Competitive advantage through advanced analytics capabilities
-                        </code></pre>
+  5. Competitive advantage through advanced analytics capabilities</pre>
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2>Technical Implementation</h2>
-                    <pre class="code-block"><code class="language-python">
-# Core Technologies & Implementation Stack:
-────────────────────────────────────────────────────
-Platform: Python 3.8+ with Jupyter Notebooks
-ML Library: scikit-learn (RandomForestRegressor, KMeans)
-Data Processing: pandas, numpy for data manipulation
-Statistical Analysis: scipy.stats for significance testing
-Visualization: matplotlib, seaborn for clinical presentations
-Model Evaluation: cross_val_score, permutation_importance
-Healthcare Standards: GDPR compliance, anonymized data
-────────────────────────────────────────────────────
-
-# Key Implementation Features:
-• Robust cross-validation with statistical significance testing
-• Feature importance analysis with clinical interpretation
-• Patient segmentation with actionable risk profiles  
-• Scalable pipeline design for production healthcare systems
-                    </div>
-                </section>
-
-                <section class="section">
-                    <h2>Project Outcomes & Impact</h2>
-                    <p>
-                        This analysis demonstrates a complete data science pipeline from exploration to deployment-ready insights. 
-                        The predictive models achieve strong performance with <strong>56% explained variance</strong>, while patient 
-                        segmentation provides actionable clinical recommendations that resulted in a <strong>40% improvement in patient engagement</strong> 
-                        when applied in healthcare settings.
-                    </p>
-                    <p>
-                        The methodology and findings showcase technical expertise in machine learning, statistical analysis, and healthcare analytics - 
-                        directly applicable to real-world healthcare data science roles requiring both technical depth and clinical understanding.
-                    </p>
-                </section>
-            </main>
+                    </div></main>
         </div>
     </div>
 </body>
