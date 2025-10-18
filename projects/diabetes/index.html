@@ -320,44 +320,52 @@
             line-height: 1.8;
         }
         
-        /* Results Cards */
+        /* Results Cards - Clean structure like Cyclistic */
         .result-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--border-radius-lg);
-            padding: var(--spacing-xl);
-            margin-bottom: var(--spacing-lg);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all var(--transition-smooth);
-            position: relative;
-        }
-        
-        .result-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-color: rgba(0, 212, 255, 0.2);
+            margin: 2rem 0;
+            background: transparent;  /* No outer box */
+            border: none;
+            padding: 0;
         }
         
         .result-card h3 {
-            color: var(--accent-cyan);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            padding: 0;
         }
         
-        /* Code Blocks */
+        /* Code Blocks - Direct styling without nesting */
         .code-block {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-lg);
-            margin: var(--spacing-lg) 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: var(--font-size-sm);
-            color: var(--text-secondary);
+            background: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #007acc;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d4d4d4;
             overflow-x: auto;
-            box-shadow: var(--shadow-soft);
+            white-space: pre-wrap;
+        }
+
+        /* Output Blocks - Darker background for results */
+        .output {
+            background: #0d1117;
+            border: 1px solid #3c3c3c;
+            border-left: 3px solid #4ec9b0;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 8px 0 16px 0;
+            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #d4d4d4;
+            overflow-x: auto;
+            white-space: pre-wrap;
         }
         
         /* Metrics */
@@ -665,42 +673,6 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin: 0.75rem 0;
-        }
-
-        /* Legacy support for old structure */
-        .result-card {
-            margin: 2rem 0;
-        }
-
-        .code-block,
-        pre.code-block {
-            background: #161b22;
-            border: 1px solid #3c3c3c;
-            border-left: 3px solid #007acc;
-            border-radius: 4px;
-            padding: 16px;
-            margin: 16px 0;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #d4d4d4;
-            overflow-x: auto;
-            white-space: pre-wrap;
-        }
-
-        .output {
-            background: #0d1117;
-            border: 1px solid #3c3c3c;
-            border-left: 3px solid #4ec9b0;
-            border-radius: 4px;
-            padding: 16px;
-            margin: 8px 0 16px 0;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #d4d4d4;
-            overflow-x: auto;
-            white-space: pre-wrap;
         }
         
         table {
