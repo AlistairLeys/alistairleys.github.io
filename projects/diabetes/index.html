@@ -322,20 +322,21 @@
         
         /* Results Cards */
         .result-card {
-            background: var(--surface-elevated);
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: var(--border-radius-lg);
             padding: var(--spacing-xl);
             margin-bottom: var(--spacing-lg);
             backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-elevated);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all var(--transition-smooth);
             position: relative;
         }
         
         .result-card:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-floating);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 212, 255, 0.2);
         }
         
         .result-card h3 {
@@ -673,7 +674,7 @@
 
         .code-block,
         pre.code-block {
-            background: #1e1e1e;
+            background: #161b22;
             border: 1px solid #3c3c3c;
             border-left: 3px solid #007acc;
             border-radius: 4px;
@@ -688,7 +689,7 @@
         }
 
         .output {
-            background: #161b22;
+            background: #0d1117;
             border: 1px solid #3c3c3c;
             border-left: 3px solid #4ec9b0;
             border-radius: 4px;
