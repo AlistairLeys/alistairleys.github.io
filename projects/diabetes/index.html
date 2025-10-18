@@ -555,6 +555,73 @@
         strong {
             color: #ffffff;
         }
+
+        /* Notebook Container & Header - Exact Cyclistic Match */
+        .notebook-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            min-height: 100vh;
+        }
+
+        .notebook-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .notebook-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 50%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .notebook-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Key Metrics Grid - Exact Cyclistic Match */
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
         
         /* Jupyter Notebook Cells - Enhanced Design with Grey Backdrop (EXACT Cyclistic Match) */
         .jp-Cell {
@@ -820,63 +887,59 @@
         </div>
     </header>
 
-    <div class="main-container">
-        <div class="container">
-            <main>
-                <section class="hero">
-                    <h1>Diabetes Disease Progression Analysis</h1>
-                    <p class="tagline">Comprehensive machine learning analysis demonstrating end-to-end data science pipeline with real healthcare data</p>
-                </section>
+    <div class="notebook-container">
+        <div class="notebook-header">
+            <h1 class="notebook-title">Diabetes Disease Progression Analysis 🏥</h1>
+            <p class="notebook-subtitle">Comprehensive Machine Learning Analysis with Real Healthcare Data - 442 Patient Records</p>
+        </div>
 
-                <section class="section">
-                    <h2>Project Overview</h2>
-                    <p>
-                        This project demonstrates advanced data science techniques applied to diabetes progression analysis using 442 real patient records. 
-                        The analysis showcases predictive modeling, patient segmentation, and clinical insights for healthcare applications, achieving 
-                        56% explained variance in disease progression with actionable recommendations for healthcare providers.
-                    </p>
-                    
-                    <div class="metrics-grid">
-                        <div class="metric">
-                            <div class="metric-value">442</div>
-                            <div class="metric-label">Patient Records</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">56%</div>
-                            <div class="metric-label">Explained Variance</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">3</div>
-                            <div class="metric-label">Risk Clusters</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">40%</div>
-                            <div class="metric-label">Patient Engagement Improvement</div>
-                        </code></pre>
-                        </div>
+        <!-- Markdown Cell: Project Overview -->
+        <div class="jp-Cell jp-MarkdownCell">
+            <div class="jp-Editor">
+                <h2>📊 Project Overview & Business Context</h2>
+                
+                <p>This project demonstrates advanced data science techniques applied to diabetes progression analysis using 442 real patient records. 
+                The analysis showcases predictive modeling, patient segmentation, and clinical insights for healthcare applications, achieving 
+                56% explained variance in disease progression with actionable recommendations for healthcare providers.</p>
+
+                <h3>Project Metrics:</h3>
+                <div class="key-metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">442</div>
+                        <div class="metric-label">Patient Records</div>
                     </div>
-                </section>
+                    <div class="metric-card">
+                        <div class="metric-value">56%</div>
+                        <div class="metric-label">Explained Variance</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Risk Clusters</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Patient Engagement Improvement</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <section class="section">
-                    <h2>Key Skills Demonstrated</h2>
-                    <ul>
-                        <li><strong>Machine Learning:</strong> Random Forest regression, clustering, model comparison and validation</li>
-                        <li><strong>Statistical Analysis:</strong> Correlation analysis, feature importance, cross-validation with statistical significance</li>
-                        <li><strong>Healthcare Analytics:</strong> Patient segmentation, risk stratification, clinical decision support systems</li>
-                        <li><strong>Data Pipeline:</strong> Complete ETL workflow from raw healthcare data to actionable insights</li>
-                        <li><strong>Feature Engineering:</strong> Risk categorization, derived variables, and healthcare-specific transformations</li>
-                        <li><strong>Business Intelligence:</strong> Clinical recommendations, stakeholder-ready insights, ROI measurement</li>
-                    </ul>
-                </section>
+        <!-- Markdown Cell: Key Skills -->
+        <div class="jp-Cell jp-MarkdownCell">
+            <div class="jp-Editor">
+                <h2>🎯 Key Skills Demonstrated</h2>
+                <ul>
+                    <li><strong>Machine Learning:</strong> Random Forest regression, clustering, model comparison and validation</li>
+                    <li><strong>Statistical Analysis:</strong> Correlation analysis, feature importance, cross-validation with statistical significance</li>
+                    <li><strong>Healthcare Analytics:</strong> Patient segmentation, risk stratification, clinical decision support systems</li>
+                    <li><strong>Data Pipeline:</strong> Complete ETL workflow from raw healthcare data to actionable insights</li>
+                    <li><strong>Feature Engineering:</strong> Risk categorization, derived variables, and healthcare-specific transformations</li>
+                    <li><strong>Business Intelligence:</strong> Clinical recommendations, stakeholder-ready insights, ROI measurement</li>
+                </ul>
+            </div>
+        </div>
 
-                <section class="section">
-                    <h2>Complete Analysis Workflow</h2>
-                    <p>
-                        This section presents the complete Jupyter notebook analysis, demonstrating the full data science pipeline 
-                        from initial data exploration through model deployment and clinical insights.
-                    </p>
-
-                    
+        
                     <!-- Markdown Cell: 1. Data Import & Initial Exploration -->
                     <div class="jp-Cell jp-MarkdownCell">
                         <div class="jp-Editor">
@@ -2263,8 +2326,7 @@ Risk Mitigation Benefits:
   5. Competitive advantage through advanced analytics capabilities</pre>
                             </div>
                         </div>
-                    </div></main>
-        </div>
+                    </div>
     </div>
 </body>
 </html>
