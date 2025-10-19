@@ -105,7 +105,6 @@
             -moz-osx-font-smoothing: grayscale;
             margin: 0;
             padding: 0;
-            padding-top: 100px;
             overflow-x: hidden;
             max-width: 100vw;
         }
@@ -485,60 +484,68 @@
 
         /* Responsive Design - Mobile Optimization with UX Best Practices */
         @media (max-width: 768px) {
-            /* Header adjustments - 8px grid system */
+            /* Smart header layout - compact and intelligent */
             header {
-                padding: 1rem 1rem; /* 16px for better touch targets */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             }
 
             .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
+                padding: 1rem 1.25rem;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
             }
 
             .logo {
-                font-size: 1.25rem;
-                padding: 0.5rem 0; /* Better touch target */
+                font-size: 1.15rem;
+                padding: 0.5rem 0;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
 
+            /* Smart navigation - horizontal, compact, intelligent spacing */
             .nav {
+                display: flex;
                 flex-direction: row;
-                gap: 0.5rem; /* 8px grid system */
-                width: 100%;
-                flex-wrap: wrap;
+                gap: 0.5rem;
+                align-items: center;
+                flex-shrink: 0;
             }
 
             .nav a {
-                padding: 0.75rem 1.25rem; /* 44px height for touch targets */
-                font-size: 0.9rem;
-                min-height: 44px; /* iOS recommended touch target */
-                display: flex;
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
+                min-height: 40px;
+                display: inline-flex;
                 align-items: center;
                 justify-content: center;
+                white-space: nowrap;
+                border-radius: 8px;
             }
 
-            /* Notebook container mobile adjustments - improved spacing hierarchy */
+            /* Notebook container mobile adjustments - precise spacing */
             .notebook-container {
-                padding-top: 140px; /* Increased space for better title visibility */
+                padding-top: 80px; /* Exactly matches compact header height */
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
 
             .notebook-header {
-                padding: 2rem 1rem; /* Increased padding for better breathing room */
-                margin-bottom: 1rem; /* Additional separation from content */
+                padding: 2rem 1rem;
+                margin-bottom: 1rem;
             }
 
             .notebook-title {
-                font-size: 1.875rem; /* 30px - better mobile typography scale */
-                line-height: 1.3; /* Improved line height for readability */
-                margin-bottom: 0.75rem; /* Better spacing */
-                word-wrap: break-word; /* Prevent overflow */
+                font-size: 1.875rem;
+                line-height: 1.3;
+                margin-bottom: 0.75rem;
+                word-wrap: break-word;
             }
 
             .notebook-subtitle {
                 font-size: 1rem;
-                line-height: 1.5; /* Better readability */
+                line-height: 1.5;
                 margin-top: 0.5rem;
             }
 
@@ -698,8 +705,26 @@
 
         /* Extra small mobile devices (phones in portrait) */
         @media (max-width: 480px) {
+            .header-content {
+                padding: 0.875rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.05rem;
+            }
+
+            .nav {
+                gap: 0.375rem;
+            }
+
+            .nav a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8125rem;
+                min-height: 36px;
+            }
+
             .notebook-container {
-                padding-top: 150px; /* Even more space for smaller screens */
+                padding-top: 75px;
             }
 
             .notebook-header {
@@ -707,7 +732,7 @@
             }
 
             .notebook-title {
-                font-size: 1.625rem; /* 26px - optimized for small screens */
+                font-size: 1.625rem;
                 line-height: 1.3;
             }
 
