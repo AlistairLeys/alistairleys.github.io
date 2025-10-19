@@ -806,6 +806,7 @@
         <div class="notebook-header">
             <h1 class="notebook-title">Cyclistic Bike-Share Analysis 🚴‍♀️</h1>
             <p class="notebook-subtitle">Comprehensive Data Analysis Using 499,176 Real Chicago Bike-Share Trips from 2023</p>
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);"><strong>Data Source:</strong> Divvy trip data (Chicago bike-share system) made available by Motivate International Inc. under <a href="https://www.divvybikes.com/data-license-agreement" target="_blank" style="color: var(--accent-primary);">license</a>. Analysis completed as part of Google Data Analytics Certificate case study.</p>
         </div>
 
         <!-- Markdown Cell: Business Problem Statement -->
@@ -813,7 +814,9 @@
             <div class="jp-Editor">
                 <h2>🎯 Business Problem & Strategic Context</h2>
                 
-                <p><strong>Cyclistic</strong>, a Chicago bike-share company, seeks to maximise annual memberships by converting casual riders who already know and use the service. Marketing Director Lily Moreno believes this represents the highest-value growth opportunity.</p>
+                <p><strong>Cyclistic</strong>, a fictional bike-share company used for this case study, seeks to maximise annual memberships by converting casual riders who already know and use the service. Marketing Director Lily Moreno (fictional stakeholder) believes this represents the highest-value growth opportunity.</p>
+                
+                <p><strong>Note:</strong> While "Cyclistic" is a fictional company name from the Google Data Analytics Certificate program, this analysis uses real trip data from Chicago's Divvy bike-share system (operated by Lyft). The business questions and analytical framework demonstrate real-world data analysis skills.</p>
 
                 <h3>Key Business Questions:</h3>
                 <ul>
@@ -827,7 +830,7 @@
                 <div class="key-metrics">
                     <div class="metric-card">
                         <div class="metric-value">499,176</div>
-                        <div class="metric-label">Real Trip Records</div>
+                        <div class="metric-label">Divvy Trip Records Analysed</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">1.7x</div>
@@ -849,7 +852,7 @@
         <div class="jp-Cell jp-MarkdownCell">
             <div class="jp-Editor">
                 <h2>1. Data Import & Setup</h2>
-                <p>Import necessary libraries and load the real 2023 Divvy bike-share data from Chicago.</p>
+                <p>Import necessary libraries and load the 2023 Divvy bike-share data from Chicago (provided by Motivate International Inc.).</p>
             </div>
         </div>
 
@@ -882,14 +885,14 @@ sns.set_palette(<span class="string">"husl"</span>)</code></pre>
                 <div class="jp-InputPrompt">In [2]:</div>
                 <div class="jp-CodeMirrorEditor">
                     <div class="jp-Editor">
-                        <pre><code><span class="comment"># Load the real Divvy data</span>
+                        <pre><code><span class="comment"># Load the Divvy data</span>
 <span class="keyword">def</span> <span class="function">load_real_data</span>():
-    <span class="string">"""Load the real Divvy data from 2023"""</span>
-    <span class="keyword">print</span>(<span class="string">"Loading real Cyclistic data from 2023..."</span>)
+    <span class="string">"""Load the Divvy trip data from 2023"""</span>
+    <span class="keyword">print</span>(<span class="string">"Loading Cyclistic data from 2023..."</span>)
     
     <span class="keyword">try</span>:
         df = pd.read_csv(<span class="string">'cyclistic_trips_2023.csv'</span>)
-        <span class="keyword">print</span>(<span class="string">f"✅ Loaded {len(df):,} real trips from Chicago Divvy system"</span>)
+        <span class="keyword">print</span>(<span class="string">f"✅ Loaded {len(df):,} trips from Chicago Divvy system"</span>)
         <span class="keyword">return</span> df
     <span class="keyword">except</span> FileNotFoundError:
         <span class="keyword">print</span>(<span class="string">"❌ Real data file not found."</span>)
@@ -904,7 +907,7 @@ df = load_real_data()</code></pre>
                 <div class="jp-OutputPrompt">Out[2]:</div>
                 <div class="jp-OutputArea-output">
                     <pre>Loading real Cyclistic data from 2023...
-✅ Loaded 500,000 real trips from Chicago Divvy system</pre>
+✅ Loaded 500,000 trips from Chicago Divvy system</pre>
                 </div>
             </div>
         </div>
@@ -931,7 +934,7 @@ df = load_real_data()</code></pre>
                 <div class="jp-CodeMirrorEditor">
                     <div class="jp-Editor">
                         <pre><code><span class="keyword">def</span> <span class="function">clean_and_process_data</span>(df):
-    <span class="string">"""Clean and process the real Divvy data"""</span>
+    <span class="string">"""Clean and process the Divvy data"""</span>
     <span class="keyword">print</span>(<span class="string">"Cleaning and processing real data..."</span>)
     
     <span class="comment"># Remove rows with missing critical data</span>
@@ -1075,7 +1078,7 @@ colors = [<span class="string">'#2E86AB'</span>, <span class="string">'#A23B72'<
 bars = plt.bar(avg_duration.index, avg_duration.values, 
                color=colors, alpha=<span class="number">0.8</span>, edgecolor=<span class="string">'black'</span>, linewidth=<span class="number">1</span>)
 
-plt.title(<span class="string">'Average Trip Duration by User Type\nReal Chicago Divvy Data (2023)'</span>, 
+plt.title(<span class="string">'Average Trip Duration by User Type\nChicago Divvy Data (2023)'</span>, 
           fontsize=<span class="number">16</span>, fontweight=<span class="string">'bold'</span>, pad=<span class="number">20</span>)
 plt.xlabel(<span class="string">'User Type'</span>, fontsize=<span class="number">12</span>)
 plt.ylabel(<span class="string">'Average Duration (minutes)'</span>, fontsize=<span class="number">12</span>)
@@ -1115,7 +1118,7 @@ weekly_data = weekly_data.reindex(day_order)
 
 ax = weekly_data.plot(kind=<span class="string">'bar'</span>, color=colors, alpha=<span class="number">0.8</span>, 
                      edgecolor=<span class="string">'black'</span>, linewidth=<span class="number">1</span>)
-plt.title(<span class="string">'Weekly Usage Patterns by User Type\nReal Chicago Divvy Data (2023)'</span>, 
+plt.title(<span class="string">'Weekly Usage Patterns by User Type\nChicago Divvy Data (2023)'</span>, 
           fontsize=<span class="number">16</span>, fontweight=<span class="string">'bold'</span>, pad=<span class="number">20</span>)
 plt.xlabel(<span class="string">'Day of Week'</span>, fontsize=<span class="number">12</span>)
 plt.ylabel(<span class="string">'Number of Trips'</span>, fontsize=<span class="number">12</span>)
@@ -1221,7 +1224,7 @@ season_data = season_data.reindex(season_order)
 
 season_data.plot(kind=<span class="string">'bar'</span>, figsize=(<span class="number">12</span>, <span class="number">6</span>), 
                 color=[<span class="string">'#2E86AB'</span>, <span class="string">'#A23B72'</span>], alpha=<span class="number">0.8</span>)
-plt.title(<span class="string">'Seasonal Usage Patterns\nReal Chicago Divvy Data (2023)'</span>, 
+plt.title(<span class="string">'Seasonal Usage Patterns\nChicago Divvy Data (2023)'</span>, 
           fontweight=<span class="string">'bold'</span>, fontsize=<span class="number">14</span>)
 plt.xlabel(<span class="string">'Season'</span>, fontweight=<span class="string">'bold'</span>)
 plt.ylabel(<span class="string">'Number of Trips'</span>, fontweight=<span class="string">'bold'</span>)
@@ -1399,7 +1402,7 @@ plt.show()</code></pre>
             <div class="jp-Editor">
                 <h3>📊 QUESTION 4: Which marketing strategies offer the highest ROI potential?</h3>
                 
-                <h4>Real Divvy Financial Model (2023 Pricing):</h4>
+                <h4>Divvy Financial Model (2023 Pricing):</h4>
                 <ul>
                     <li><strong>Casual ride cost:</strong> $4.93/ride ($1 unlock + 20.7 min × $0.19/min)</li>
                     <li><strong>Annual membership:</strong> $143.90</li>
@@ -1407,7 +1410,7 @@ plt.show()</code></pre>
                     <li><strong>Savings potential:</strong> $349.58 per 100 rides vs. casual pricing</li>
                 </ul>
                 
-                <p><em>Source: Official Divvy pricing (divvybikes.com), 2023</em></p>
+                <p><em>Source: Official Divvy pricing (<a href="https://www.divvybikes.com" target="_blank">divvybikes.com</a>), 2023</em></p>
 
                 <h4>📚 Understanding Conversion Rates (For Non-Technical Audience):</h4>
                 <div style="background: rgba(46, 134, 171, 0.08); padding: 20px; border-left: 4px solid #2E86AB; margin: 20px 0; border-radius: 8px;">
@@ -1515,7 +1518,7 @@ plt.show()</code></pre>
                     <li>Clear conversion opportunity: casual riders showing member-like Behaviour patterns</li>
                 </ul>
 
-                <h3>💰 Revenue Potential: $4.3M+ Annually (Real Divvy Pricing)</h3>
+                <h3>💰 Projected Revenue Potential: $4.3M+ Annually (Based on Divvy Pricing)</h3>
                 <ol>
                     <li><strong>Summer Campaign:</strong> $1.32M (9,151 conversions × $143.90)</li>
                     <li><strong>Weekday Commuter:</strong> $1.14M (7,936 conversions × $143.90)</li>
@@ -1523,7 +1526,9 @@ plt.show()</code></pre>
                     <li><strong>Weekend Warrior:</strong> $782K (5,434 conversions × $143.90)</li>
                 </ol>
                 
-                <p><strong>Key Economic Insight:</strong> With real Divvy pricing ($4.93/casual ride vs $143.90 annual), break-even is only 29 rides/year - making conversion highly valuable!</p>
+                <p><strong>Key Economic Insight:</strong> With Divvy pricing ($4.93/casual ride vs $143.90 annual), break-even is only 29 rides/year - making conversion highly valuable!</p>
+                
+                <p><em>Note: Revenue projections use industry-standard conversion rate benchmarks (5-12%) applied to actual trip data. See METHODOLOGY_EXPLAINED.md for detailed assumptions.</em></p>
 
                 <h3>📋 Recommended 90-Day Implementation Plan:</h3>
                 
@@ -1568,7 +1573,7 @@ plt.show()</code></pre>
                     <li><strong>Pandas:</strong> Data manipulation and transformation</li>
                     <li><strong>NumPy:</strong> Numerical computations</li>
                     <li><strong>Matplotlib & Seaborn:</strong> Statistical visualisations</li>
-                    <li><strong>Real Data Source:</strong> Chicago Divvy bike-share system (499,176 analysed trips from 2023)</li>
+                    <li><strong>Data Source:</strong> Divvy bike-share trip data (Chicago, 2023) from Motivate International Inc. - 499,176 trips analysed</li>
                 </ul>
 
                 <h3>Methodology:</h3>
