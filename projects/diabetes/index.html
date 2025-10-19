@@ -1877,7 +1877,6 @@ explained_var = explained_variance_score(y_test, y_pred)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  RMSE:              </span><span class="string">{</span>rmse<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string"> progression units</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  MAE:               </span><span class="string">{</span>mae<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string"> progression units</span><span class="string">"</span>) 
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Explained Variance: </span><span class="string">{</span>explained_var<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Model Reliability:  </span><span class="string">{</span><span class="string">'</span><span class="string">EXCELLENT</span><span class="string">'</span> <span class="keyword">if</span> r2 > <span class="number">0.6</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">GOOD</span><span class="string">'</span> <span class="keyword">if</span> r2 > <span class="number">0.4</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)
 
 <span class="comment"># Residual analysis for model diagnostics</span>
 residuals = y_test - y_pred
@@ -1901,7 +1900,7 @@ train_sizes, train_scores, val_scores = learning_curve(
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Learning Curve Analysis:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Training score (final): </span><span class="string">{</span>train_scores[-<span class="number">1</span>].mean()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>train_scores[-<span class="number">1</span>].std()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Validation score (final): </span><span class="string">{</span>val_scores[-<span class="number">1</span>].mean()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">±</span><span class="string">{</span>val_scores[-<span class="number">1</span>].std()<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Overfitting assessment: </span><span class="string">{</span><span class="string">'</span><span class="string">MINIMAL</span><span class="string">'</span> <span class="keyword">if</span> <span class="function">abs</span>(train_scores[-<span class="number">1</span>].mean() - val_scores[-<span class="number">1</span>].mean()) < <span class="number">0.1</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)</code></pre>
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Training-validation gap: </span><span class="string">{</span><span class="function">abs</span>(train_scores[-<span class="number">1</span>].mean() - val_scores[-<span class="number">1</span>].mean())<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -1915,7 +1914,6 @@ Final Model Performance on Test Set:
   RMSE:              47.9 progression units
   MAE:               35.2 progression units
   Explained Variance: 0.612
-  Model Reliability:  EXCELLENT
 
 Residual Analysis:
   Mean residual:      -1.23 (bias check)
@@ -1929,7 +1927,7 @@ Clinical Error Analysis:
 Learning Curve Analysis:
   Training score (final): 0.912±0.018
   Validation score (final): 0.563±0.089
-  Overfitting assessment: MODERATE</pre>
+  Training-validation gap: 0.349</pre>
                             </div>
                         </div>
                     </div>
