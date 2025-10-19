@@ -2145,10 +2145,10 @@ Bootstrap Validation (n=100):
                             <div class="jp-InputPrompt">In [11]:</div>
                             <div class="jp-CodeMirrorEditor">
                                 <div class="jp-Editor">
-                                    <pre><code><span class="comment"># Clinical decision support system implementation</span>
+                                    <pre><code><span class="comment"># Risk scoring demonstration (portfolio project - not for clinical use)</span>
 <span class="keyword">def</span> <span class="function">predict_diabetes_progression</span>(patient_data, model=tuned_model):
     <span class="string">"""
-    Clinical prediction function for diabetes progression
+    Risk prediction function for diabetes progression demonstration
     
     Parameters:
     patient_data: dict with keys ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
@@ -2213,7 +2213,7 @@ clinical_cases = [
     }
 ]
 
-<span class="function">print</span>(<span class="string">"</span><span class="string">Clinical Decision Support System - Example Cases:</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">"</span><span class="string">Risk Scoring Demonstration - Example Cases:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">80</span>)
 
 <span class="keyword">for</span> case in clinical_cases:
@@ -2242,7 +2242,7 @@ clinical_cases = [
                         <div class="jp-OutputArea">
                             <div class="jp-OutputPrompt">Out[11]:</div>
                             <div class="jp-OutputArea-output">
-                                <pre>Clinical Decision Support System - Example Cases:
+                                <pre>Risk Scoring Demonstration - Example Cases:
 ================================================================================
 
 Patient_001: Low-risk elderly patient
@@ -2343,8 +2343,8 @@ upper_bound = sample_prediction[<span class="string">'</span><span class="string
 
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Point Prediction: </span><span class="string">{</span>sample_prediction[<span class="string">'</span><span class="string">prediction</span><span class="string">'</span>]<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  95% Confidence Interval: [</span><span class="string">{</span><span class="function">max</span>(<span class="number">0</span>, lower_bound)<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">, </span><span class="string">{</span>upper_bound<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string">]</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Prediction Reliability: </span><span class="string">{</span><span class="string">'</span><span class="string">HIGH</span><span class="string">'</span> <span class="keyword">if</span> confidence_95 < <span class="number">100</span> <span class="keyword">else</span> <span class="string">'</span><span class="string">MODERATE</span><span class="string">'</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Clinical Decision Confidence: Suitable for clinical decision support</span><span class="string">"</span>)</code></pre>
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Confidence Width: </span><span class="string">{</span>confidence_95<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string"> units</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Note: Portfolio demonstration - not validated for clinical use</span><span class="string">"</span>)</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -2373,8 +2373,8 @@ Biomarker Interpretation:
 Prediction Confidence Analysis:
   Point Prediction: 298.7
   95% Confidence Interval: [204.8, 392.6]
-  Prediction Reliability: MODERATE
-  Clinical Decision Confidence: Suitable for clinical decision support</pre>
+  Confidence Width: 187.8 units
+  Note: Portfolio demonstration - not validated for clinical use</pre>
                             </div>
                         </div>
                     </div>
