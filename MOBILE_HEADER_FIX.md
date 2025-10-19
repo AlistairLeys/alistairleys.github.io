@@ -335,7 +335,7 @@ header .header-content {
 ### **UX Improvements**
 - ✅ Professional horizontal navigation
 - ✅ Intelligent button placement
-- ✅ Compact header maximizes content area
+- ✅ Compact header maximises content area
 - ✅ Easy-to-tap targets (40px height)
 - ✅ Modern, sleek appearance
 - ✅ Consistent across both pages
@@ -365,7 +365,7 @@ header .header-content {
 
 ### **1. Mobile-First Principles**
 - Horizontal navigation (standard mobile pattern)
-- Compact header (maximizes content area)
+- Compact header (maximises content area)
 - Smart touch targets (40px - perfect balance)
 
 ### **2. Apple iOS HIG Compliance**

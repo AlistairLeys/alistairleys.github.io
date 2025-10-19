@@ -8,7 +8,7 @@ Comprehensive mobile UX enhancements applied to both **Cyclistic** and **Diabete
 ## 🎯 Key Issues Fixed
 
 ### 1. **Title Spacing Issue** ✅
-- **Problem**: "Diabetes Disease Progression Analysis 🏥" title was too close to the header on both desktop and mobile
+- **Problem**: "Diabetes Disease Progression analysis 🏥" title was too close to the header on both desktop and mobile
 - **Solution**: 
   - Increased `padding-top` from 80px to 100px on desktop
   - Increased to 140px on mobile (768px), 150px on extra small mobile (480px)
@@ -24,7 +24,7 @@ Comprehensive mobile UX enhancements applied to both **Cyclistic** and **Diabete
 
 ## 📐 Industry-Leading UX Principles Applied
 
-### **1. Touch Target Optimization**
+### **1. Touch Target optimisation**
 Following Apple's iOS Human Interface Guidelines and Google Material Design:
 
 - **Navigation Links**: 44px minimum height (iOS standard)
@@ -118,7 +118,7 @@ Following principles from "Don't Make Me Think" (Steve Krug) and Nielsen Norman 
 - Cells: `margin-bottom: 2rem` - clear separation
 - Sections: `margin: 2rem 0` - rhythm and flow
 
-**Mobile Spacing (Optimized for smaller screens):**
+**Mobile Spacing (optimised for smaller screens):**
 - Increased header: `padding: 2rem 1rem` - better title prominence
 - Cell spacing: `2rem` bottom margin - prevents crowding
 - Metrics: `margin: 2rem 0` - visual breathing room
@@ -129,7 +129,7 @@ Following principles from "Don't Make Me Think" (Steve Krug) and Nielsen Norman 
 
 ### **6. Smooth Scrolling & Performance**
 
-iOS-specific optimizations:
+iOS-specific optimisations:
 
 ```css
 .jp-Editor pre {
@@ -159,7 +159,7 @@ Multi-device approach following mobile-first design:
 |-----------|---------------|----------|
 | **480px and below** | Small phones (portrait) | Maximum compression, essential content only |
 | **768px and below** | Phones & phablets | Single column, stacked layout, large touch targets |
-| **769px - 1024px** | Tablets (iPad, etc.) | Two-column metrics, optimized spacing |
+| **769px - 1024px** | Tablets (iPad, etc.) | Two-column metrics, optimised spacing |
 | **1024px+** | Desktop & laptops | Full multi-column layout, maximum information density |
 
 ---
@@ -243,7 +243,7 @@ These improvements align with:
 
 ## 🚀 Performance & Accessibility
 
-### **Performance Optimizations**
+### **Performance optimisations**
 - CSS transitions limited to transform & opacity (GPU accelerated)
 - Smooth scrolling with `-webkit-overflow-scrolling: touch`
 - Minimal repaints/reflows
@@ -314,4 +314,4 @@ To verify these improvements, test on:
 
 **Status**: ✅ Complete  
 **Last Updated**: October 19, 2025  
-**Next Steps**: User testing on real devices, potential A/B testing for conversion optimization
+**Next Steps**: User testing on real devices, potential A/B testing for conversion optimisation

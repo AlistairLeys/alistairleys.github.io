@@ -113,7 +113,7 @@ Applied industry-leading design philosophy inspired by **Vercel**, **Stripe**, *
 - **Easy Maintenance**: Change once, update everywhere
 - **Dark Mode Ready**: Structure supports future theme switching
 
-### Performance Optimizations
+### Performance optimisations
 - **Hardware Acceleration**: `transform` and `opacity` for smooth 60fps animations
 - **Will-Change**: Implicit through transform usage
 - **Reduced Repaints**: No layout-triggering properties in animations

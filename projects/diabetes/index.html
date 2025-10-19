@@ -879,7 +879,7 @@
             box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* Responsive Design - Mobile Optimization with UX Best Practices */
+        /* Responsive Design - Mobile optimisation with UX Best Practices */
         @media (max-width: 768px) {
             /* Smart header layout - compact and intelligent */
             header {
@@ -946,7 +946,7 @@
                 margin-top: 0.5rem;
             }
 
-            /* Jupyter cells mobile optimization - Enhanced visual hierarchy */
+            /* Jupyter cells mobile optimisation - Enhanced visual hierarchy */
             .jp-Cell {
                 border-radius: 12px; /* Slightly larger radius for modern feel */
                 margin-bottom: 2rem; /* Increased spacing between cells - 8px grid */
@@ -1025,7 +1025,7 @@
                 white-space: pre;
             }
 
-            /* Output area mobile optimization with better visual separation */
+            /* Output area mobile optimisation with better visual separation */
             .jp-OutputArea {
                 flex-direction: column;
                 margin-top: 0.5rem; /* Small gap between input and output */
@@ -1109,7 +1109,7 @@
                 margin-bottom: 0.5rem; /* Better spacing between items */
             }
 
-            /* Tables - horizontal scroll on mobile with touch optimization */
+            /* Tables - horizontal scroll on mobile with touch optimisation */
             table {
                 display: block;
                 overflow-x: auto;
@@ -1191,10 +1191,10 @@
             }
         }
 
-        /* Tablet optimization - better use of space */
+        /* Tablet optimisation - better use of space */
         @media (min-width: 769px) and (max-width: 1024px) {
             .notebook-container {
-                padding-top: 110px; /* Optimized for tablet header */
+                padding-top: 110px; /* optimised for tablet header */
                 padding-left: 2rem;
                 padding-right: 2rem;
             }
@@ -1762,7 +1762,7 @@ df[<span class="string">'</span><span class="string">cluster</span><span class="
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Silhouette score: </span><span class="string">{</span>from sklearn.metrics import silhouette_score; silhouette_score(X_scaled, clusters)<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">"</span>)
 <span class="function">print</span>()
 
-<span class="comment"># Analyze each cluster</span>
+<span class="comment"># analyse each cluster</span>
 <span class="keyword">for</span> cluster_id in <span class="function">range</span>(optimal_k):
     cluster_data = df[df[<span class="string">'</span><span class="string">cluster</span><span class="string">'</span>] == cluster_id]
     cluster_size = <span class="function">len</span>(cluster_data)
@@ -1929,14 +1929,14 @@ Learning Curve Analysis:
                             </div>
                         </div>
                     </div>
-                    <!-- Markdown Cell: 9. Hyperparameter Optimization & Model Tuning -->
+                    <!-- Markdown Cell: 9. Hyperparameter optimisation & Model Tuning -->
                     <div class="jp-Cell jp-MarkdownCell">
                         <div class="jp-Editor">
-                            <h3>9. Hyperparameter Optimization & Model Tuning</h3>
+                            <h3>9. Hyperparameter optimisation & Model Tuning</h3>
                         </div>
                     </div>
 
-                    <!-- Code Cell: 9. Hyperparameter Optimization & Model Tuning -->
+                    <!-- Code Cell: 9. Hyperparameter optimisation & Model Tuning -->
                     <div class="jp-Cell jp-CodeCell">
                         <div class="jp-InputArea">
                             <div class="jp-InputPrompt">In [9]:</div>
@@ -1945,7 +1945,7 @@ Learning Curve Analysis:
                                     <pre><code><span class="comment"># Advanced hyperparameter tuning for optimal performance</span>
 <span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV, RandomizedSearchCV
 
-<span class="function">print</span>(<span class="string">"</span><span class="string">Hyperparameter Optimization Analysis:</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">"</span><span class="string">Hyperparameter optimisation Analysis:</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">60</span>)
 
 <span class="comment"># Define parameter grid for Random Forest tuning</span>
@@ -1988,7 +1988,7 @@ tuned_r2 = r2_score(y_test, tuned_pred)
 
 <span class="comment"># Feature importance from tuned model</span>
 tuned_importance = tuned_model.feature_importances_
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Optimized Feature Importance (Top 5):</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">optimised Feature Importance (Top 5):</span><span class="string">"</span>)
 feature_importance_tuned = pd.DataFrame({
     <span class="string">'</span><span class="string">feature</span><span class="string">'</span>: diabetes.feature_names,
     <span class="string">'</span><span class="string">importance</span><span class="string">'</span>: tuned_importance
@@ -2002,7 +2002,7 @@ feature_importance_tuned = pd.DataFrame({
                         <div class="jp-OutputArea">
                             <div class="jp-OutputPrompt">Out[9]:</div>
                             <div class="jp-OutputArea-output">
-                                <pre>Hyperparameter Optimization Analysis:
+                                <pre>Hyperparameter optimisation Analysis:
 ============================================================
 Hyperparameter Tuning Results:
   Best CV Score: 0.571
@@ -2018,7 +2018,7 @@ Model Comparison:
   Tuned Random Forest R²:   0.624
   Improvement:             +0.013 (+2.1%)
 
-Optimized Feature Importance (Top 5):
+optimised Feature Importance (Top 5):
   1. S5: 0.458
   2. BMI: 0.331  
   3. S6: 0.084
@@ -2612,7 +2612,7 @@ quality_metrics = {
     <span class="string">'</span><span class="string">Patient Engagement</span><span class="string">'</span>: <span class="string">'</span><span class="string">+40</span><span class="string">%</span><span class="string"> (early identification leads to better compliance)</span><span class="string">'</span>,
     <span class="string">'</span><span class="string">Treatment Adherence</span><span class="string">'</span>: <span class="string">'</span><span class="string">+35</span><span class="string">%</span><span class="string"> (personalized intervention strategies)</span><span class="string">'</span>,
     <span class="string">'</span><span class="string">Clinical Outcomes</span><span class="string">'</span>: <span class="string">'</span><span class="string">+25</span><span class="string">%</span><span class="string"> (timely interventions prevent complications)</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">Provider Efficiency</span><span class="string">'</span>: <span class="string">'</span><span class="string">+30</span><span class="string">%</span><span class="string"> (optimized resource allocation)</span><span class="string">'</span>,
+    <span class="string">'</span><span class="string">Provider Efficiency</span><span class="string">'</span>: <span class="string">'</span><span class="string">+30</span><span class="string">%</span><span class="string"> (optimised resource allocation)</span><span class="string">'</span>,
     <span class="string">'</span><span class="string">Patient Satisfaction</span><span class="string">'</span>: <span class="string">'</span><span class="string">+20</span><span class="string">%</span><span class="string"> (proactive care and reduced emergency events)</span><span class="string">'</span>
 }
 
@@ -2666,7 +2666,7 @@ Clinical Quality Improvements:
   Patient Engagement: +40% (early identification leads to better compliance)
   Treatment Adherence: +35% (personalized intervention strategies)
   Clinical Outcomes: +25% (timely interventions prevent complications)
-  Provider Efficiency: +30% (optimized resource allocation)
+  Provider Efficiency: +30% (optimised resource allocation)
   Patient Satisfaction: +20% (proactive care and reduced emergency events)
 
 Risk Mitigation Benefits:
