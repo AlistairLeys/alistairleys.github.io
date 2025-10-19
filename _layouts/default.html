@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Alistair Leys - Business-Focused Data Scientist. Portfolio showcasing advanced ML, statistical analysis, and data-driven insights in healthcare and business analytics.{% endif %}">
+    <meta name="author" content="Alistair Leys">
+    <meta name="keywords" content="data science, machine learning, healthcare analytics, Python, statistical analysis, portfolio">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Business-focused data scientist specializing in ML, statistical analysis, and actionable insights.{% endif %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alistairleys.github.io{{ page.url }}">
+    <meta property="og:image" content="https://alistairleys.github.io/assets/img/og-image.png">
+    <meta property="og:site_name" content="Alistair Leys - Data Science Portfolio">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Business-focused data scientist specializing in ML, statistical analysis, and actionable insights.{% endif %}">
+    <meta name="twitter:image" content="https://alistairleys.github.io/assets/img/og-image.png">
+    
+    <!-- Google Analytics 4 - Add your measurement ID here -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+    
     <style>
         :root {
             --bg-primary: #0a0a0a;
@@ -432,6 +463,16 @@
                 }
             });
         }
+
+        // Add lazy loading to all images
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+            });
+        });
     </script>
 </body>
 </html>
