@@ -290,6 +290,7 @@
         .jp-CodeCell {
             border-top: none;
             border-bottom: none;
+            padding-bottom: var(--spacing-lg); /* Add bottom padding to prevent cutoff */
         }
 
         /* Input Area - Code Cells */
@@ -339,6 +340,7 @@
         .jp-OutputArea {
             display: flex;
             margin-top: var(--spacing-sm);
+            padding-bottom: var(--spacing-md); /* Add bottom padding for visual closure */
         }
 
         .jp-OutputPrompt {
@@ -357,11 +359,13 @@
             background: var(--jp-output-bg);
             padding: var(--spacing-md) var(--spacing-lg);
             margin-right: var(--spacing-xl);
+            margin-bottom: var(--spacing-sm); /* Add bottom margin for visual separation */
             border-radius: var(--border-radius-sm);
             border: 1px solid rgba(255, 255, 255, 0.05);
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
             font-size: 0.9rem;
             color: var(--jp-content-font-color2);
+            overflow: hidden; /* Prevent content overflow */
         }
 
         .jp-OutputArea-output pre {
