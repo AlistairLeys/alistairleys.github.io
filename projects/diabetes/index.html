@@ -1253,6 +1253,9 @@
                 The analysis showcases predictive modeling, patient segmentation, and clinical insights for healthcare applications, achieving 
                 56% explained variance in disease progression with actionable recommendations for healthcare providers.</p>
 
+                <p><strong>Note:</strong> This is a technical demonstration using the scikit-learn diabetes dataset (Efron et al. 2004, Stanford University). 
+                The focus is on machine learning methodology, statistical analysis, and predictive modeling techniques applied to healthcare data.</p>
+
                 <h3>Project Metrics:</h3>
                 <div class="key-metrics">
                     <div class="metric-card">
@@ -1268,8 +1271,8 @@
                         <div class="metric-label">Risk Clusters</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">40%</div>
-                        <div class="metric-label">Patient Engagement Improvement</div>
+                        <div class="metric-value">29%</div>
+                        <div class="metric-label">High-Risk Patients Identified</div>
                     </div>
                 </div>
             </div>
@@ -1295,6 +1298,7 @@
                     <div class="jp-Cell jp-MarkdownCell">
                         <div class="jp-Editor">
                             <h3>1. Data Import & Initial Exploration</h3>
+                            <p><strong>Dataset Source:</strong> Bradley Efron, Trevor Hastie, Iain Johnstone, and Robert Tibshirani (2004). "Least Angle Regression," <em>Annals of Statistics</em> (with discussion), 407-499. Available via scikit-learn diabetes dataset (442 diabetes patients, 10 baseline variables, quantitative disease progression measure).</p>
                         </div>
                     </div>
 
@@ -2520,161 +2524,6 @@ Retraining Triggers:
   3. New clinical guidelines or treatment protocols
   4. Quarterly scheduled retraining cycle
   5. Addition of new patient populations or demographics</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Markdown Cell: 14. Business Impact Analysis & ROI -->
-                    <div class="jp-Cell jp-MarkdownCell">
-                        <div class="jp-Editor">
-                            <h3>14. Business Impact Analysis & ROI</h3>
-                        </div>
-                    </div>
-
-                    <!-- Code Cell: 14. Business Impact Analysis & ROI -->
-                    <div class="jp-Cell jp-CodeCell">
-                        <div class="jp-InputArea">
-                            <div class="jp-InputPrompt">In [14]:</div>
-                            <div class="jp-CodeMirrorEditor">
-                                <div class="jp-Editor">
-                                    <pre><code><span class="comment"># Comprehensive business impact analysis</span>
-
-<span class="function">print</span>(<span class="string">"</span><span class="string">Business Impact & Return on Investment Analysis:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">80</span>)
-
-<span class="comment"># Healthcare cost analysis</span>
-baseline_costs = {
-    <span class="string">'</span><span class="string">routine_monitoring</span><span class="string">'</span>: <span class="number">250</span>,      <span class="comment"># Per patient per year</span>
-    <span class="string">'</span><span class="string">specialist_referral</span><span class="string">'</span>: <span class="number">1500</span>,    <span class="comment"># Per referral</span>
-    <span class="string">'</span><span class="string">emergency_intervention</span><span class="string">'</span>: <span class="number">8500</span>, <span class="comment"># Per emergency case</span>
-    <span class="string">'</span><span class="string">medication_adjustment</span><span class="string">'</span>: <span class="number">400</span>    <span class="comment"># Per adjustment cycle</span>
-}
-
-<span class="comment"># Patient population analysis (simulated healthcare system)</span>
-patient_population = <span class="number">10000</span>
-annual_progression_cases = <span class="function">int</span>(<span class="number">0.15</span> * patient_population)  <span class="comment"># 15% progress annually</span>
-
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">Healthcare System Analysis:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Patient Population: </span><span class="string">{</span>patient_population<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Annual Progression Cases: </span><span class="string">{</span>annual_progression_cases<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Current Cost per Case: $</span><span class="string">{</span>baseline_costs[<span class="string">'</span><span class="string">emergency_intervention</span><span class="string">'</span>]<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-
-<span class="comment"># Cost savings through ML-driven intervention</span>
-ml_benefits = {
-    <span class="string">'</span><span class="string">early_identification</span><span class="string">'</span>: <span class="number">0.40</span>,    <span class="comment"># 40% of cases identified early</span>
-    <span class="string">'</span><span class="string">intervention_success</span><span class="string">'</span>: <span class="number">0.70</span>,    <span class="comment"># 70% successful intervention rate</span>
-    <span class="string">'</span><span class="string">cost_reduction_per_case</span><span class="string">'</span>: <span class="number">0.60</span>, <span class="comment"># 60% cost reduction through early intervention</span>
-    <span class="string">'</span><span class="string">false_positive_rate</span><span class="string">'</span>: <span class="number">0.15</span>      <span class="comment"># 15% unnecessary interventions</span>
-}
-
-<span class="comment"># Calculate financial impact</span>
-cases_identified_early = <span class="function">int</span>(annual_progression_cases * ml_benefits[<span class="string">'</span><span class="string">early_identification</span><span class="string">'</span>])
-successful_interventions = <span class="function">int</span>(cases_identified_early * ml_benefits[<span class="string">'</span><span class="string">intervention_success</span><span class="string">'</span>])
-cost_savings_per_case = baseline_costs[<span class="string">'</span><span class="string">emergency_intervention</span><span class="string">'</span>] * ml_benefits[<span class="string">'</span><span class="string">cost_reduction_per_case</span><span class="string">'</span>]
-total_annual_savings = successful_interventions * cost_savings_per_case
-
-<span class="comment"># False positive costs</span>
-false_positives = <span class="function">int</span>(cases_identified_early * ml_benefits[<span class="string">'</span><span class="string">false_positive_rate</span><span class="string">'</span>])
-false_positive_cost = false_positives * baseline_costs[<span class="string">'</span><span class="string">specialist_referral</span><span class="string">'</span>]
-
-<span class="comment"># Net savings</span>
-net_annual_savings = total_annual_savings - false_positive_cost
-
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">ML Implementation Impact:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Cases Identified Early: </span><span class="string">{</span>cases_identified_early<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string"> (</span><span class="string">{</span>ml_benefits[<span class="string">'</span><span class="string">early_identification</span><span class="string">'</span>]<span class="string">:</span><span class="string">.0%</span><span class="string">}</span><span class="string">)</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Successful Interventions: </span><span class="string">{</span>successful_interventions<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Cost Savings per Case: $</span><span class="string">{</span>cost_savings_per_case<span class="string">:</span><span class="string">,.0f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Total Annual Savings: $</span><span class="string">{</span>total_annual_savings<span class="string">:</span><span class="string">,.0f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  False Positive Costs: $</span><span class="string">{</span>false_positive_cost<span class="string">:</span><span class="string">,.0f</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Net Annual Savings: $</span><span class="string">{</span>net_annual_savings<span class="string">:</span><span class="string">,.0f</span><span class="string">}</span><span class="string">"</span>)
-
-<span class="comment"># ROI calculation</span>
-implementation_costs = {
-    <span class="string">'</span><span class="string">model_development</span><span class="string">'</span>: <span class="number">150000</span>,     <span class="comment"># One-time development cost</span>
-    <span class="string">'</span><span class="string">infrastructure_setup</span><span class="string">'</span>: <span class="number">75000</span>,  <span class="comment"># Cloud infrastructure setup  </span>
-    <span class="string">'</span><span class="string">staff_training</span><span class="string">'</span>: <span class="number">50000</span>,        <span class="comment"># Clinical staff training</span>
-    <span class="string">'</span><span class="string">annual_maintenance</span><span class="string">'</span>: <span class="number">100000</span>    <span class="comment"># Annual maintenance and monitoring</span>
-}
-
-total_implementation_cost = <span class="function">sum</span>(implementation_costs.values())
-annual_roi = (net_annual_savings - implementation_costs[<span class="string">'</span><span class="string">annual_maintenance</span><span class="string">'</span>]) / total_implementation_cost
-
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Return on Investment Analysis:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Implementation Costs:</span><span class="string">"</span>)
-<span class="keyword">for</span> cost_type, amount in implementation_costs.items():
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">    </span><span class="string">{</span>cost_type.replace(<span class="string">'</span><span class="string">_</span><span class="string">'</span>, <span class="string">'</span><span class="string"> </span><span class="string">'</span>).title()<span class="string">}</span><span class="string">: $</span><span class="string">{</span>amount<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Total Implementation: $</span><span class="string">{</span>total_implementation_cost<span class="string">:</span><span class="string">,</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Annual ROI: </span><span class="string">{</span>annual_roi<span class="string">:</span><span class="string">.1%</span><span class="string">}</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  Payback Period: </span><span class="string">{</span>total_implementation_cost / (net_annual_savings - implementation_costs[<span class="string">'</span><span class="string">annual_maintenance</span><span class="string">'</span>])<span class="string">:</span><span class="string">.1f</span><span class="string">}</span><span class="string"> years</span><span class="string">"</span>)
-
-<span class="comment"># Quality metrics impact</span>
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Clinical Quality Improvements:</span><span class="string">"</span>)
-quality_metrics = {
-    <span class="string">'</span><span class="string">Patient Engagement</span><span class="string">'</span>: <span class="string">'</span><span class="string">+40</span><span class="string">%</span><span class="string"> (early identification leads to better compliance)</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">Treatment Adherence</span><span class="string">'</span>: <span class="string">'</span><span class="string">+35</span><span class="string">%</span><span class="string"> (personalized intervention strategies)</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">Clinical Outcomes</span><span class="string">'</span>: <span class="string">'</span><span class="string">+25</span><span class="string">%</span><span class="string"> (timely interventions prevent complications)</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">Provider Efficiency</span><span class="string">'</span>: <span class="string">'</span><span class="string">+30</span><span class="string">%</span><span class="string"> (optimised resource allocation)</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">Patient Satisfaction</span><span class="string">'</span>: <span class="string">'</span><span class="string">+20</span><span class="string">%</span><span class="string"> (proactive care and reduced emergency events)</span><span class="string">'</span>
-}
-
-<span class="keyword">for</span> metric, improvement in quality_metrics.items():
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>metric<span class="string">}</span><span class="string">: </span><span class="string">{</span>improvement<span class="string">}</span><span class="string">"</span>)
-
-<span class="comment"># Risk mitigation benefits</span>
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Risk Mitigation Benefits:</span><span class="string">"</span>)
-risk_benefits = [
-    <span class="string">"</span><span class="string">Reduced malpractice risk through evidence-based decision support</span><span class="string">"</span>,
-    <span class="string">"</span><span class="string">Improved regulatory compliance with standardized risk assessment</span><span class="string">"</span>, 
-    <span class="string">"</span><span class="string">Enhanced patient safety through systematic monitoring protocols</span><span class="string">"</span>,
-    <span class="string">"</span><span class="string">Better resource utilization reducing operational inefficiencies</span><span class="string">"</span>,
-    <span class="string">"</span><span class="string">Competitive advantage through advanced analytics capabilities</span><span class="string">"</span>
-]
-
-<span class="keyword">for</span> i, benefit in <span class="function">enumerate</span>(risk_benefits, <span class="number">1</span>):
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>i<span class="string">}</span><span class="string">. </span><span class="string">{</span>benefit<span class="string">}</span><span class="string">"</span>)</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jp-OutputArea">
-                            <div class="jp-OutputPrompt">Out[14]:</div>
-                            <div class="jp-OutputArea-output">
-                                <pre>Business Impact & Return on Investment Analysis:
-================================================================================
-Healthcare System Analysis:
-  Patient Population: 10,000
-  Annual Progression Cases: 1,500
-  Current Cost per Case: $8,500
-
-ML Implementation Impact:
-  Cases Identified Early: 600 (40%)
-  Successful Interventions: 420
-  Cost Savings per Case: $5,100
-  Total Annual Savings: $2,142,000
-  False Positive Costs: $135,000
-  Net Annual Savings: $2,007,000
-
-Return on Investment Analysis:
-  Implementation Costs:
-    Model Development: $150,000
-    Infrastructure Setup: $75,000
-    Staff Training: $50,000
-    Annual Maintenance: $100,000
-  Total Implementation: $275,000
-  Annual ROI: 693.1%
-  Payback Period: 0.1 years
-
-Clinical Quality Improvements:
-  Patient Engagement: +40% (early identification leads to better compliance)
-  Treatment Adherence: +35% (personalized intervention strategies)
-  Clinical Outcomes: +25% (timely interventions prevent complications)
-  Provider Efficiency: +30% (optimised resource allocation)
-  Patient Satisfaction: +20% (proactive care and reduced emergency events)
-
-Risk Mitigation Benefits:
-  1. Reduced malpractice risk through evidence-based decision support
-  2. Improved regulatory compliance with standardized risk assessment
-  3. Enhanced patient safety through systematic monitoring protocols
-  4. Better resource utilization reducing operational inefficiencies
-  5. Competitive advantage through advanced analytics capabilities</pre>
                             </div>
                         </div>
                     </div>
