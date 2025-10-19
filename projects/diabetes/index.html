@@ -563,11 +563,11 @@
             margin: 0 auto;
             background: var(--bg-primary);
             min-height: 100vh;
-            padding-top: 80px; /* Space for fixed header */
+            padding-top: 100px; /* Increased space for fixed header - matches Cyclistic */
         }
 
         .notebook-header {
-            padding: 2rem;
+            padding: 3rem 2rem; /* Increased top padding for better spacing */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(255, 255, 255, 0.02);
         }
@@ -577,6 +577,7 @@
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            margin-top: 0; /* Ensure no extra top margin */
             background: linear-gradient(135deg, #00d4ff 0%, #ffffff 50%, #0ea5e9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -587,6 +588,7 @@
             font-size: 1.2rem;
             color: var(--text-muted);
             font-weight: 300;
+            margin-top: 0.5rem;
         }
 
         /* Key Metrics Grid - Exact Cyclistic Match */
@@ -877,11 +879,11 @@
             box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
         }
 
-        /* Responsive Design - Mobile Optimization */
+        /* Responsive Design - Mobile Optimization with UX Best Practices */
         @media (max-width: 768px) {
-            /* Header adjustments */
+            /* Header adjustments - 8px grid system */
             header {
-                padding: 0.75rem 1rem;
+                padding: 1rem 1rem; /* 16px for better touch targets */
             }
 
             .header-content {
@@ -892,66 +894,95 @@
 
             .logo {
                 font-size: 1.25rem;
+                padding: 0.5rem 0; /* Better touch target */
             }
 
             .nav {
                 flex-direction: row;
-                gap: 0.75rem;
+                gap: 0.5rem; /* 8px grid system */
                 width: 100%;
+                flex-wrap: wrap;
             }
 
             .nav a {
-                padding: 0.5rem 1rem;
+                padding: 0.75rem 1.25rem; /* 44px height for touch targets */
                 font-size: 0.9rem;
+                min-height: 44px; /* iOS recommended touch target */
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            /* Notebook container mobile adjustments */
+            /* Notebook container mobile adjustments - improved spacing hierarchy */
             .notebook-container {
-                padding-top: 120px; /* More space for taller mobile header */
+                padding-top: 140px; /* Increased space for better title visibility */
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
 
             .notebook-header {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1rem; /* Increased padding for better breathing room */
+                margin-bottom: 1rem; /* Additional separation from content */
             }
 
             .notebook-title {
-                font-size: 1.75rem;
-                line-height: 1.2;
+                font-size: 1.875rem; /* 30px - better mobile typography scale */
+                line-height: 1.3; /* Improved line height for readability */
+                margin-bottom: 0.75rem; /* Better spacing */
+                word-wrap: break-word; /* Prevent overflow */
             }
 
             .notebook-subtitle {
                 font-size: 1rem;
+                line-height: 1.5; /* Better readability */
+                margin-top: 0.5rem;
             }
 
-            /* Jupyter cells mobile optimization */
+            /* Jupyter cells mobile optimization - Enhanced visual hierarchy */
             .jp-Cell {
-                border-radius: 8px;
-                margin-bottom: 1.5rem;
+                border-radius: 12px; /* Slightly larger radius for modern feel */
+                margin-bottom: 2rem; /* Increased spacing between cells - 8px grid */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Enhanced elevation */
+            }
+
+            .jp-Cell:hover {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle hover effect */
             }
 
             .jp-MarkdownCell {
-                padding: 1rem 1.25rem;
+                padding: 1.5rem 1.25rem; /* Increased padding for better content breathing */
             }
 
             .jp-MarkdownCell h2 {
                 font-size: 1.5rem;
+                line-height: 1.3;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem;
             }
 
             .jp-MarkdownCell h3 {
                 font-size: 1.25rem;
+                line-height: 1.4;
+                margin-top: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .jp-MarkdownCell p {
+                line-height: 1.7; /* Enhanced readability */
+                margin-bottom: 1rem;
             }
 
             .jp-MarkdownCell .jp-Editor h2 {
                 font-size: 1.5rem;
+                line-height: 1.3;
             }
 
             .jp-MarkdownCell .jp-Editor h3 {
                 font-size: 1.25rem;
+                line-height: 1.4;
             }
 
-            /* Code cells - stack vertically on mobile */
+            /* Code cells - stack vertically on mobile with improved UX */
             .jp-InputArea {
                 flex-direction: column;
                 padding: 0;
@@ -961,106 +992,189 @@
                 min-width: auto;
                 width: 100%;
                 text-align: left;
-                padding: 0.75rem 1rem;
+                padding: 0.875rem 1rem; /* Slightly increased for better touch */
                 border-right: none;
-                border-bottom: 1px solid #3c3c3c;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(0, 212, 255, 0.08); /* Subtle highlight */
+                font-size: 0.875rem;
             }
 
             .jp-CodeMirrorEditor {
                 margin-right: 0;
-                border-radius: 0;
+                border-radius: 0 0 8px 8px; /* Bottom corners rounded */
             }
 
             .jp-Editor {
                 padding: 1rem;
+                max-width: 100%;
             }
 
             .jp-Editor pre {
-                font-size: 0.85rem;
-                line-height: 1.5;
+                font-size: 0.875rem; /* Slightly larger for better readability */
+                line-height: 1.6; /* Improved line height */
                 overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                white-space: pre;
             }
 
-            /* Output area mobile optimization */
+            /* Output area mobile optimization with better visual separation */
             .jp-OutputArea {
                 flex-direction: column;
-                margin-top: 0;
+                margin-top: 0.5rem; /* Small gap between input and output */
             }
 
             .jp-OutputPrompt {
                 min-width: auto;
                 width: 100%;
                 text-align: left;
-                padding: 0.75rem 1rem;
+                padding: 0.875rem 1rem;
                 border-right: none;
-                border-bottom: 1px solid #3c3c3c;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(14, 165, 233, 0.08); /* Subtle highlight */
+                font-size: 0.875rem;
             }
 
             .jp-OutputArea-output {
                 margin-right: 0;
-                border-radius: 0;
+                border-radius: 0 0 8px 8px; /* Bottom corners rounded */
                 padding: 1rem;
+                max-width: 100%;
             }
 
             .jp-OutputArea-output pre {
-                font-size: 0.85rem;
+                font-size: 0.875rem;
+                line-height: 1.6;
                 overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                white-space: pre-wrap; /* Allow wrapping for better mobile display */
+                word-wrap: break-word;
             }
 
-            /* Metrics grid - single column on mobile */
+            /* Metrics grid - single column on mobile with enhanced cards */
             .key-metrics {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-                margin: 1.5rem 0;
+                gap: 1rem; /* 16px gap for better separation */
+                margin: 2rem 0; /* Increased margin for visual hierarchy */
             }
 
             .metric-card {
-                padding: 1.25rem;
+                padding: 1.5rem; /* Increased padding for better touch and visual weight */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); /* Enhanced elevation */
+                transition: all 0.3s ease; /* Smooth animations */
+            }
+
+            .metric-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+            }
+
+            .metric-value {
+                font-size: 2.25rem; /* Slightly larger for impact */
+                line-height: 1.2;
+            }
+
+            .metric-label {
+                font-size: 0.875rem;
+                line-height: 1.4;
+                margin-top: 0.5rem;
+            }
+
+            /* Images - full width on mobile with better spacing */
+            .jp-MarkdownCell img,
+            .jp-OutputArea-output img {
+                max-width: 100%;
+                margin: 1.5rem 0; /* Increased margin for better visual separation */
+                border-radius: 8px; /* Consistent with card radius */
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); /* Subtle elevation */
+            }
+
+            /* Lists - better mobile formatting */
+            .jp-MarkdownCell ul,
+            .jp-MarkdownCell ol {
+                padding-left: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            .jp-MarkdownCell li {
+                font-size: 0.95rem;
+                line-height: 1.7; /* Enhanced readability */
+                margin-bottom: 0.5rem; /* Better spacing between items */
+            }
+
+            /* Tables - horizontal scroll on mobile with touch optimization */
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                white-space: nowrap;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Buttons - full width on mobile with better touch targets */
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 1.5rem; /* Increased to 48px height for touch */
+                font-size: 0.9rem;
+                min-height: 48px; /* iOS recommended touch target */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .btn:hover,
+            .btn:active {
+                transform: scale(0.98); /* Subtle press feedback */
+            }
+        }
+
+        /* Extra small mobile devices (phones in portrait) */
+        @media (max-width: 480px) {
+            .notebook-container {
+                padding-top: 150px; /* Even more space for smaller screens */
+            }
+
+            .notebook-header {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .notebook-title {
+                font-size: 1.625rem; /* 26px - optimized for small screens */
+                line-height: 1.3;
+            }
+
+            .notebook-subtitle {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .jp-MarkdownCell {
+                padding: 1.25rem 1rem;
             }
 
             .metric-value {
                 font-size: 2rem;
             }
 
-            .metric-label {
-                font-size: 0.85rem;
-            }
-
-            /* Images - full width on mobile */
-            .jp-MarkdownCell img,
-            .jp-OutputArea-output img {
-                max-width: 100%;
-                margin: 1rem 0;
-                border-radius: 6px;
-            }
-
-            /* Lists - reduce padding on mobile */
-            .jp-MarkdownCell li {
-                padding-left: 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            /* Tables - horizontal scroll on mobile */
-            table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-
-            /* Buttons - full width on mobile */
-            .btn {
-                width: 100%;
-                text-align: center;
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
+            .jp-Editor pre,
+            .jp-OutputArea-output pre {
+                font-size: 0.8rem;
             }
         }
 
-        /* Tablet optimization */
+        /* Tablet optimization - better use of space */
         @media (min-width: 769px) and (max-width: 1024px) {
             .notebook-container {
+                padding-top: 110px; /* Optimized for tablet header */
                 padding-left: 2rem;
                 padding-right: 2rem;
+            }
+
+            .notebook-header {
+                padding: 2.5rem 2rem;
             }
 
             .jp-MarkdownCell {
@@ -1069,10 +1183,20 @@
 
             .notebook-title {
                 font-size: 2.25rem;
+                line-height: 1.3;
+            }
+
+            .notebook-subtitle {
+                font-size: 1.1rem;
             }
 
             .key-metrics {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .jp-Cell {
+                margin-bottom: 2rem;
             }
         }
     </style>
