@@ -1423,23 +1423,23 @@ correlation_matrix = df.corr()
 <span class="function">print</span>(<span class="string">"</span><span class="string">=</span><span class="string">"</span> * <span class="number">50</span>)
 target_correlations = correlation_matrix[<span class="string">'</span><span class="string">target</span><span class="string">'</span>].drop(<span class="string">'</span><span class="string">target</span><span class="string">'</span>).sort_values(key=<span class="function">abs</span>, ascending=<span class="keyword">False</span>)
 <span class="keyword">for</span> feature, corr in target_correlations.items():
-    clinical_meaning = {
+    biomarker_meaning = {
         <span class="string">'</span><span class="string">bmi</span><span class="string">'</span>: <span class="string">'</span><span class="string">Body Mass Index</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Lamotrigine levels</span><span class="string">'</span>, 
+        <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Triglycerides (log)</span><span class="string">'</span>, 
         <span class="string">'</span><span class="string">bp</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood Pressure</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s6</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood glucose levels</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s3</span><span class="string">'</span>: <span class="string">'</span><span class="string">High-density lipoproteins</span><span class="string">'</span>,
+        <span class="string">'</span><span class="string">s6</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood glucose</span><span class="string">'</span>,
+        <span class="string">'</span><span class="string">s3</span><span class="string">'</span>: <span class="string">'</span><span class="string">HDL cholesterol</span><span class="string">'</span>,
         <span class="string">'</span><span class="string">s1</span><span class="string">'</span>: <span class="string">'</span><span class="string">Total cholesterol</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">Thyroid stimulating hormone</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s2</span><span class="string">'</span>: <span class="string">'</span><span class="string">Low-density lipoproteins</span><span class="string">'</span>,
+        <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">TC/HDL ratio</span><span class="string">'</span>,
+        <span class="string">'</span><span class="string">s2</span><span class="string">'</span>: <span class="string">'</span><span class="string">LDL cholesterol</span><span class="string">'</span>,
         <span class="string">'</span><span class="string">sex</span><span class="string">'</span>: <span class="string">'</span><span class="string">Gender (binary)</span><span class="string">'</span>,
         <span class="string">'</span><span class="string">age</span><span class="string">'</span>: <span class="string">'</span><span class="string">Age (standardized)</span><span class="string">'</span>
     }
-    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">{</span>feature.upper()<span class="string">:</span><span class="string">>3</span><span class="string">}</span><span class="string"> (</span><span class="string">{</span>clinical_meaning[feature]<span class="string">:</span><span class="string">25s</span><span class="string">}</span><span class="string">): </span><span class="string">{</span>corr<span class="string">:</span><span class="string">>6.3f</span><span class="string">}</span><span class="string">"</span>)
+    <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">{</span>feature.upper()<span class="string">:</span><span class="string">>3</span><span class="string">}</span><span class="string"> (</span><span class="string">{</span>biomarker_meaning[feature]<span class="string">:</span><span class="string">25s</span><span class="string">}</span><span class="string">): </span><span class="string">{</span>corr<span class="string">:</span><span class="string">>6.3f</span><span class="string">}</span><span class="string">"</span>)
 
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Strongest Clinical Predictors:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• BMI shows strongest correlation (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bmi</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - obesity link confirmed</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• S5 (lamotrigine) second strongest (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">s5</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - drug efficacy marker</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Strongest Biomarker Predictors:</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• BMI shows strongest correlation (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bmi</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - obesity link</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• S5 (triglycerides) second strongest (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">s5</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - lipid metabolism marker</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">• Blood pressure third (</span><span class="string">{</span>target_correlations[<span class="string">'</span><span class="string">bp</span><span class="string">'</span>]<span class="string">:</span><span class="string">.3f</span><span class="string">}</span><span class="string">) - cardiovascular connection</span><span class="string">"</span>)</code></pre>
                                 </div>
                             </div>
@@ -1450,19 +1450,19 @@ target_correlations = correlation_matrix[<span class="string">'</span><span clas
                                 <pre>Feature Correlations with Disease Progression:
 ==================================================
 BMI (Body Mass Index        ):  0.586
- S5 (Lamotrigine levels     ):  0.566
+ S5 (Triglycerides (log)    ):  0.566
  BP (Blood Pressure         ):  0.441  
- S6 (Blood glucose levels   ):  0.382
+ S6 (Blood glucose          ):  0.382
  S1 (Total cholesterol      ):  0.374
- S3 (High-density lipoproteins): -0.395
- S4 (Thyroid stimulating hormone): 0.430
- S2 (Low-density lipoproteins):  0.374
+ S3 (HDL cholesterol        ): -0.395
+ S4 (TC/HDL ratio           ): 0.430
+ S2 (LDL cholesterol        ):  0.374
 AGE (Age (standardized)     ):  0.187
 SEX (Gender (binary)        ):  0.043
 
-Strongest Clinical Predictors:
-• BMI shows strongest correlation (0.586) - obesity link confirmed
-• S5 (lamotrigine) second strongest (0.566) - drug efficacy marker  
+Strongest Biomarker Predictors:
+• BMI shows strongest correlation (0.586) - obesity link
+• S5 (triglycerides) second strongest (0.566) - lipid metabolism marker  
 • Blood pressure third (0.441) - cardiovascular connection</pre>
                             </div>
                         </div>
@@ -1670,8 +1670,8 @@ clinical_meanings = {
     <span class="string">'</span><span class="string">s1</span><span class="string">'</span>: <span class="string">'</span><span class="string">Total Cholesterol</span><span class="string">'</span>,
     <span class="string">'</span><span class="string">s2</span><span class="string">'</span>: <span class="string">'</span><span class="string">LDL Cholesterol</span><span class="string">'</span>, 
     <span class="string">'</span><span class="string">s3</span><span class="string">'</span>: <span class="string">'</span><span class="string">HDL Cholesterol</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">Thyroid Hormone</span><span class="string">'</span>,
-    <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Lamotrigine Level</span><span class="string">'</span>,
+    <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">TC/HDL Ratio</span><span class="string">'</span>,
+    <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Triglycerides (log)</span><span class="string">'</span>,
     <span class="string">'</span><span class="string">s6</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood Glucose</span><span class="string">'</span>
 }
 
@@ -1704,22 +1704,22 @@ top_2_features = importance_df.head(<span class="number">2</span>)
                             <div class="jp-OutputArea-output">
                                 <pre>Comprehensive Feature Importance Analysis:
 ================================================================================
-Feature      Clinical Meaning          RF Imp   Perm Imp   Perm Std
+Feature      Biomarker Meaning         RF Imp   Perm Imp   Perm Std
 --------------------------------------------------------------------------------
-S5           Lamotrigine Level         0.462    0.387      0.071   
+S5           Triglycerides (log)       0.462    0.387      0.071   
 BMI          Body Mass Index           0.325    0.215      0.041   
 S6           Blood Glucose             0.086    0.067      0.038   
 BP           Blood Pressure            0.048    0.041      0.029   
 S1           Total Cholesterol         0.033    0.028      0.024   
 AGE          Patient Age               0.018    0.015      0.018   
-S4           Thyroid Hormone           0.012    0.009      0.016   
+S4           TC/HDL Ratio              0.012    0.009      0.016   
 S2           LDL Cholesterol           0.008    0.007      0.014   
 S3           HDL Cholesterol           0.006    0.004      0.013   
 SEX          Gender                    0.002    0.001      0.008   
 
-Clinical Insights:
+Biomarker Insights:
 • Top 2 features (S5, BMI) explain 78.7% of prediction decisions
-• S5 (Lamotrigine Level) is the strongest predictor (46.2%)
+• S5 (Triglycerides (log)) is the strongest predictor (46.2%)
 • BMI (Body Mass Index) is second most important (32.5%)</pre>
                             </div>
                         </div>
@@ -2320,18 +2320,18 @@ base_risk = <span class="number">152.1</span>
     contribution = feature_value * importance * <span class="number">50</span>  <span class="comment"># Scaled for demonstration</span>
     impact_direction = <span class="string">"</span><span class="string">INCREASES</span><span class="string">"</span> <span class="keyword">if</span> contribution > <span class="number">0</span> <span class="keyword">else</span> <span class="string">"</span><span class="string">DECREASES</span><span class="string">"</span>
     
-    clinical_meanings = {
+    biomarker_meanings = {
         <span class="string">'</span><span class="string">age</span><span class="string">'</span>: <span class="string">'</span><span class="string">Patient Age</span><span class="string">'</span>, <span class="string">'</span><span class="string">sex</span><span class="string">'</span>: <span class="string">'</span><span class="string">Gender</span><span class="string">'</span>, <span class="string">'</span><span class="string">bmi</span><span class="string">'</span>: <span class="string">'</span><span class="string">Body Mass Index</span><span class="string">'</span>,
         <span class="string">'</span><span class="string">bp</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood Pressure</span><span class="string">'</span>, <span class="string">'</span><span class="string">s1</span><span class="string">'</span>: <span class="string">'</span><span class="string">Total Cholesterol</span><span class="string">'</span>, <span class="string">'</span><span class="string">s2</span><span class="string">'</span>: <span class="string">'</span><span class="string">LDL Cholesterol</span><span class="string">'</span>,
-        <span class="string">'</span><span class="string">s3</span><span class="string">'</span>: <span class="string">'</span><span class="string">HDL Cholesterol</span><span class="string">'</span>, <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">Thyroid Hormone</span><span class="string">'</span>, <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Lamotrigine Level</span><span class="string">'</span>,
+        <span class="string">'</span><span class="string">s3</span><span class="string">'</span>: <span class="string">'</span><span class="string">HDL Cholesterol</span><span class="string">'</span>, <span class="string">'</span><span class="string">s4</span><span class="string">'</span>: <span class="string">'</span><span class="string">TC/HDL Ratio</span><span class="string">'</span>, <span class="string">'</span><span class="string">s5</span><span class="string">'</span>: <span class="string">'</span><span class="string">Triglycerides (log)</span><span class="string">'</span>,
         <span class="string">'</span><span class="string">s6</span><span class="string">'</span>: <span class="string">'</span><span class="string">Blood Glucose</span><span class="string">'</span>
     }
     
     <span class="keyword">if</span> <span class="function">abs</span>(contribution) > <span class="number">5</span>:  <span class="comment"># Only show significant contributors</span>
-        <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>feature.upper()<span class="string">}</span><span class="string"> (</span><span class="string">{</span>clinical_meanings[feature]<span class="string">:</span><span class="string"><20s</span><span class="string">}</span><span class="string">): </span><span class="string">{</span>impact_direction<span class="string">:</span><span class="string"><9s</span><span class="string">}</span><span class="string"> risk by </span><span class="string">{</span><span class="function">abs</span>(contribution)<span class="string">:</span><span class="string">>5.1f</span><span class="string">}</span><span class="string"> units</span><span class="string">"</span>)
+        <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  </span><span class="string">{</span>feature.upper()<span class="string">}</span><span class="string"> (</span><span class="string">{</span>biomarker_meanings[feature]<span class="string">:</span><span class="string"><20s</span><span class="string">}</span><span class="string">): </span><span class="string">{</span>impact_direction<span class="string">:</span><span class="string"><9s</span><span class="string">}</span><span class="string"> risk by </span><span class="string">{</span><span class="function">abs</span>(contribution)<span class="string">:</span><span class="string">>5.1f</span><span class="string">}</span><span class="string"> units</span><span class="string">"</span>)
 
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Clinical Interpretation:</span><span class="string">"</span>)
-<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  • Elevated BMI and S5 levels are primary drivers of high risk</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">\n</span><span class="string">Biomarker Interpretation:</span><span class="string">"</span>)
+<span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  • Elevated BMI and S5 (triglycerides) are primary drivers of high risk</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  • Blood pressure and glucose also contribute significantly</span><span class="string">"</span>) 
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  • Age and gender have minimal impact in this case</span><span class="string">"</span>)
 <span class="function">print</span>(<span class="string">f</span><span class="string">"</span><span class="string">  • Model provides transparent, clinically interpretable predictions</span><span class="string">"</span>)
@@ -2362,12 +2362,12 @@ Patient Risk Analysis:
   Risk Increase: +146.6 units
 
 Feature Impact on Individual Risk:
-  S5  (Lamotrigine Level      ): INCREASES risk by  52.6 units
+  S5  (Triglycerides (log)    ): INCREASES risk by  52.6 units
   BMI (Body Mass Index        ): INCREASES risk by  34.8 units
   S6  (Blood Glucose          ): INCREASES risk by   7.1 units
   BP  (Blood Pressure         ): INCREASES risk by   3.1 units
 
-Clinical Interpretation:
+Biomarker Interpretation:
   • Elevated BMI and S5 levels are primary drivers of high risk
   • Blood pressure and glucose also contribute significantly
   • Age and gender have minimal impact in this case  
