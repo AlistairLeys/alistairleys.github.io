@@ -478,6 +478,178 @@
         .jp-Editor .string { color: #ce9178; }
         .jp-Editor .number { color: #b5cea8; }
         .jp-Editor .function { color: #dcdcaa; }
+
+        /* Responsive Design - Mobile Optimization */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            header {
+                padding: 0.75rem 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .nav {
+                flex-direction: row;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            /* Notebook container mobile adjustments */
+            .notebook-container {
+                padding-top: 120px; /* More space for taller mobile header */
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .notebook-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .notebook-title {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .notebook-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Jupyter cells mobile optimization */
+            .jp-Cell {
+                border-radius: 8px;
+                margin-bottom: 1.5rem;
+            }
+
+            .jp-MarkdownCell {
+                padding: 1rem 1.25rem;
+            }
+
+            .jp-MarkdownCell h2 {
+                font-size: 1.5rem;
+            }
+
+            .jp-MarkdownCell h3 {
+                font-size: 1.25rem;
+            }
+
+            /* Code cells - stack vertically on mobile */
+            .jp-InputArea {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            .jp-InputPrompt {
+                min-width: auto;
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1rem;
+                border-right: none;
+                border-bottom: 1px solid #3c3c3c;
+            }
+
+            .jp-CodeMirrorEditor {
+                margin-right: 0;
+                border-radius: 0;
+            }
+
+            .jp-Editor {
+                padding: 1rem;
+            }
+
+            .jp-Editor pre {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                overflow-x: auto;
+            }
+
+            /* Output area mobile optimization */
+            .jp-OutputArea {
+                flex-direction: column;
+                margin-top: 0;
+            }
+
+            .jp-OutputPrompt {
+                min-width: auto;
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1rem;
+                border-right: none;
+                border-bottom: 1px solid #3c3c3c;
+            }
+
+            .jp-OutputArea-output {
+                margin-right: 0;
+                border-radius: 0;
+                padding: 1rem;
+            }
+
+            .jp-OutputArea-output pre {
+                font-size: 0.85rem;
+                overflow-x: auto;
+            }
+
+            /* Metrics grid - single column on mobile */
+            .key-metrics {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .metric-card {
+                padding: 1.25rem;
+            }
+
+            .metric-value {
+                font-size: 2rem;
+            }
+
+            .metric-label {
+                font-size: 0.85rem;
+            }
+
+            /* Images - full width on mobile */
+            .jp-MarkdownCell img,
+            .jp-OutputArea-output img {
+                max-width: 100%;
+                margin: 1rem 0;
+                border-radius: 6px;
+            }
+
+            /* Lists - reduce padding on mobile */
+            .jp-MarkdownCell li {
+                padding-left: 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Tablet optimization */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .notebook-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .jp-MarkdownCell {
+                padding: 1.5rem 2rem;
+            }
+
+            .notebook-title {
+                font-size: 2.25rem;
+            }
+        }
     </style>
 </head>
 <body>
