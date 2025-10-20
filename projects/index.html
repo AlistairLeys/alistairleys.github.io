@@ -504,40 +504,50 @@
         
         /* Responsive Design - Comprehensive Mobile optimisation */
         @media (max-width: 768px) {
-            /* Header - Fix logo cutoff and layout */
+            /* Smart header layout - compact and intelligent */
             header {
-                padding: 0.75rem 1rem;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             }
-            
-            header .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-            
-            header .logo {
-                font-size: 1.25rem;
-                white-space: normal;
-                word-wrap: break-word;
-                overflow: visible;
-                text-overflow: clip;
-            }
-            
-            .nav {
+
+            .header-content {
+                padding: 1rem 1.25rem;
                 flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
                 gap: 0.75rem;
-                width: 100%;
             }
-            
+
+            .logo {
+                font-size: 1.15rem;
+                padding: 0.5rem 0;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            /* Smart navigation - horizontal, compact, intelligent spacing */
+            .nav {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+                flex-shrink: 0;
+            }
+
             .nav a {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
+                min-height: 40px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+                border-radius: 8px;
             }
             
             /* Main container - Add padding for header */
             .main-container {
                 padding: 1rem;
-                padding-top: 120px;
+                padding-top: 90px;
             }
             
             .container {
